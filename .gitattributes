@@ -1,3 +1,6 @@
 * -text
-*.lang encoding=utf-16
+*.lang encoding=utf-16 diff=ini
 *.pas  encoding=cp1251 diff=pascal
+*.cmd  encoding=cp866 diff=shell
+*.dpr  encoding=cp1251 diff=pascal
+*.dof  encoding=cp1251 diff=pascal
