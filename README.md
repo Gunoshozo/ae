@@ -16,6 +16,8 @@ Win32 binaries: http://wks.arai-kibou.ru/ae.php?p=dl
 
 Online manual: http://wks.arai-kibou.ru/ae.php?p=docu
 
+Donation info: http://wks.arai-kibou.ru/donate.php
+
 ## How to compile:
 
 1) Install the following visual design components:
@@ -28,4 +30,3 @@ Online manual: http://wks.arai-kibou.ru/ae.php?p=docu
 * You'll also need the latest version of JVCL/JCL (Project JEDI).
 
 2) Next, open /src/AnimEd.dpr.
-
