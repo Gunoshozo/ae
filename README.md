@@ -18,15 +18,21 @@ Online manual: http://wks.arai-kibou.ru/ae.php?p=docu
 
 Donation info: http://wks.arai-kibou.ru/donate.php
 
+
+## Depencence
+
+- `JCL/JVCL - TJVArrowButton` Project JEDI (will be deleted entirely in 0.7.0)
+- `JISKit` unicode/shift-jis components developed by Proger_XP
+- `TCredits` by Saturn Laboratories
+- `PercentCube` displays WinRAR-alike 3D-ish percentage bar. Written by dsp2003 with fixes from Proger_XP
+
 ## How to compile:
 
 1) Install the following visual design components:
 
-* src/lib/_jiskit/Unicode components/jiskit_tlabelw.dpk
-* src/lib/_jiskit/Unicode dialogs/jiskit_udialogs.dpk
-* src/lib/credits/credits.pas
-* src/lib/PercentCube.pas
-
-* You'll also need the latest version of JVCL/JCL (Project JEDI).
+    src/lib/_jiskit/Unicode components/jiskit_tlabelw.dpk
+    src/lib/_jiskit/Unicode dialogs/jiskit_udialogs.dpk
+    src/lib/credits/credits.pas
+    src/lib/PercentCube.pas
 
 2) Next, open /src/AnimEd.dpr.
