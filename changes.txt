@@ -1,5 +1,7 @@
-  0.6.9.419 (2014.01.21) r80
+  0.6.9.419 (2014.05.28) r80
   ======================
+
+   * Fixed bug in Data Tool with file handle being locked after Zlib decompression error (thanks to Andy_Skull for bug report)
 
    + Added language autodetection and fallback-to-default mechanism for interface translations (suggested by Proger_XP)
 

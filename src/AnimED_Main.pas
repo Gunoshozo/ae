@@ -1256,7 +1256,11 @@ begin
   oStream := TFileStreamJ.Create(FileName+'~',fmCreate);
 
   case Mode of
-   bcZlib : ZDecompressStream(iStream,oStream);
+   bcZlib : try
+             ZDecompressStream(iStream,oStream);
+            except
+             LogE('ZLib error.'); //to-do: translate me
+            end;
    bcKey  : begin
              BlockConvIO(iStream,oStream,kStream,Value,Mode);
              FreeAndNil(kStream);
