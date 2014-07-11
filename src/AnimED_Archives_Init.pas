@@ -59,7 +59,7 @@ uses AA_RFA, // main module
      AA_HXP_HIMAURI,
      AA_IFL_Arpeggio,          // 2010/12/10
      AA_IKURA_GDL,
-//   AA_IMG_Futurama,          // 2011/10/22    to-do: write full implementation
+//     AA_IMG_Futurama,          // 2011/10/22    to-do: write full implementation
      AA_INI_UnrealEngine3,     // 2010/07/25
      AA_LEAF_AquaPlus,
      AA_LC_ScriptEngine,
@@ -98,6 +98,7 @@ uses AA_RFA, // main module
      AA_SZS_UnicornA,          // 2011/11/12
      AA_TIM2_ARC,              // 2010/06/09
      AA_TPF_Giga,
+//     AA_UGU_VNAP,              // 2013/12/14
      AA_VFS_SystemAoi,         // 2010/08/16
      AA_WAC,
      AA_XFL_Lios,
@@ -125,8 +126,9 @@ begin
  AFAdd(IA_PCK_CROWD3);
  AFAdd(IA_ARC_Ethornell_BGI);
  AFAdd(IA_ARC_Ethornell_BGI2);  // 2013/08/16
- AFAdd(IA_ARC_Will_8);
- AFAdd(IA_ARC_Will_12);         // 2010/12/22
+ AFAdd(IA_ARC_Will_1_8);
+ AFAdd(IA_ARC_Will_1_12);       // 2010/12/22
+ AFAdd(IA_ARC_Will_2);          // 2014/07/06
  AFAdd(IA_SAR);
  AFAdd(IA_NSA);
  AFAdd(IA_NS2);                 // 2012/03/01
@@ -177,7 +179,8 @@ begin
  AFAdd(IA_G_RUNE);
  AFAdd(IA_Gainax_GCEX);
  AFAdd(IA_PAK_ScriptPlayer);
- AFAdd(IA_ARC_Alcot);
+ AFAdd(IA_ARC_Alcot_48);
+ AFAdd(IA_ARC_Alcot_32);       // 2014/07/03
  AFAdd(IA_AOS_Lilim);
  AFAdd(IA_XFL_Lios);
  AFAdd(IA_SZDD);
@@ -242,6 +245,7 @@ begin
 
  { Read-only }
 
+// AFAdd(IA_UGU_VNAP);           // 2013/12/14 - removed because of complexity of implementation
  AFAdd(IA_GXP_AVGEv2);         // 2012/12/02
 
  AFAdd(IA_VPK_Ever17);         // 2012/01/19

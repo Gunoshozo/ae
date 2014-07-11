@@ -21,21 +21,25 @@ uses AA_RFA,
      AE_StringUtils,
      AnimED_Translation,
      SysUtils, Classes, Windows, Forms,
-     JUtils, FileStreamJ, StringsW;
+     JUtils, JReconvertor, FileStreamJ, StringsW;
 
  { Supported archives implementation }
- procedure IA_ARC_Will_8(var ArcFormat : TArcFormats; index : integer);
- procedure IA_ARC_Will_12(var ArcFormat : TArcFormats; index : integer);
+ procedure IA_ARC_Will_1_8(var ArcFormat : TArcFormats; index : integer);
+ procedure IA_ARC_Will_1_12(var ArcFormat : TArcFormats; index : integer);
+ procedure IA_ARC_Will_2(var ArcFormat : TArcFormats; index : integer);
 
-  function OA_ARC_Will_8 : boolean;
-  function SA_ARC_Will_8(Mode : integer) : boolean;
-  function OA_ARC_Will_12 : boolean;
-  function SA_ARC_Will_12(Mode : integer) : boolean;
+  function OA_ARC_Will_1_8 : boolean;
+  function SA_ARC_Will_1_8(Mode : integer) : boolean;
+  function OA_ARC_Will_1_12 : boolean;
+  function SA_ARC_Will_1_12(Mode : integer) : boolean;
+  function OA_ARC_Will_2 : boolean;
+  function SA_ARC_Will_2(Mode : integer) : boolean;
 
- procedure ARC_Will_SortFiles(var Input,Ext : TStringsW);
+
+{ procedure ARC_Will_SortFiles(var Input,Ext : TStringsW);}
 
 type
-{ Will Co. Engine ARC format structural description }
+{ Will Co. Engine ARC v1 format structural description }
  TARCHeader = packed record
   ExtRec     : longword;             // Количество расширений имеющихся файлов.
  end;
@@ -56,19 +60,31 @@ type
   Offset     : longword;             // Число типа LONGWORD. Оффсет файла.
  end;
 
+ { Will Co. Engine ARC v2 format structural description }
+ TARC2Hdr = packed record
+  FileCount : longword;               // number of files in archive
+  TableSize : longword;               // filetable size (header is not included)
+ end;
+ TARC2Dir = packed record
+  Filesize  : longword;               // size of file
+  Offset    : longword;               // Relative offset. ReOffset = Hdr+TableSize
+//Filename : widestring;              // filename in unicode format
+ end;
+ TARC2DirFN = array[1..4096] of widechar; // Filename. Zero-terminated. Size varies.
+
 implementation
 
 uses AnimED_Archives;
 
-procedure IA_ARC_Will_8;
+procedure IA_ARC_Will_1_8;
 begin
  with ArcFormat do begin
   ID   := index;
-  IDS  := 'Will Co. ARC-8';
+  IDS  := 'Will Co. ARC v1-8';
   Ext  := '.arc';
   Stat := $0;
-  Open := OA_ARC_Will_8;
-  Save := SA_ARC_Will_8;
+  Open := OA_ARC_Will_1_8;
+  Save := SA_ARC_Will_1_8;
   Extr := EA_RAW;
   FLen := 12;
   SArg := 0;
@@ -76,15 +92,15 @@ begin
  end;
 end;
 
-procedure IA_ARC_Will_12;
+procedure IA_ARC_Will_1_12;
 begin
  with ArcFormat do begin
   ID   := index;
-  IDS  := 'Will Co. ARC-12';
+  IDS  := 'Will Co. ARC v1-12';
   Ext  := '.arc';
   Stat := $0;
-  Open := OA_ARC_Will_12;
-  Save := SA_ARC_Will_12;
+  Open := OA_ARC_Will_1_12;
+  Save := SA_ARC_Will_1_12;
   Extr := EA_RAW;
   FLen := 16;
   SArg := 0;
@@ -92,7 +108,23 @@ begin
  end;
 end;
 
-function OA_ARC_Will_8;
+procedure IA_ARC_Will_2;
+begin
+ with ArcFormat do begin
+  ID   := index;
+  IDS  := 'Will Co. ARC v2';
+  Ext  := '.arc';
+  Stat := $0;
+  Open := OA_ARC_Will_2;
+  Save := SA_ARC_Will_2;
+  Extr := EA_RAW;
+  FLen := $FFF;
+  SArg := 0;
+  Ver  := $20140708;
+ end;
+end;
+
+function OA_ARC_Will_1_8;
 { Will Co. ARC archive opening function }
 var i,k : integer; ExtAppend : string[4];
     Hdr    : TArcHeader;
@@ -154,7 +186,7 @@ begin
 end;
 
 { Will Co. Engine ARC archive creating function }
-function SA_ARC_Will_8;
+function SA_ARC_Will_1_8;
 var i,j : integer;
     ExtList : TStringsW;
     Hdr    : TArcHeader;
@@ -164,7 +196,7 @@ begin
  // список для расширений файлов
  ExtList := TStringsW.Create;
  // логика обработки строк и сортировки перенесена в отдельную функцию
- ARC_Will_SortFiles(AddedFilesW,ExtList);
+ AE_SortStringsWExt(AddedFilesW,ExtList);
 
  with Hdr, ArchiveStream do begin
   ExtRec := ExtList.Count;
@@ -234,7 +266,7 @@ begin
 
 end;
 
-function OA_ARC_Will_12;
+function OA_ARC_Will_1_12;
 { Will Co. ARC archive opening function }
 var i,k : integer; ExtAppend : string[4];
     Hdr    : TArcHeader;
@@ -293,7 +325,7 @@ begin
 end;
 
 { Will Co. Engine ARC archive creating function }
-function SA_ARC_Will_12;
+function SA_ARC_Will_1_12;
 var i,j : integer;
     ExtList : TStringsW;
     Hdr    : TArcHeader;
@@ -303,7 +335,7 @@ begin
  // список для расширений файлов
  ExtList := TStringsW.Create;
  // логика обработки строк и сортировки перенесена в отдельную функцию
- ARC_Will_SortFiles(AddedFilesW,ExtList);
+ AE_SortStringsWExt(AddedFilesW,ExtList);
 
  with Hdr, ArchiveStream do begin
   ExtRec := ExtList.Count;
@@ -373,55 +405,123 @@ begin
 
 end;
 
-procedure ARC_Will_SortFiles;
-var Sorted : array of TStringsW;
-    i,j : longword;
-    ItemFound : boolean;
+function OA_ARC_Will_2;
+var i,j : longword;
+    Hdr : TARC2Hdr;
+    Dir : TARC2Dir;
+    tmpFNWide : widestring;
+    Filename : TARC2DirFN;
 begin
- // переводим все строки в верхний регистр
- AE_UpperCaseStringsW(Input);
-{ with Input do begin
-  for i := 0 to Count-1 do Strings[i] := UpperCase(Strings[i]);
- end;}
+ Result := False;
 
- // заполняем список расширений
- for i := 0 to Input.Count-1 do begin
-  ItemFound := False;
-  if Ext.Count > 0 then begin
-   for j := 0 to Ext.Count-1 do begin
-    if ExtractFileExt(Input.Strings[i]) = Ext.Strings[j] then begin
-     ItemFound := True;
-     break;
+ with ArchiveStream do begin
+  Seek(0,soBeginning);
+  Read(Hdr,SizeOf(Hdr));
+  with Hdr do begin
+
+   if TableSize > ArchiveStream.Size then Exit; // sanity check
+
+   ReOffset := SizeOf(Hdr) + TableSize;
+
+   RecordsCount := FileCount;
+
+   if FileCount = 0 then Exit;      // always do...
+   if FileCount > $FFFFF then Exit; // ...sanity checks
+
+{*}Progress_Max(RecordsCount);
+// Reading file table...
+   for i := 1 to RecordsCount do begin
+ {*}Progress_Pos(i);
+    with Dir,RFA[i] do begin
+     Read(Dir,SizeOf(Dir));
+     RFA_1 := Offset + ReOffset;
+     RFA_2 := FileSize;
+     RFA_C := FileSize;
+
+     if RFA_1 = 0 then Exit;
+     if RFA_1 > Size then Exit;
+     if RFA_2 > Size then Exit;
+
+     FillChar(FileName,SizeOf(FileName),0);  //cleaning the array in order to avoid garbage
+     tmpFNWide := '';                        //same here
+     for j := 1 to length(FileName) do begin
+      Read(FileName[j],2); {Header size is not fixed... damn!}
+      if FileName[j] = #0 then break;
+     end;
+     for j := 1 to length(FileName) do begin
+      if FileName[j] <> #0 then tmpFNWide := tmpFNWide + FileName[j];
+     end;
+
+     RFA_3 := Wide2JIS(tmpFNWide);
+
     end;
    end;
   end;
-  if not ItemFound then Ext.Add(ExtractFileExt(Input.Strings[i]));
- end;
- AE_SortStringsW(Ext);
 
- // устанавливаем количество списков для файлов по расширениям
- SetLength(Sorted,Ext.Count);
- // создаём новые сортированные списки
- for j := 0 to Ext.Count-1 do begin
-  Sorted[j] := TStringsW.Create;
-  for i := 0 to Input.Count-1 do begin
-   if ExtractFileExt(Input.Strings[i]) = Ext.Strings[j] then Sorted[j].Add(Input.Strings[i]);
-  end;
-  // записываем количество файлов в теги
-  Ext.Tags[j] := Sorted[j].Count;
-  AE_SortStringsW(Sorted[j]);
+  Result := True;
+
  end;
- // очищаем входной список файлов
- Input.Clear;
- // добавляем данные из сортированных списков
- for j := 0 to Ext.Count-1 do begin
-  for i := 0 to Sorted[j].Count-1 do begin
-   Input.Add(Sorted[j].Strings[i]);
+end;
+
+function SA_ARC_Will_2;
+var i : longword;
+    Hdr       : TARC2Hdr;
+    Dir       : TARC2Dir;
+    tmpFNWide : widestring;
+begin
+ with ArchiveStream do begin
+  with Hdr do begin
+ //Generating header (4 bytes)...
+   RecordsCount := AddedFiles.Count;
+   ReOffset := SizeOf(Hdr)+SizeOf(Dir)*RecordsCount;
+   FileCount := RecordsCount;
+{ We have to calculate the header by checking the length of every filename, because the header size is not fixed }
+   for i := 1 to RecordsCount do ReOffset := ReOffset+(length(ExtractFileName(AddedFilesW.Strings[i-1]))*2)+2; //+2 means zero word
+
+   TableSize := ReOffSet - SizeOf(Hdr);
+
   end;
-  FreeAndNil(Sorted[j]);
+// Writing header...
+  Write(Hdr,SizeOf(Hdr));
+
+//Creating file table...
+  UpOffset := 0;
+
+  for i := 1 to RecordsCount do begin
+{*}Progress_Pos(i);
+   with Dir do begin
+//   FileDataStream := TFileStream.Create(GetFolder+AddedFiles.Strings[i-1],fmOpenRead);
+    OpenFileStream(FileDataStream,RootDir+AddedFilesW.Strings[i-1],fmOpenRead);
+
+    RFA[i].RFA_1 := UpOffset; // the RecordsCount+1 value will not be used, so it's not important
+    RFA[i].RFA_2 := FileDataStream.Size;
+
+    UpOffset := UpOffset + FileDataStream.Size;
+
+    tmpFNWide := '';
+    tmpFNWide := ExtractFileName(AddedFilesW.Strings[i-1])+#0; // +#0 means pcharz symbol
+
+    Offset := RFA[i].RFA_1;
+    FileSize := RFA[i].RFA_2;
+    FreeAndNil(FileDataStream);
+    Write(Dir,SizeOf(Dir));
+
+    Write(tmpFNWide[1],length(tmpFNWide)*2); // writing filename in unicode
+
+   end;
+  end;
+//Writing files...
+  for i := 1 to RecordsCount do begin
+{*}Progress_Pos(i);
+
+   OpenFileStream(FileDataStream,RootDir+AddedFilesW.Strings[i-1],fmOpenRead);
+
+   CopyFrom(FileDataStream,FileDataStream.Size);
+   FreeAndNil(FileDataStream);
+  end;
  end;
- // высвобождаем память
- SetLength(Sorted,0);
+
+ Result := True;
 
 end;
 

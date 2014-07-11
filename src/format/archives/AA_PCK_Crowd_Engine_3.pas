@@ -61,7 +61,7 @@ end;
 
 function OA_PCK_CROWD3;
 { Crowd 3 Pack archive opening function }
-var i,j : integer;
+var i,j : longword;
     Hdr : TPCKHdr;
     Dir : TPCKDir;
     Filename  : TPCKDirFN;
@@ -116,7 +116,7 @@ begin
 end;
 
 function SA_PCK_CROWD3;
-var i, j : integer;
+var i, j : longword;
     Hdr      : TPCKHdr;
     Dir      : TPCKDir;
     Filename : TPCKDirFN;

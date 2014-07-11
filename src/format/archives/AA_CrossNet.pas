@@ -120,7 +120,7 @@ begin
   Read(Hdr,SizeOf(Hdr));
   with Hdr do begin
    if Magic <> 'PACK' then Exit;
-   if Hdr.Unknown[2] + Hdr.Unknown[3] + Hdr.Unknown[4] + Hdr.Unknown[5] + Hdr.Unknown[6] <> 0 then Exit; // those fields are usually empty
+   if Unknown[2] + Unknown[3] + Unknown[4] + Unknown[5] + Unknown[6] <> 0 then Exit; // those fields are usually empty
    RecordsCount := FileCount;
   end;
 

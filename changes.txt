@@ -1,5 +1,13 @@
-  0.6.9.419 (2014.05.28) r80
+  0.6.9.419 (2014.07.11) r80
   ======================
+
+   * Minor changes to CROWD PaCK archive parser and some code cleanup
+
+   + Added full Will Co v2 (Unicode) archive format support (thanks to MeruP for samples and specs)
+
+   + Added read-only Alcot 32 subformat support (thanks to MeruP for sample data)
+
+   ! Heavely refactored Alcot 48 archive parsing function
 
    * Fixed bug in Data Tool with file handle being locked after Zlib decompression error (thanks to Andy_Skull for bug report)
 

@@ -17,6 +17,7 @@ uses SysUtils, Math, StringsW, JUtils;
 procedure AE_SortStringsW(var InSort : TStringsW);
 procedure AE_UpperCaseStringsW(var Input : TStringsW);
 procedure AE_LowerCaseStringsW(var Input : TStringsW);
+procedure AE_SortStringsWExt(var Input, Ext : TStringsW; MakeUpCase : boolean = true);
 
 implementation
 
@@ -61,6 +62,60 @@ begin
  with Input do begin
   for i := 0 to Count-1 do Strings[i] := LowerCase(Strings[i]);
  end;
+end;
+
+// moved from AA_ARC_Will.pas
+// previously ARC_Will_SortFiles
+procedure AE_SortStringsWExt;
+var Sorted : array of TStringsW;
+    i,j : longword;
+    ItemFound : boolean;
+begin
+ // переводим все строки в верхний регистр
+ if MakeUpCase then AE_UpperCaseStringsW(Input);
+{ with Input do begin
+  for i := 0 to Count-1 do Strings[i] := UpperCase(Strings[i]);
+ end;}
+
+ // заполняем список расширений
+ for i := 0 to Input.Count-1 do begin
+  ItemFound := False;
+  if Ext.Count > 0 then begin
+   for j := 0 to Ext.Count-1 do begin
+    if ExtractFileExt(Input.Strings[i]) = Ext.Strings[j] then begin
+     ItemFound := True;
+     break;
+    end;
+   end;
+  end;
+  if not ItemFound then Ext.Add(ExtractFileExt(Input.Strings[i]));
+ end;
+ AE_SortStringsW(Ext);
+
+ // устанавливаем количество списков для файлов по расширениям
+ SetLength(Sorted,Ext.Count);
+ // создаём новые сортированные списки
+ for j := 0 to Ext.Count-1 do begin
+  Sorted[j] := TStringsW.Create;
+  for i := 0 to Input.Count-1 do begin
+   if ExtractFileExt(Input.Strings[i]) = Ext.Strings[j] then Sorted[j].Add(Input.Strings[i]);
+  end;
+  // записываем количество файлов в теги
+  Ext.Tags[j] := Sorted[j].Count;
+  AE_SortStringsW(Sorted[j]);
+ end;
+ // очищаем входной список файлов
+ Input.Clear;
+ // добавляем данные из сортированных списков
+ for j := 0 to Ext.Count-1 do begin
+  for i := 0 to Sorted[j].Count-1 do begin
+   Input.Add(Sorted[j].Strings[i]);
+  end;
+  FreeAndNil(Sorted[j]);
+ end;
+ // высвобождаем память
+ SetLength(Sorted,0);
+
 end;
 
 end.
