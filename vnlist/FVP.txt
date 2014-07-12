@@ -1,6 +1,7 @@
 \ Hoshizora no Memoria -Wish upon a shooting star-
+\ Hoshizora no Memoria -Eternal Heart-
 
-: Unknown / Crossnet  :
+: FVP (Favorite View Point system) :
 
 - archives
 bin -- full -- *
