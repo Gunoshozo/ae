@@ -131,7 +131,6 @@ type
     TS_ArchiveInterface: TTabSheet;
     TS_ArchiveSetup: TTabSheet;
     GB_ArchiveSetup: TGroupBox;
-    GB_ArchiveAndFileWriting: TGroupBox;
     GB_ArchiveInfo: TGroupBox;
     L_FileNameTitle: TLabelW;
     L_ArchiveFormatTitle: TLabelW;
@@ -146,10 +145,6 @@ type
     SB_ExtractAll: TSpeedButton;
     SB_ExtractFile: TSpeedButton;
     SB_OpenArchive: TSpeedButton;
-    GB_ArchiveAddingMethod: TGroupBox;
-    RB_Arc_Files: TRadioButton;
-    RB_Arc_Directory: TRadioButton;
-    GB_ArchiveLoading: TGroupBox;
     GB_AudioTool: TGroupBox;
     SB_Audio_Open: TSpeedButton;
     SB_Audio_Encode: TSpeedButton;
@@ -192,7 +187,6 @@ type
     GB_SC3: TGroupBox;
     RB_SC3_Strip: TRadioButton;
     RB_SC3_Keep: TRadioButton;
-    CB_ArchiveListHumanReadable: TCheckBox;
     L_Warn_E17: TLabelW;
     ColorDialog: TColorDialog;
     N5: TMenuItem;
@@ -206,13 +200,10 @@ type
     N9: TMenuItem;
     M_Arc_SubDirectory: TMenuItem;
     M_Arc_SubList: TMenuItem;
-    RB_Arc_List: TRadioButton;
     FontDialog: TFontDialog;
     M_Arc_Special: TMenuItem;
     N7: TMenuItem;
     M_Arc_FragmentationCheck: TMenuItem;
-    CB_AllowArchiveOverwrite: TCheckBox;
-    CB_RecursiveDirMode: TCheckBox;
     CB_ArchiveFormatList: TComboBox;
     CB_ImageFormat: TComboBox;
     PM_GrayScale: TPopupMenu;
@@ -408,14 +399,33 @@ type
     E_EDGE_RenderWidth: TEdit;
     E_EDGE_RenderHeight: TEdit;
     CB_PRT_Editor_Enable: TCheckBox;
+    PC_ArchiveToolSetup: TPageControl;
+    TS_Arc_Saving: TTabSheet;
+    TS_Arc_Interface: TTabSheet;
+    TS_Arc_Loading: TTabSheet;
+    CB_ArchiveListHumanReadable: TCheckBox;
+    GB_ArchiveHiddenScan: TGroupBox;
+    CB_HiddenDataAutoscanAsk: TCheckBox;
+    CB_HiddenDataAutoscan: TCheckBox;
+    TS_Arc_FileExtraction: TTabSheet;
     GB_ArcFileOverwritingMode: TGroupBox;
     RB_ArcFileExtrOverwrite: TRadioButton;
     RB_ArcFileExtrRename: TRadioButton;
     RB_ArcFileExtrSkip: TRadioButton;
     RB_ArcFileExtrAbort: TRadioButton;
-    GB_ArchiveHiddenScan: TGroupBox;
-    CB_HiddenDataAutoscanAsk: TCheckBox;
-    CB_HiddenDataAutoscan: TCheckBox;
+    GB_ArchiveAddingMethod: TGroupBox;
+    RB_Arc_Files: TRadioButton;
+    RB_Arc_Directory: TRadioButton;
+    RB_Arc_List: TRadioButton;
+    CB_AllowArchiveOverwrite: TCheckBox;
+    CB_RecursiveDirMode: TCheckBox;
+    CB_NameArchiveAfterDir: TCheckBox;
+    GB_HexViewer: TGroupBox;
+    GB_MassExtraction: TGroupBox;
+    CB_CreateArchiveSubdirectory: TCheckBox;
+    CB_AutoFilelistGenerate: TCheckBox;
+    SB_Data_Open: TSpeedButton;
+    SB_Data_Close: TSpeedButton;
 
     procedure FormCreate(Sender: TObject);
     procedure SB_ExtractFileClick(Sender: TObject);
@@ -882,6 +892,15 @@ begin
    if DirectoryExists(RootDir) then begin
  // Important: don't forget about '\'
     RootDir := RootDir+'\';
+
+ // Checking if subdirectory creation enabled
+    if CB_CreateArchiveSubdirectory.Checked then begin
+  // Appending archive filename with prefix "~". Don't forget about '\'
+     RootDir := RootDir + ExtractFileName(ArchiveFileName) + '~' + '\';
+  // Creating required directory
+     ForceDirectories(RootDir);
+    end;
+
     Extract_MultipleFiles([],RFA_ID,ArcGetFileOverwriteMode);
    end else LogE(AMS[EInvalidDirectory]);
   end else LogI(AMS[iCancelledByUser]);
@@ -1892,7 +1911,7 @@ var ListGen : TStringsW;
     i,j : integer; OldName, FilteredName, FileName : widestring;
 begin
 if ArchiveStream <> nil then begin
- FileName := '!'+JIS2Wide(ChangeFileExt(ExtractFileName(ArchiveFileName),'.txt'));
+ FileName := '!'+ChangeFileExt(ExtractFileName(ArchiveFileName),'.txt');
  if SDialog_File(FileName) then begin
   ListGen := TStringsW.Create;
   with ListGen do try

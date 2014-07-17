@@ -375,7 +375,16 @@ end;
 procedure Skin_DrawMainLogo;
 var DrawX, DrawY, DrawW, DrawH, i,j,k,l : integer;
     tmpBMP : TBitmap; // double buffer
+    GradientColours : array[1..4] of longword;
+//const GradientColours : array[1..4] of longword = ($A7E7F5,$7CD8F2,$45C4E9,$8CCFE8);
 begin
+ randomize;
+
+ GradientColours[1] := $E7F5A7 xor random($1a1a1a);
+ GradientColours[2] := $D8F27C xor random($aeaeae);
+ GradientColours[3] := $C4E945 xor random($ffffff);
+ GradientColours[4] := $CFE88C xor random($aeaeae);
+
  with MainForm, Skin do begin
 
   tmpBMP := TBitmap.Create;
@@ -404,14 +413,17 @@ begin
 
    //GradientFillrectH(tmpBmp.Canvas,InttoARGB($7fffff),InttoARGB($ff7f),0,0,DrawW,DrawH);
 
-   GradientFill(Canvas,InttoARGB($A7E7F5),InttoARGB($7CD8F2),0,0,DrawW,(DrawH div 2)+1);
+   GradientFill(Canvas,InttoARGB(GradientColours[1]),InttoARGB(GradientColours[2]),0,0,DrawW,(DrawH div 2)+1);
 
    randomize;
 
-   Canvas.Pen.Color := $45C4E9;
-   Canvas.Brush.Color := $A7E7F5;
+   Canvas.Pen.Color := (GradientColours[3] or GradientColours[2]) xor random($adbeef);
+   Canvas.Brush.Color := (GradientColours[1] and GradientColours[4]) xor random($adf00d);
 
    for l := 1 to Random(Random(50)) do begin
+
+    Canvas.Pen.Color := (GradientColours[3] or GradientColours[2]) xor random($adbeef);
+    Canvas.Brush.Color := (GradientColours[1] and GradientColours[4]) xor random($adf00d);
 
     i := Random(DrawW);
     j := Random(DrawH div 2);
@@ -429,7 +441,7 @@ begin
 
    Canvas.Pen.Width := 0;
 
-   GradientFill(Canvas,InttoARGB($45C4E9),InttoARGB($8CCFE8),0,(DrawH div 2),DrawW,(DrawH div 2)+1);
+   GradientFill(Canvas,InttoARGB(GradientColours[3]),InttoARGB(GradientColours[4]),0,(DrawH div 2),DrawW,(DrawH div 2)+1);
 
    // Drawing mascot sprite :3
    Canvas.Draw((DrawW div 2)-(DrawW div 8),36,MASCOT);

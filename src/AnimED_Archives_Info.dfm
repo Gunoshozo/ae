@@ -1,6 +1,6 @@
 object FileInfo_Form: TFileInfo_Form
-  Left = 1200
-  Top = 188
+  Left = 865
+  Top = 116
   Width = 369
   Height = 505
   BorderIcons = [biSystemMenu, biMaximize]
@@ -11,7 +11,7 @@ object FileInfo_Form: TFileInfo_Form
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
-  Font.Name = 'Helv'
+  Font.Name = 'Tahoma'
   Font.Pitch = fpFixed
   Font.Style = []
   OldCreateOrder = False
@@ -281,7 +281,7 @@ object FileInfo_Form: TFileInfo_Form
           object CB_Arc_ReadOnly: TCheckBox
             Left = 80
             Top = 76
-            Width = 78
+            Width = 81
             Height = 25
             Caption = 'Read only'
             Enabled = False
@@ -291,7 +291,7 @@ object FileInfo_Form: TFileInfo_Form
           object CB_Arc_Archive: TCheckBox
             Left = 80
             Top = 100
-            Width = 78
+            Width = 81
             Height = 25
             Caption = 'Archive'
             Enabled = False
@@ -301,7 +301,7 @@ object FileInfo_Form: TFileInfo_Form
           object CB_Arc_Hidden: TCheckBox
             Left = 80
             Top = 124
-            Width = 78
+            Width = 81
             Height = 25
             Caption = 'Hidden'
             Enabled = False
@@ -311,7 +311,7 @@ object FileInfo_Form: TFileInfo_Form
           object CB_Arc_Compressed: TCheckBox
             Left = 160
             Top = 76
-            Width = 78
+            Width = 81
             Height = 25
             Caption = 'Compressed'
             Enabled = False
@@ -321,7 +321,7 @@ object FileInfo_Form: TFileInfo_Form
           object CB_Arc_Encrypted: TCheckBox
             Left = 160
             Top = 124
-            Width = 78
+            Width = 81
             Height = 25
             Caption = 'Encrypted'
             Enabled = False

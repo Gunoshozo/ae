@@ -59,7 +59,7 @@ const APP_NAME = 'AE';
       APP_SUBNAME = 'VN Tools';
       APP_CODENAME = 'Nepeta';
 //    APP_EDITION = 'Green Sun';
-      APP_COPYRIGHT = '© 2007-2013 WinKiller Studio and The Contributors.';
+      APP_COPYRIGHT = '© 2007-2014 WKStudio and The Contributors.';
 
 implementation
 

@@ -1,3 +1,21 @@
+  0.6.10.420 (2014.07.17) r81
+  =======================
+
+   ! In attempt to fix improperly displayed interface under non-western locale, internal Helv substitute font and Lucida Console replaced with Tahoma
+
+   * Updated English and Russian language files according to interface changes
+
+   + Added three new 12x12 icons for archive tool and image tool. They are now assigned to newly made categories and "View as..." menu subitems
+
+   + Rearranged and categorized archive tool setup
+
+   + Added (and enabled by default) option to name newly created archive after parent directory of source files
+
+   + Added (and enabled by default) option to create subdirectory with archive filename for mass extraction
+
+   ! Fixed bug in file list exporting which generated broken strings when non-ASCII characters were used in filenames
+
+
   0.6.9.419 (2014.07.11) r80
   ======================
 

@@ -303,7 +303,12 @@ begin
 
   { Moved here from bunch of other modules }
   try Progress_Max(AddedFilesW.Count,pColWrite); except end;
-  
+
+  { Suggesting filename by using the parent directory name.
+    Since ExtractFileName checks for '\', we're removing it
+    and now it gives us the name of our parent directory. }
+  if CB_NameArchiveAfterDir.Checked then Filename := ExtractFileName(ExcludeTrailingBackslash(RootDir));
+
   if SDialog_File(FileName) then begin
    if (((FileName <> '') and (FileExists(FileName) = False)) or CB_AllowArchiveOverwrite.Checked) then begin
     if CB_AllowArchiveOverwrite.Checked then LogI('Archive overwriting mode is active.');

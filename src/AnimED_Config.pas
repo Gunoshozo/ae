@@ -50,6 +50,11 @@ begin
     RB_ArcFileExtrSkip.Checked          := ReadBool(conf,'FileExtrSkip',False);
     RB_ArcFileExtrAbort.Checked         := ReadBool(conf,'FileExtrAbort',False);
 
+    CB_CreateArchiveSubdirectory.Checked:= ReadBool(conf,'CreateArchiveSubdirectory',True);
+    CB_AutoFilelistGenerate.Checked     := ReadBool(conf,'AutoFilelistGenerate',False);
+
+    CB_NameArchiveAfterDir.Checked      := ReadBool(conf,'NameArchiveAfterDir',True);
+
     try    CB_ArchiveFormatList.ItemIndex := ReadInteger(conf,'LastArchiveFormat',0);
     except CB_ArchiveFormatList.ItemIndex := 0; end;
 
@@ -189,6 +194,11 @@ begin
     WriteBool(conf,'FileExtrRename',RB_ArcFileExtrRename.Checked);
     WriteBool(conf,'FileExtrSkip',RB_ArcFileExtrSkip.Checked);
     WriteBool(conf,'FileExtrAbort',RB_ArcFileExtrAbort.Checked);
+
+    WriteBool(conf,'CreateArchiveSubdirectory',CB_CreateArchiveSubdirectory.Checked);
+    WriteBool(conf,'AutoFilelistGenerate',CB_AutoFilelistGenerate.Checked);
+
+    WriteBool(conf,'NameArchiveAfterDir',CB_NameArchiveAfterDir.Checked);
 
     WriteInteger(conf,'LastArchiveFormat',CB_ArchiveFormatList.ItemIndex);
 

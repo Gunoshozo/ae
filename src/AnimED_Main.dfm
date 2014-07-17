@@ -1,6 +1,6 @@
 object MainForm: TMainForm
-  Left = 404
-  Top = 243
+  Left = 190
+  Top = 116
   Width = 675
   Height = 623
   AlphaBlend = True
@@ -8,10 +8,10 @@ object MainForm: TMainForm
   Color = clBtnFace
   Constraints.MinHeight = 623
   Constraints.MinWidth = 675
-  Font.Charset = RUSSIAN_CHARSET
+  Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
-  Font.Name = 'Helv'
+  Font.Name = 'Tahoma'
   Font.Pitch = fpFixed
   Font.Style = []
   OldCreateOrder = False
@@ -34,7 +34,7 @@ object MainForm: TMainForm
     Top = 8
     Width = 649
     Height = 513
-    ActivePage = TS_Options
+    ActivePage = TS_Archiver
     Anchors = [akLeft, akTop, akRight, akBottom]
     MultiLine = True
     Style = tsButtons
@@ -52,16 +52,18 @@ object MainForm: TMainForm
         Height = 389
         ActivePage = TS_ArchiveInterface
         Anchors = [akLeft, akTop, akRight, akBottom]
+        Images = ImageList_Archiver
         Style = tsButtons
         TabOrder = 0
         object TS_ArchiveInterface: TTabSheet
           Caption = 'Info && Preview'
+          ImageIndex = 19
           DesignSize = (
             633
-            358)
+            357)
           object GB_ArchiveInfo: TGroupBox
             Left = 0
-            Top = 293
+            Top = 292
             Width = 633
             Height = 65
             Anchors = [akLeft, akRight, akBottom]
@@ -193,7 +195,7 @@ object MainForm: TMainForm
             Left = 0
             Top = 6
             Width = 633
-            Height = 284
+            Height = 283
             Anchors = [akLeft, akTop, akRight, akBottom]
             Columns = <
               item
@@ -246,225 +248,282 @@ object MainForm: TMainForm
         end
         object TS_ArchiveSetup: TTabSheet
           Caption = 'Setup'
-          ImageIndex = 1
+          ImageIndex = 21
           DesignSize = (
             633
-            358)
+            357)
           object GB_ArchiveSetup: TGroupBox
             Left = 0
             Top = 0
             Width = 633
-            Height = 358
+            Height = 357
             Anchors = [akLeft, akTop, akRight, akBottom]
             Caption = ' Archive tool setup '
             TabOrder = 0
             DesignSize = (
               633
-              358)
-            object GB_ArchiveAndFileWriting: TGroupBox
-              Left = 8
-              Top = 192
-              Width = 617
-              Height = 152
-              Anchors = [akLeft, akTop, akRight, akBottom]
-              Caption = ' Archive and file writing '
-              TabOrder = 0
-              DesignSize = (
-                617
-                152)
-              object GB_ArchiveAddingMethod: TGroupBox
-                Left = 312
-                Top = 16
-                Width = 297
-                Height = 121
-                Anchors = [akLeft, akTop, akRight]
-                Caption = ' Default adding files method '
-                TabOrder = 0
-                DesignSize = (
-                  297
-                  121)
-                object RB_Arc_Files: TRadioButton
-                  Left = 8
-                  Top = 19
-                  Width = 281
-                  Height = 22
-                  Anchors = [akLeft, akTop, akRight]
-                  Caption = 'Get from files (2500 max)'
-                  Checked = True
-                  TabOrder = 0
-                  TabStop = True
-                  WordWrap = True
-                end
-                object RB_Arc_Directory: TRadioButton
-                  Left = 8
-                  Top = 45
-                  Width = 281
-                  Height = 20
-                  Anchors = [akLeft, akTop, akRight]
-                  Caption = 'Get from directory'
-                  TabOrder = 1
-                  WordWrap = True
-                end
-                object RB_Arc_List: TRadioButton
-                  Left = 8
-                  Top = 71
-                  Width = 281
-                  Height = 18
-                  Anchors = [akLeft, akTop, akRight]
-                  Caption = 'Get from list'
-                  TabOrder = 2
-                  WordWrap = True
-                end
-              end
-              object GB_ArcFileOverwritingMode: TGroupBox
-                Left = 8
-                Top = 16
-                Width = 297
-                Height = 121
-                Caption = ' File overwriting mode '
-                TabOrder = 1
-                DesignSize = (
-                  297
-                  121)
-                object RB_ArcFileExtrOverwrite: TRadioButton
-                  Left = 8
-                  Top = 16
-                  Width = 281
-                  Height = 25
-                  Anchors = [akLeft, akTop, akRight]
-                  Caption = 'Overwrite existant'
-                  Checked = True
-                  TabOrder = 0
-                  TabStop = True
-                  WordWrap = True
-                end
-                object RB_ArcFileExtrRename: TRadioButton
-                  Left = 8
-                  Top = 40
-                  Width = 281
-                  Height = 25
-                  Anchors = [akLeft, akTop, akRight]
-                  Caption = 'Rename new file by adding index at the end'
-                  TabOrder = 1
-                  WordWrap = True
-                end
-                object RB_ArcFileExtrSkip: TRadioButton
-                  Left = 8
-                  Top = 64
-                  Width = 281
-                  Height = 25
-                  Anchors = [akLeft, akTop, akRight]
-                  Caption = 'Skip for existant files'
-                  TabOrder = 2
-                  WordWrap = True
-                end
-                object RB_ArcFileExtrAbort: TRadioButton
-                  Left = 8
-                  Top = 88
-                  Width = 281
-                  Height = 25
-                  Anchors = [akLeft, akTop, akRight]
-                  Caption = 'Abort extraction'
-                  TabOrder = 3
-                end
-              end
-            end
-            object GB_ArchiveLoading: TGroupBox
+              357)
+            object PC_ArchiveToolSetup: TPageControl
               Left = 8
               Top = 16
               Width = 617
-              Height = 89
-              Anchors = [akLeft, akTop, akRight]
-              Caption = ' Archive loading and saving '
-              TabOrder = 1
-              DesignSize = (
-                617
-                89)
-              object CB_ArchiveListHumanReadable: TCheckBox
-                Left = 8
-                Top = 16
-                Width = 601
-                Height = 17
-                Anchors = [akLeft, akTop, akRight]
-                Caption = 'Show human-readable file sizes instead of hexadecimal values'
-                TabOrder = 0
+              Height = 328
+              ActivePage = TS_Arc_FileExtraction
+              Anchors = [akLeft, akTop, akRight, akBottom]
+              Images = ImageList_Archiver
+              Style = tsButtons
+              TabOrder = 0
+              object TS_Arc_FileExtraction: TTabSheet
+                Caption = 'File extraction'
+                ImageIndex = 8
+                DesignSize = (
+                  609
+                  296)
+                object GB_ArcFileOverwritingMode: TGroupBox
+                  Left = 0
+                  Top = 0
+                  Width = 609
+                  Height = 121
+                  Anchors = [akLeft, akTop, akRight]
+                  Caption = ' File overwriting mode '
+                  TabOrder = 0
+                  DesignSize = (
+                    609
+                    121)
+                  object RB_ArcFileExtrOverwrite: TRadioButton
+                    Left = 8
+                    Top = 16
+                    Width = 593
+                    Height = 25
+                    Anchors = [akLeft, akTop, akRight]
+                    Caption = 'Overwrite existant'
+                    Checked = True
+                    TabOrder = 0
+                    TabStop = True
+                    WordWrap = True
+                  end
+                  object RB_ArcFileExtrRename: TRadioButton
+                    Left = 8
+                    Top = 40
+                    Width = 593
+                    Height = 25
+                    Anchors = [akLeft, akTop, akRight]
+                    Caption = 'Rename new file by adding index at the end'
+                    TabOrder = 1
+                    WordWrap = True
+                  end
+                  object RB_ArcFileExtrSkip: TRadioButton
+                    Left = 8
+                    Top = 64
+                    Width = 593
+                    Height = 25
+                    Anchors = [akLeft, akTop, akRight]
+                    Caption = 'Skip for existant files'
+                    TabOrder = 2
+                    WordWrap = True
+                  end
+                  object RB_ArcFileExtrAbort: TRadioButton
+                    Left = 8
+                    Top = 88
+                    Width = 593
+                    Height = 25
+                    Anchors = [akLeft, akTop, akRight]
+                    Caption = 'Abort extraction'
+                    TabOrder = 3
+                  end
+                end
+                object GB_MassExtraction: TGroupBox
+                  Left = 0
+                  Top = 128
+                  Width = 609
+                  Height = 73
+                  Anchors = [akLeft, akTop, akRight]
+                  Caption = ' Mass file extraction '
+                  TabOrder = 1
+                  object CB_CreateArchiveSubdirectory: TCheckBox
+                    Left = 8
+                    Top = 16
+                    Width = 593
+                    Height = 25
+                    Caption = 
+                      'Extract files into subdirectory which contain archive'#39's filename' +
+                      '. Example: "archive.bin~"'
+                    Checked = True
+                    State = cbChecked
+                    TabOrder = 0
+                  end
+                  object CB_AutoFilelistGenerate: TCheckBox
+                    Left = 8
+                    Top = 40
+                    Width = 593
+                    Height = 25
+                    Caption = 'Automatically export list of files'
+                    Enabled = False
+                    TabOrder = 1
+                  end
+                end
               end
-              object CB_AllowArchiveOverwrite: TCheckBox
-                Left = 8
-                Top = 40
-                Width = 601
-                Height = 17
-                Caption = 
-                  'Allow overwriting (prevents some stupid people from killing orig' +
-                  'inal archives)'
-                Checked = True
-                State = cbChecked
-                TabOrder = 1
-                WordWrap = True
-                OnClick = CB_AllowArchiveOverwriteClick
+              object TS_Arc_Saving: TTabSheet
+                Caption = 'Archive creation'
+                ImageIndex = 12
+                DesignSize = (
+                  609
+                  296)
+                object GB_ArchiveAddingMethod: TGroupBox
+                  Left = 0
+                  Top = 0
+                  Width = 609
+                  Height = 97
+                  Anchors = [akLeft, akTop, akRight]
+                  Caption = ' Default adding files method '
+                  TabOrder = 0
+                  DesignSize = (
+                    609
+                    97)
+                  object RB_Arc_Files: TRadioButton
+                    Left = 8
+                    Top = 18
+                    Width = 593
+                    Height = 22
+                    Anchors = [akLeft, akTop, akRight]
+                    Caption = 'Get from files (2500 max)'
+                    Checked = True
+                    TabOrder = 0
+                    TabStop = True
+                    WordWrap = True
+                  end
+                  object RB_Arc_Directory: TRadioButton
+                    Left = 8
+                    Top = 43
+                    Width = 593
+                    Height = 20
+                    Anchors = [akLeft, akTop, akRight]
+                    Caption = 'Get from directory'
+                    TabOrder = 1
+                    WordWrap = True
+                  end
+                  object RB_Arc_List: TRadioButton
+                    Left = 8
+                    Top = 68
+                    Width = 593
+                    Height = 18
+                    Anchors = [akLeft, akTop, akRight]
+                    Caption = 'Get from list'
+                    TabOrder = 2
+                    WordWrap = True
+                  end
+                end
+                object CB_AllowArchiveOverwrite: TCheckBox
+                  Left = 0
+                  Top = 104
+                  Width = 609
+                  Height = 25
+                  Anchors = [akLeft, akTop, akRight]
+                  Caption = 
+                    'Allow overwriting (prevents some stupid people from killing orig' +
+                    'inal archives)'
+                  Checked = True
+                  State = cbChecked
+                  TabOrder = 1
+                  WordWrap = True
+                  OnClick = CB_AllowArchiveOverwriteClick
+                end
+                object CB_RecursiveDirMode: TCheckBox
+                  Left = 0
+                  Top = 128
+                  Width = 609
+                  Height = 25
+                  Anchors = [akLeft, akTop, akRight]
+                  Caption = 
+                    'Use recursive directory scanning mode (i.e. search for files in ' +
+                    'subdirectories && store pathes if possible)'
+                  Checked = True
+                  State = cbChecked
+                  TabOrder = 2
+                  WordWrap = True
+                end
+                object CB_NameArchiveAfterDir: TCheckBox
+                  Left = 0
+                  Top = 152
+                  Width = 609
+                  Height = 25
+                  Caption = 'Suggest archive filename from file source directory'
+                  Checked = True
+                  State = cbChecked
+                  TabOrder = 3
+                end
               end
-              object CB_RecursiveDirMode: TCheckBox
-                Left = 8
-                Top = 60
-                Width = 601
-                Height = 25
-                Anchors = [akLeft, akTop, akRight]
-                Caption = 
-                  'Use recursive directory scanning mode (i.e. search for files in ' +
-                  'subdirectories && store pathes if possible)'
-                Checked = True
-                State = cbChecked
-                TabOrder = 2
-                WordWrap = True
+              object TS_Arc_Loading: TTabSheet
+                Caption = 'Archive loading'
+                ImageIndex = 6
+                DesignSize = (
+                  609
+                  296)
+                object GB_ArchiveHiddenScan: TGroupBox
+                  Left = 0
+                  Top = 0
+                  Width = 609
+                  Height = 73
+                  Anchors = [akLeft, akTop, akRight]
+                  Caption = ' Hidden archive metadata scanning '
+                  TabOrder = 0
+                  DesignSize = (
+                    609
+                    73)
+                  object CB_HiddenDataAutoscanAsk: TCheckBox
+                    Left = 8
+                    Top = 40
+                    Width = 593
+                    Height = 25
+                    Anchors = [akLeft, akTop, akRight]
+                    Caption = 'Ask for user'#39's confirmation before performing the action'
+                    Checked = True
+                    State = cbChecked
+                    TabOrder = 0
+                    WordWrap = True
+                  end
+                  object CB_HiddenDataAutoscan: TCheckBox
+                    Left = 8
+                    Top = 16
+                    Width = 593
+                    Height = 25
+                    Anchors = [akLeft, akTop, akRight]
+                    Caption = 'Enable autoscan and recover on loading'
+                    TabOrder = 1
+                    WordWrap = True
+                  end
+                end
               end
-            end
-            object GB_ArchiveHiddenScan: TGroupBox
-              Left = 8
-              Top = 112
-              Width = 617
-              Height = 73
-              Anchors = [akLeft, akTop, akRight]
-              Caption = ' Hidden archive metadata scanning '
-              TabOrder = 2
-              DesignSize = (
-                617
-                73)
-              object CB_HiddenDataAutoscanAsk: TCheckBox
-                Left = 8
-                Top = 40
-                Width = 601
-                Height = 25
-                Anchors = [akLeft, akTop, akRight]
-                Caption = 'Ask for user'#39's confirmation before performing the action'
-                Checked = True
-                State = cbChecked
-                TabOrder = 0
-                WordWrap = True
-              end
-              object CB_HiddenDataAutoscan: TCheckBox
-                Left = 8
-                Top = 16
-                Width = 601
-                Height = 25
-                Anchors = [akLeft, akTop, akRight]
-                Caption = 'Enable autoscan and recover on loading'
-                TabOrder = 1
-                WordWrap = True
+              object TS_Arc_Interface: TTabSheet
+                Caption = 'Interface'
+                ImageIndex = 19
+                DesignSize = (
+                  609
+                  296)
+                object CB_ArchiveListHumanReadable: TCheckBox
+                  Left = 0
+                  Top = 0
+                  Width = 609
+                  Height = 25
+                  Anchors = [akLeft, akTop, akRight]
+                  Caption = 'Show human-readable file sizes instead of hexadecimal values'
+                  TabOrder = 0
+                end
               end
             end
           end
         end
         object TS_ArchiveFormats: TTabSheet
           Caption = 'Formats'
-          ImageIndex = 2
+          ImageIndex = -1
           DesignSize = (
             633
-            358)
+            357)
           object LV_ArcFmt: TListView
             Left = 0
             Top = 6
             Width = 633
-            Height = 352
+            Height = 351
             Anchors = [akLeft, akTop, akRight, akBottom]
             Columns = <
               item
@@ -536,7 +595,14 @@ object MainForm: TMainForm
         Height = 92
         Anchors = [akLeft, akTop, akRight]
         Color = clBtnFace
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Pitch = fpFixed
+        Font.Style = []
         ParentColor = False
+        ParentFont = False
         TabOrder = 1
         DesignSize = (
           641
@@ -552,7 +618,7 @@ object MainForm: TMainForm
           Font.Charset = RUSSIAN_CHARSET
           Font.Color = clWindowText
           Font.Height = -9
-          Font.Name = 'Lucida Console'
+          Font.Name = 'Tahoma'
           Font.Pitch = fpFixed
           Font.Style = []
           Layout = blGlyphTop
@@ -572,7 +638,7 @@ object MainForm: TMainForm
           Font.Charset = RUSSIAN_CHARSET
           Font.Color = clWindowText
           Font.Height = -9
-          Font.Name = 'Lucida Console'
+          Font.Name = 'Tahoma'
           Font.Pitch = fpFixed
           Font.Style = []
           Layout = blGlyphTop
@@ -592,7 +658,7 @@ object MainForm: TMainForm
           Font.Charset = RUSSIAN_CHARSET
           Font.Color = clWindowText
           Font.Height = -9
-          Font.Name = 'Lucida Console'
+          Font.Name = 'Tahoma'
           Font.Pitch = fpFixed
           Font.Style = []
           Layout = blGlyphTop
@@ -612,7 +678,7 @@ object MainForm: TMainForm
           Font.Charset = RUSSIAN_CHARSET
           Font.Color = clWindowText
           Font.Height = -9
-          Font.Name = 'Lucida Console'
+          Font.Name = 'Tahoma'
           Font.Pitch = fpFixed
           Font.Style = []
           Layout = blGlyphTop
@@ -630,16 +696,16 @@ object MainForm: TMainForm
           DropDown = PM_ArchiveToolCreate
           Caption = 'Create archive'
           Flat = True
-          Font.Charset = RUSSIAN_CHARSET
+          Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -9
-          Font.Name = 'Lucida Console'
+          Font.Name = 'Tahoma'
           Font.Pitch = fpFixed
           Font.Style = []
           FillFont.Charset = DEFAULT_CHARSET
           FillFont.Color = clWindowText
           FillFont.Height = -9
-          FillFont.Name = 'Lucida Console'
+          FillFont.Name = 'Tahoma'
           FillFont.Style = []
           Layout = blGlyphTop
           ParentFont = False
@@ -723,19 +789,12 @@ object MainForm: TMainForm
           Left = 8
           Top = 32
           Width = 617
-          Height = 19
+          Height = 21
           Style = csDropDownList
           Anchors = [akLeft, akTop, akRight]
           Enabled = False
-          Font.Charset = RUSSIAN_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -11
-          Font.Name = 'Lucida Console'
-          Font.Pitch = fpFixed
-          Font.Style = []
-          ItemHeight = 11
+          ItemHeight = 13
           ItemIndex = 0
-          ParentFont = False
           TabOrder = 0
           Text = 'KID Engine WAF MSADPCM <-> RIFF Wave MSADPCM'
           Items.Strings = (
@@ -745,16 +804,9 @@ object MainForm: TMainForm
           Left = 8
           Top = 80
           Width = 593
-          Height = 19
+          Height = 21
           Anchors = [akLeft, akTop, akRight]
           Enabled = False
-          Font.Charset = RUSSIAN_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -11
-          Font.Name = 'Lucida Console'
-          Font.Pitch = fpFixed
-          Font.Style = []
-          ParentFont = False
           TabOrder = 1
           Text = 'E_AudioStream_InputDir'
           Visible = False
@@ -774,16 +826,9 @@ object MainForm: TMainForm
           Left = 8
           Top = 120
           Width = 593
-          Height = 19
+          Height = 21
           Anchors = [akLeft, akTop, akRight]
           Enabled = False
-          Font.Charset = RUSSIAN_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -11
-          Font.Name = 'Lucida Console'
-          Font.Pitch = fpFixed
-          Font.Style = []
-          ParentFont = False
           TabOrder = 3
           Text = 'E_AudioStream_OutputDir'
           Visible = False
@@ -820,19 +865,17 @@ object MainForm: TMainForm
           Height = 83
           AllowAllUp = True
           Anchors = [akLeft, akTop, akBottom]
-          BiDiMode = bdLeftToRight
           Caption = 'Open audio file'
           Flat = True
           Font.Charset = RUSSIAN_CHARSET
           Font.Color = clWindowText
           Font.Height = -9
-          Font.Name = 'Lucida Console'
+          Font.Name = 'Tahoma'
           Font.Pitch = fpFixed
           Font.Style = []
           Layout = blGlyphTop
           ParentFont = False
           ParentShowHint = False
-          ParentBiDiMode = False
           ShowHint = True
           OnClick = SB_Audio_OpenClick
         end
@@ -847,7 +890,7 @@ object MainForm: TMainForm
           Font.Charset = RUSSIAN_CHARSET
           Font.Color = clWindowText
           Font.Height = -9
-          Font.Name = 'Lucida Console'
+          Font.Name = 'Tahoma'
           Font.Pitch = fpFixed
           Font.Style = []
           Layout = blGlyphTop
@@ -867,7 +910,7 @@ object MainForm: TMainForm
           Font.Charset = RUSSIAN_CHARSET
           Font.Color = clWindowText
           Font.Height = -9
-          Font.Name = 'Lucida Console'
+          Font.Name = 'Tahoma'
           Font.Pitch = fpFixed
           Font.Style = []
           Layout = blGlyphTop
@@ -892,16 +935,18 @@ object MainForm: TMainForm
         Height = 389
         ActivePage = TS_EDGE
         Anchors = [akLeft, akTop, akRight, akBottom]
+        Images = ImageList_Archiver
         Style = tsButtons
         TabOrder = 0
         object TS_EDGE: TTabSheet
           Caption = 'Info && Preview'
+          ImageIndex = 20
           DesignSize = (
             633
-            358)
+            357)
           object GB_ImageOperations: TGroupBox
             Left = 0
-            Top = 248
+            Top = 247
             Width = 435
             Height = 43
             Anchors = [akLeft, akRight, akBottom]
@@ -1105,19 +1150,19 @@ object MainForm: TMainForm
             Left = 0
             Top = 0
             Width = 633
-            Height = 247
+            Height = 246
             Anchors = [akLeft, akTop, akRight, akBottom]
             Caption = ' Preview (double-click spawns the preview window) '
             TabOrder = 1
             DesignSize = (
               633
-              247)
+              246)
             object I_EDGE_ImageA: TImage
               Tag = -1
               Left = 318
               Top = 32
               Width = 310
-              Height = 210
+              Height = 209
               Anchors = [akTop, akRight, akBottom]
               Center = True
               IncrementalDisplay = True
@@ -1130,7 +1175,7 @@ object MainForm: TMainForm
               Left = 3
               Top = 32
               Width = 310
-              Height = 210
+              Height = 209
               Anchors = [akLeft, akTop, akBottom]
               Center = True
               IncrementalDisplay = True
@@ -1162,14 +1207,14 @@ object MainForm: TMainForm
               Left = 315
               Top = 6
               Width = 2
-              Height = 240
+              Height = 239
               Anchors = [akTop, akBottom]
               Shape = bsLeftLine
             end
           end
           object GB_ImageInfo: TGroupBox
             Left = 0
-            Top = 293
+            Top = 292
             Width = 633
             Height = 65
             Anchors = [akLeft, akRight, akBottom]
@@ -1283,7 +1328,7 @@ object MainForm: TMainForm
           end
           object GB_PreviewColor: TGroupBox
             Left = 440
-            Top = 248
+            Top = 247
             Width = 193
             Height = 43
             Anchors = [akRight, akBottom]
@@ -1340,35 +1385,37 @@ object MainForm: TMainForm
         end
         object TS_EDGE_Setup: TTabSheet
           Caption = 'Setup'
-          ImageIndex = 1
+          ImageIndex = 21
           DesignSize = (
             633
-            358)
+            357)
           object GB_ImageSetup: TGroupBox
             Left = 0
             Top = 0
             Width = 633
-            Height = 358
+            Height = 357
             Anchors = [akLeft, akTop, akRight, akBottom]
             Caption = ' Image tool setup '
             TabOrder = 0
             DesignSize = (
               633
-              358)
+              357)
             object PC_ImageToolSetup: TPageControl
               Left = 8
               Top = 16
               Width = 617
-              Height = 336
+              Height = 335
               ActivePage = TS_EDGE_All
               Anchors = [akLeft, akTop, akRight, akBottom]
+              Images = ImageList_Archiver
               Style = tsButtons
               TabOrder = 0
               object TS_EDGE_All: TTabSheet
                 Caption = 'All'
+                ImageIndex = 4
                 DesignSize = (
                   609
-                  305)
+                  303)
                 object GB_EDGE_General: TGroupBox
                   Left = 0
                   Top = 0
@@ -1596,13 +1643,13 @@ object MainForm: TMainForm
               end
               object TS_EDGE_PRT: TTabSheet
                 Caption = 'PRT'
-                ImageIndex = 2
+                ImageIndex = 4
                 DesignSize = (
                   609
-                  305)
+                  303)
                 object CB_PRT_Coords: TCheckBox
                   Left = 0
-                  Top = 5
+                  Top = 93
                   Width = 609
                   Height = 25
                   Anchors = [akLeft, akTop, akRight]
@@ -1616,9 +1663,9 @@ object MainForm: TMainForm
                 end
                 object GB_EDGE_Coordinate_Editor: TGroupBox
                   Left = 0
-                  Top = 31
+                  Top = 0
                   Width = 609
-                  Height = 90
+                  Height = 89
                   Anchors = [akLeft, akTop, akRight]
                   Caption = ' PRT Coordinate Editor '
                   TabOrder = 1
@@ -1753,7 +1800,7 @@ object MainForm: TMainForm
           Font.Charset = RUSSIAN_CHARSET
           Font.Color = clWindowText
           Font.Height = -9
-          Font.Name = 'Lucida Console'
+          Font.Name = 'Tahoma'
           Font.Pitch = fpFixed
           Font.Style = []
           Layout = blGlyphTop
@@ -1774,7 +1821,7 @@ object MainForm: TMainForm
           Font.Charset = RUSSIAN_CHARSET
           Font.Color = clWindowText
           Font.Height = -9
-          Font.Name = 'Lucida Console'
+          Font.Name = 'Tahoma'
           Font.Pitch = fpFixed
           Font.Style = []
           Layout = blGlyphTop
@@ -1794,7 +1841,7 @@ object MainForm: TMainForm
           Font.Charset = RUSSIAN_CHARSET
           Font.Color = clWindowText
           Font.Height = -9
-          Font.Name = 'Lucida Console'
+          Font.Name = 'Tahoma'
           Font.Pitch = fpFixed
           Font.Style = []
           Layout = blGlyphTop
@@ -1814,7 +1861,7 @@ object MainForm: TMainForm
           Font.Charset = RUSSIAN_CHARSET
           Font.Color = clWindowText
           Font.Height = -9
-          Font.Name = 'Lucida Console'
+          Font.Name = 'Tahoma'
           Font.Pitch = fpFixed
           Font.Style = []
           Layout = blGlyphTop
@@ -1834,7 +1881,7 @@ object MainForm: TMainForm
           Font.Charset = RUSSIAN_CHARSET
           Font.Color = clWindowText
           Font.Height = -9
-          Font.Name = 'Lucida Console'
+          Font.Name = 'Tahoma'
           Font.Pitch = fpFixed
           Font.Style = []
           Layout = blGlyphTop
@@ -1854,7 +1901,7 @@ object MainForm: TMainForm
           Font.Charset = RUSSIAN_CHARSET
           Font.Color = clWindowText
           Font.Height = -9
-          Font.Name = 'Lucida Console'
+          Font.Name = 'Tahoma'
           Font.Pitch = fpFixed
           Font.Style = []
           Layout = blGlyphTop
@@ -1918,7 +1965,7 @@ object MainForm: TMainForm
           Font.Charset = RUSSIAN_CHARSET
           Font.Color = clWindowText
           Font.Height = -9
-          Font.Name = 'Lucida Console'
+          Font.Name = 'Tahoma'
           Font.Pitch = fpFixed
           Font.Style = []
           Layout = blGlyphTop
@@ -1938,7 +1985,7 @@ object MainForm: TMainForm
           Font.Charset = RUSSIAN_CHARSET
           Font.Color = clWindowText
           Font.Height = -9
-          Font.Name = 'Lucida Console'
+          Font.Name = 'Tahoma'
           Font.Pitch = fpFixed
           Font.Style = []
           Layout = blGlyphTop
@@ -1957,7 +2004,7 @@ object MainForm: TMainForm
           Font.Charset = RUSSIAN_CHARSET
           Font.Color = clWindowText
           Font.Height = -9
-          Font.Name = 'Lucida Console'
+          Font.Name = 'Tahoma'
           Font.Pitch = fpFixed
           Font.Style = []
           Layout = blGlyphTop
@@ -1976,7 +2023,7 @@ object MainForm: TMainForm
           Font.Charset = RUSSIAN_CHARSET
           Font.Color = clWindowText
           Font.Height = -9
-          Font.Name = 'Lucida Console'
+          Font.Name = 'Tahoma'
           Font.Pitch = fpFixed
           Font.Style = []
           Layout = blGlyphTop
@@ -1995,7 +2042,7 @@ object MainForm: TMainForm
           Font.Charset = RUSSIAN_CHARSET
           Font.Color = clWindowText
           Font.Height = -9
-          Font.Name = 'Lucida Console'
+          Font.Name = 'Tahoma'
           Font.Pitch = fpFixed
           Font.Style = []
           Layout = blGlyphTop
@@ -2220,6 +2267,15 @@ object MainForm: TMainForm
           Anchors = [akLeft, akTop, akRight]
           TabOrder = 5
         end
+        object GB_HexViewer: TGroupBox
+          Left = 8
+          Top = 88
+          Width = 625
+          Height = 281
+          Anchors = [akLeft, akTop, akRight, akBottom]
+          Caption = ' HEX Viewer '
+          TabOrder = 6
+        end
       end
       object GB_MiscTool: TGroupBox
         Tag = -1
@@ -2235,7 +2291,7 @@ object MainForm: TMainForm
           641
           92)
         object SB_Data_Bruteforce: TSpeedButton
-          Left = 109
+          Left = 215
           Top = 7
           Width = 105
           Height = 83
@@ -2245,7 +2301,7 @@ object MainForm: TMainForm
           Font.Charset = RUSSIAN_CHARSET
           Font.Color = clWindowText
           Font.Height = -9
-          Font.Name = 'Lucida Console'
+          Font.Name = 'Tahoma'
           Font.Pitch = fpFixed
           Font.Style = []
           Layout = blGlyphTop
@@ -2255,7 +2311,7 @@ object MainForm: TMainForm
           OnClick = SB_Data_BruteforceClick
         end
         object SB_Data_Process: TSpeedButton
-          Left = 3
+          Left = 109
           Top = 7
           Width = 105
           Height = 83
@@ -2265,7 +2321,7 @@ object MainForm: TMainForm
           Font.Charset = RUSSIAN_CHARSET
           Font.Color = clWindowText
           Font.Height = -9
-          Font.Name = 'Lucida Console'
+          Font.Name = 'Tahoma'
           Font.Pitch = fpFixed
           Font.Style = []
           Layout = blGlyphTop
@@ -2275,7 +2331,7 @@ object MainForm: TMainForm
           OnClick = SB_Data_ProcessClick
         end
         object SB_Data_Batch: TSpeedButton
-          Left = 215
+          Left = 321
           Top = 7
           Width = 105
           Height = 83
@@ -2285,7 +2341,7 @@ object MainForm: TMainForm
           Font.Charset = RUSSIAN_CHARSET
           Font.Color = clWindowText
           Font.Height = -9
-          Font.Name = 'Lucida Console'
+          Font.Name = 'Tahoma'
           Font.Pitch = fpFixed
           Font.Style = []
           Layout = blGlyphTop
@@ -2293,6 +2349,44 @@ object MainForm: TMainForm
           ParentShowHint = False
           ShowHint = True
           OnClick = SB_Data_BatchClick
+        end
+        object SB_Data_Open: TSpeedButton
+          Left = 3
+          Top = 7
+          Width = 105
+          Height = 83
+          Anchors = [akLeft, akTop, akBottom]
+          Caption = 'Open file'
+          Flat = True
+          Font.Charset = RUSSIAN_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -9
+          Font.Name = 'Tahoma'
+          Font.Pitch = fpFixed
+          Font.Style = []
+          Layout = blGlyphTop
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
+        end
+        object SB_Data_Close: TSpeedButton
+          Left = 533
+          Top = 7
+          Width = 105
+          Height = 83
+          Anchors = [akTop, akRight, akBottom]
+          Caption = 'Close file'
+          Flat = True
+          Font.Charset = RUSSIAN_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -9
+          Font.Name = 'Tahoma'
+          Font.Pitch = fpFixed
+          Font.Style = []
+          Layout = blGlyphTop
+          ParentFont = False
+          ParentShowHint = False
+          ShowHint = True
         end
       end
     end
@@ -2314,16 +2408,17 @@ object MainForm: TMainForm
         Tag = -2
         Left = 3
         Top = 112
-        Width = 336
-        Height = 11
+        Width = 288
+        Height = 13
         Caption = '123456789012345678901234567890123456789012345678'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -11
-        Font.Name = 'Lucida Console'
+        Font.Name = 'Tahoma'
         Font.Pitch = fpFixed
         Font.Style = []
         ParentFont = False
+        Visible = False
       end
       object L_Warn_E17: TLabelW
         Left = 368
@@ -2508,7 +2603,7 @@ object MainForm: TMainForm
           Font.Charset = RUSSIAN_CHARSET
           Font.Color = clWindowText
           Font.Height = -9
-          Font.Name = 'Lucida Console'
+          Font.Name = 'Tahoma'
           Font.Pitch = fpFixed
           Font.Style = []
           Layout = blGlyphTop
@@ -2529,7 +2624,7 @@ object MainForm: TMainForm
           Font.Charset = RUSSIAN_CHARSET
           Font.Color = clWindowText
           Font.Height = -9
-          Font.Name = 'Lucida Console'
+          Font.Name = 'Tahoma'
           Font.Pitch = fpFixed
           Font.Style = []
           Layout = blGlyphTop
@@ -2549,7 +2644,7 @@ object MainForm: TMainForm
           Font.Charset = RUSSIAN_CHARSET
           Font.Color = clWindowText
           Font.Height = -9
-          Font.Name = 'Lucida Console'
+          Font.Name = 'Tahoma'
           Font.Pitch = fpFixed
           Font.Style = []
           Layout = blGlyphTop
@@ -2569,7 +2664,7 @@ object MainForm: TMainForm
           Font.Charset = RUSSIAN_CHARSET
           Font.Color = clWindowText
           Font.Height = -9
-          Font.Name = 'Lucida Console'
+          Font.Name = 'Tahoma'
           Font.Pitch = fpFixed
           Font.Style = []
           Layout = blGlyphTop
@@ -2591,7 +2686,7 @@ object MainForm: TMainForm
           Font.Charset = RUSSIAN_CHARSET
           Font.Color = clWindowText
           Font.Height = -9
-          Font.Name = 'Lucida Console'
+          Font.Name = 'Tahoma'
           Font.Pitch = fpFixed
           Font.Style = []
           Layout = blGlyphTop
@@ -2604,18 +2699,12 @@ object MainForm: TMainForm
       end
       object LB_SCRDec: TListBox
         Left = 0
-        Top = 128
+        Top = 112
         Width = 361
-        Height = 354
+        Height = 370
+        Style = lbOwnerDrawVariable
         Anchors = [akLeft, akTop, akRight, akBottom]
-        Font.Charset = RUSSIAN_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -11
-        Font.Name = 'Lucida Console'
-        Font.Pitch = fpFixed
-        Font.Style = []
         ItemHeight = 11
-        ParentFont = False
         TabOrder = 3
       end
     end
@@ -2960,12 +3049,12 @@ object MainForm: TMainForm
         Left = 0
         Top = 461
         Width = 641
-        Height = 19
+        Height = 21
         Anchors = [akLeft, akRight, akBottom]
         Font.Charset = RUSSIAN_CHARSET
         Font.Color = clWindowText
         Font.Height = -11
-        Font.Name = 'Lucida Console'
+        Font.Name = 'Tahoma'
         Font.Pitch = fpFixed
         Font.Style = []
         ParentFont = False
@@ -2982,7 +3071,7 @@ object MainForm: TMainForm
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -11
-        Font.Name = 'Lucida Console'
+        Font.Name = 'Tahoma'
         Font.Pitch = fpFixed
         Font.Style = []
         ItemHeight = 9
@@ -3257,12 +3346,12 @@ object MainForm: TMainForm
         Alignment = taRightJustify
         Anchors = [akLeft, akTop, akRight]
         AutoSize = False
-        Caption = #169' 2007-2013 WinKiller Studio and The Contributors.'
+        Caption = #169' 2007-2014 WKStudio and The Contributors.'
         Color = clBtnFace
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Height = -9
-        Font.Name = 'Lucida Console'
+        Font.Name = 'Tahoma'
         Font.Pitch = fpFixed
         Font.Style = []
         ParentColor = False
@@ -3282,7 +3371,7 @@ object MainForm: TMainForm
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Height = -9
-        Font.Name = 'Lucida Console'
+        Font.Name = 'Tahoma'
         Font.Pitch = fpFixed
         Font.Style = []
         ParentFont = False
@@ -3303,7 +3392,7 @@ object MainForm: TMainForm
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Height = -9
-        Font.Name = 'Lucida Console'
+        Font.Name = 'Tahoma'
         Font.Pitch = fpFixed
         Font.Style = []
         ParentFont = False
@@ -3323,7 +3412,7 @@ object MainForm: TMainForm
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Height = -9
-        Font.Name = 'Lucida Console'
+        Font.Name = 'Tahoma'
         Font.Pitch = fpFixed
         Font.Style = [fsBold]
         ParentFont = False
@@ -3345,7 +3434,7 @@ object MainForm: TMainForm
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Height = -9
-        Font.Name = 'Lucida Console'
+        Font.Name = 'Tahoma'
         Font.Pitch = fpFixed
         Font.Style = []
         ParentColor = False
@@ -3360,22 +3449,6 @@ object MainForm: TMainForm
         Width = 609
         Height = 313
         Cursor = crHelp
-        Credits.Strings = (
-          '&b&uTScrollingCredits'
-          'Copyright '#169'2000 Saturn Laboratories'
-          ''
-          'This version includes basic formatting!!'
-          '&bMake a line bold with &&b'
-          '&uMake a line underlined with &&u'
-          '&iMake a line italicized with &&i'
-          '&c255,255,0;Make a line a different color'
-          '&c0,255,255;with &&c[red],[green],[blue];'
-          ''
-          'And put that ampersand in with &&&&'
-          ''
-          '&bPlease let me know if you find'
-          '&bthis component useful.'
-          'components@saturnlaboratories.gq.nu')
         CreditsFont.Charset = DEFAULT_CHARSET
         CreditsFont.Color = clWindowText
         CreditsFont.Height = -13
@@ -3402,7 +3475,7 @@ object MainForm: TMainForm
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Height = -9
-        Font.Name = 'Lucida Console'
+        Font.Name = 'Tahoma'
         Font.Pitch = fpFixed
         Font.Style = []
         ParentFont = False
@@ -3423,7 +3496,7 @@ object MainForm: TMainForm
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clMaroon
         Font.Height = -9
-        Font.Name = 'Lucida Console'
+        Font.Name = 'Tahoma'
         Font.Pitch = fpFixed
         Font.Style = [fsBold]
         ParentFont = False
@@ -3444,7 +3517,7 @@ object MainForm: TMainForm
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWhite
         Font.Height = -9
-        Font.Name = 'Lucida Console'
+        Font.Name = 'Tahoma'
         Font.Pitch = fpFixed
         Font.Style = []
         ParentFont = False
@@ -3475,7 +3548,7 @@ object MainForm: TMainForm
       Left = 16
       Top = 4
       Width = 638
-      Height = 31
+      Height = 37
       Anchors = [akLeft, akTop, akRight, akBottom]
       AutoSize = False
       Caption = 'L_Mini_Log'
@@ -3483,7 +3556,7 @@ object MainForm: TMainForm
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -9
-      Font.Name = 'Lucida Console'
+      Font.Name = 'Tahoma'
       Font.Pitch = fpFixed
       Font.Style = []
       ParentColor = False
@@ -3496,7 +3569,7 @@ object MainForm: TMainForm
       Left = 456
       Top = 44
       Width = 199
-      Height = 9
+      Height = 13
       Alignment = taRightJustify
       Anchors = [akTop, akRight]
       AutoSize = False
@@ -3504,7 +3577,7 @@ object MainForm: TMainForm
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clActiveCaption
       Font.Height = -9
-      Font.Name = 'Lucida Console'
+      Font.Name = 'Tahoma'
       Font.Pitch = fpFixed
       Font.Style = []
       ParentFont = False
@@ -3513,18 +3586,19 @@ object MainForm: TMainForm
     end
     object G_Progress: TGauge
       Tag = -1
-      Left = 16
+      Left = 7
       Top = 28
-      Width = 638
+      Width = 657
       Height = 11
       Hint = 'Group archive operations progress indicator'
       Anchors = [akLeft, akRight, akBottom]
+      BorderStyle = bsNone
       Color = clWhite
       ForeColor = 13665296
       Font.Charset = RUSSIAN_CHARSET
       Font.Color = clWindowText
       Font.Height = -9
-      Font.Name = 'Lucida Console'
+      Font.Name = 'Tahoma'
       Font.Pitch = fpFixed
       Font.Style = []
       ParentColor = False
@@ -3537,13 +3611,13 @@ object MainForm: TMainForm
     object L_Arc_StatusProcessing: TLabelW
       Left = 16
       Top = 44
-      Width = 55
-      Height = 9
+      Width = 46
+      Height = 13
       Caption = 'Processing:'
       Font.Charset = RUSSIAN_CHARSET
       Font.Color = clWindowText
       Font.Height = -9
-      Font.Name = 'Lucida Console'
+      Font.Name = 'Tahoma'
       Font.Pitch = fpFixed
       Font.Style = []
       ParentFont = False
@@ -3557,12 +3631,13 @@ object MainForm: TMainForm
       Width = 241
       Height = 9
       Alignment = taCenter
+      Anchors = [akLeft, akTop, akRight]
       AutoSize = False
       Caption = '0 / 0'
       Font.Charset = RUSSIAN_CHARSET
       Font.Color = clWindowText
       Font.Height = -9
-      Font.Name = 'Lucida Console'
+      Font.Name = 'Tahoma'
       Font.Pitch = fpFixed
       Font.Style = []
       ParentFont = False
@@ -3663,7 +3738,7 @@ object MainForm: TMainForm
     Left = 295
     Top = 511
     Bitmap = {
-      494C010113001800040010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010116001800040010001000FFFFFFFFFF00FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000006000000001002000000000000060
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -3681,98 +3756,98 @@ object MainForm: TMainForm
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000004040
+      4000000000004040400040404000000000000000000040404000404040000000
+      00004040400000000000000000000000000000000000000000000047CA00002D
+      8000002D80000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000006633
+      0000663300006633000066330000000000000000000000626600006266000062
+      66000062660000000000000000000000000000000000000000000047CA008DB5
+      FF008DB5FF00002D800000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
+      000000000000000000000000000000000000000000000000000000000000C663
+      0000FFCD9B00FFCD9B0066330000000000000000000000BFC6009BFBFF009BFB
+      FF000062660000000000000000000000000000000000000000000047CA00FFFF
+      FF008DB5FF008DB5FF00002D8000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
+      000000000000000000000000000000000000000000000000000000000000C663
+      0000FFCD9B00FFCD9B0066330000000000000000000000BFC6009BFBFF009BFB
+      FF00006266000000000000000000000000000000000000000000000000000047
+      CA00FFFFFF008DB5FF008DB5FF00002D80000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
+      000000000000000000000000000000000000000000000000000000000000C663
+      0000C6630000C663000066330000000000000000000000BFC60000BFC60000BF
+      C600006266000000000000000000000000000000000000000000000000000000
+      00000047CA00FFFFFF008DB5FF008DB5FF002F2F2F002F2F2F002F2F2F002F2F
+      2F00000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000047CA00FFFFFF008DB5FF00C9C9C900C9C9C900C9C9C900C9C9
+      C9002F2F2F000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000004040
+      4000404040000000000040404000000000000000000040404000000000004040
+      4000404040000000000000000000000000000000000000000000000000000000
+      000000000000000000005D5D5D00C9C9C900C9C9C900C9C9C900C9C9C900C9C9
+      C900C9C9C9002F2F2F0000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
+      CA00000080000000800000008000000000000000000000B90000005E0000005E
+      0000005E00000000000000000000000000000000000000000000000000000000
+      000000000000000000005D5D5D00C9C9C900C9C9C9005D5D5D005D5D5D00FFFF
+      FF00C9C9C9002F2F2F0000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
+      CA008C8CFF008C8CFF0000008000000000000000000000B9000093FF930093FF
+      9300005E00000000000000000000000000000000000000000000000000000000
+      000000000000000000005D5D5D00C9C9C900C9C9C9005D5D5D005D5D5D005D5D
+      5D00C9C9C9002F2F2F0000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
+      CA008C8CFF008C8CFF0000008000000000000000000000B9000093FF930093FF
+      9300005E00000000000000000000000000000000000000000000000000000000
+      000000000000000000005D5D5D00FFFFFF00C9C9C900C9C9C9005D5D5D005D5D
+      5D002F2F2F000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
+      CA000000CA000000CA0000008000000000000000000000B9000000B9000000B9
+      0000005E00000000000000000000000000000000000000000000000000000000
+      00000000000000000000000000005D5D5D00FFFFFF00C9C9C900C9C9C9005D5D
+      5D00000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000005D5D5D005D5D5D005D5D5D000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -3815,97 +3890,97 @@ object MainForm: TMainForm
       00000000000000000000E7B59000FFF8F000FFF8F000FFF8F000FFF8F000FFF8
       F000FFF8F000B27F73000000000000000000000000000000000000000000C4A8
       B3007C68AA007263B4006A60BB00645DC200605CC6005D5AC9005B59CB005A59
-      CC005958CD000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
+      CC005958CD000000000000000000000000000000000000000000C66300006633
+      0000663300000000000000000000000000000000000000000000000000000000
       000000000000000000000000000000000000000000000000000000000000E7B5
       9000FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
       FF00B27F73000000000000000000000000000000000000000000000000000000
       00000000000000000000E7B59000FFF8F000A67A7500A67A7500A67A7500A67A
       7500FFF8F000B27F73000000000000000000000000000000000000000000C7A9
       B000FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
-      FF005959CD000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
+      FF005959CD000000000000000000000000000000000000000000C6630000FFCD
+      9B00663300000000000000000000000000000000000000000000000000000000
       000000000000000000000000000000000000000000000000000000000000E7B5
       9000FFFFFF00E7B59000E7B59000FFFFFF00E7B59000E7B59000E7B59000FFFF
       FF00B27F73000000000000000000000000000000000000000000000000000000
       00000000000000000000E7B59000FFF8F000FFF8F000FFF8F000FFF8F000FFF8
       F000FFF8F000B27F73000000000000000000000000000000000000000000C9AA
       AE00FFFFFF00B5A2C300ADA0CB00FFFFFF00A29CD6009F9BD9009D9ADB00FFFF
-      FF005A59CC000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
+      FF005A59CC000000000000000000000000000000000000000000C6630000C663
+      0000663300000000000000000000000000000000000000000000000000000000
       000000000000000000000000000000000000000000000000000000000000E7B5
       9000FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
       FF00B27F73000000000000000000000000000000000000000000E7B59000B27F
       7300B27F7300B27F7300B27F7300B27F7300B27F7300B27F7300A67A7500A67A
       7500FFF8F000B27F73000000000000000000000000000000000000000000CFAC
       A800FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
-      FF005C5ACA000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
+      FF005C5ACA00000000000000000000000000000000000000000000B90000005E
+      0000005E00000000000000000000000000000000000000000000000000000000
       000000000000000000000000000000000000000000000000000000000000E7B5
       9000FFFFFF00E7B59000E7B59000E7B59000FFFFFF00E7B59000E7B59000FFFF
       FF00B27F73000000000000000000000000000000000000000000E7B59000FFFF
       FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00B27F7300FFF8F000FFF8
       F000FFF8F000B27F73000000000000000000000000000000000000000000D7AF
       A000FFFFFF00C1A7B700B7A3C100AFA1C800FFFFFF00A59DD300A29CD600FFFF
-      FF005E5BC8000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
+      FF005E5BC800000000000000000000000000000000000000000000B9000093FF
+      9300005E00000000000000000000000000000000000000000000000000000000
       000000000000000000000000000000000000000000000000000000000000E7B5
       9000FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
       FF00B27F73000000000000000000000000000000000000000000E7B59000FFFF
       FF00E7B59000E7B59000E7B59000E7B59000FFFFFF00B27F7300A67A7500A67A
       7500FFF8F000B27F73000000000000000000000000000000000000000000DBB1
       9C00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
-      FF00615CC5000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
+      FF00615CC500000000000000000000000000000000000000000000B9000000B9
+      0000005E00000000000000000000000000000000000000000000000000000000
       000000000000000000000000000000000000000000000000000000000000E7B5
       9000FFFFFF00E7B59000E7B59000FFFFFF00E7B59000E7B59000E7B59000FFFF
       FF00B27F73000000000000000000000000000000000000000000E7B59000FFFF
       FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00B27F7300FFF8F000FFF8
       F000FFF8F000B27F73000000000000000000000000000000000000000000DEB2
       9900FFFFFF00CFACA800C6A9B200FFFFFF00B5A3C300AFA0C900AA9FCD00FFFF
-      FF00665EC0000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
+      FF00665EC00000000000000000000000000000000000000000000000CA000000
+      8000000080000000000000000000000000000000000000000000000000000000
       000000000000000000000000000000000000000000000000000000000000E7B5
       9000FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
       FF00B27F73000000000000000000000000000000000000000000E7B59000FFFF
       FF00E7B59000E7B59000E7B59000E7B59000FFFFFF00B27F7300FFF8F000FFF8
       F000FFF8F000B27F73000000000000000000000000000000000000000000E2B3
       9500FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
-      FF006C61BA000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
+      FF006C61BA0000000000000000000000000000000000000000000000CA008C8C
+      FF00000080000000000000000000000000000000000000000000000000000000
       000000000000000000000000000000000000000000000000000000000000E7B5
       9000E7B59000E7B59000E7B59000FFFFFF00E7B59000E7B59000E7B59000FFFF
       FF00B27F73000000000000000000000000000000000000000000E7B59000FFFF
       FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00B27F7300E7B59000E7B5
       9000E7B59000B27F73000000000000000000000000000000000000000000E5B4
       9200E1B39600DBB19C00D5AFA200FFFFFF00C8AAAF00C0A7B800B9A4BF00FFFF
-      FF007565B1000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
+      FF007565B10000000000000000000000000000000000000000000000CA000000
+      CA00000080000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000E7B59000E7B59000E7B59000FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
       FF00B27F73000000000000000000000000000000000000000000E7B59000FFFF
       FF00FFFFFF00FFFFFF00E7B59000E7B59000FFFFFF00B27F7300000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000E4B49300E0B29700DCB19B00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
-      FF00816AA5000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
+      FF00816AA5000000000000000000000000000000000000000000D4D4D4008080
+      8000808080008080800080808000808080008080800080808000808080008080
+      8000808080008080800000000000000000000000000000000000000000000000
       000000000000E7B59000E7B59000FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
       FF00B27F73000000000000000000000000000000000000000000E7B59000E7B5
       9000E7B59000FFFFFF00FFFFFF00FFFFFF00FFFFFF00B27F7300000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       000000000000E3B49400E0B29700FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
-      FF008C6F99000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
+      FF008C6F99000000000000000000000000000000000000000000D4D4D400C0C0
+      C00080808000C0C0C000C0C0C00080808000C0C0C000C0C0C00080808000C0C0
+      C000C0C0C0008080800000000000000000000000000000000000000000000000
       00000000000000000000E7B59000E7B59000E7B59000E7B59000E7B59000E7B5
       9000B27F7300000000000000000000000000000000000000000000000000E7B5
       9000E7B59000FFFFFF00FFFFFF00FFFFFF00FFFFFF00B27F7300000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       00000000000000000000E4B49300E1B39600DDB19A00DAB09D00D8AFA000D5AE
-      A30098748D000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
+      A30098748D000000000000000000000000000000000000000000D4D4D400D4D4
+      D400D4D4D400D4D4D400D4D4D400D4D4D400D4D4D400D4D4D400D4D4D400D4D4
+      D400D4D4D400D4D4D40000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000E7B59000E7B59000E7B59000E7B59000E7B59000B27F7300000000000000
@@ -3939,88 +4014,88 @@ object MainForm: TMainForm
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       000000000000000000000CB4FF000CB4FF000CB4FF000CB4FF00000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      8000000080000000000000000000008080000080800000000000000000000080
-      0000008000000000000000000000000000000000000000000000000000007A7A
+      00000000000000000000000000000000000000000000000000000000CA000000
+      8000000080000000800000BFC60000626600006266000062660000B90000005E
+      0000005E0000005E000000000000000000000000000000000000000000007A7A
       7A00525252005252520052525200525252005252520052525200525252005252
       5200525252000000000000000000000000000000000000000000000000007A7A
       7A00525252005252520052525200525252005252520052525200525252005252
       5200525252000000000000000000000000000000000000000000000000000000
       0000000000000FB8FF0043DEFF0043DEFF0043DEFF0043DEFF000FB8FF000000
-      0000000000000000000000000000000000000000000000000000000080000000
-      FF000000FF00000080000080800000FFFF0000FFFF00008080000080000000FF
-      000000FF00000080000000000000000000000000000000000000000000007A7A
+      00000000000000000000000000000000000000000000000000000000CA008C8C
+      FF008C8CFF000000800000BFC6009BFBFF009BFBFF000062660000B9000093FF
+      930093FF9300005E000000000000000000000000000000000000000000007A7A
       7A00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
       FF00525252000000000000000000000000000000000000000000000000007A7A
       7A0080FFFF0080FFFF0080FFFF0080FFFF0080FFFF0080FFFF0080FFFF0080FF
       FF00525252000000000000000000000000000000000000000000000000000000
       00000000000012BCFF004EE1FF004EE1FF004EE1FF004EE1FF0012BCFF000000
-      0000000000000000000000000000000000000000000000000000000080000000
-      FF000000FF00000080000080800000FFFF0000FFFF00008080000080000000FF
-      000000FF00000080000000000000000000000000000000000000000000007A7A
+      00000000000000000000000000000000000000000000000000000000CA008C8C
+      FF008C8CFF000000800000BFC6009BFBFF009BFBFF000062660000B9000093FF
+      930093FF9300005E000000000000000000000000000000000000000000007A7A
       7A00FFFFFF00FF000000FF000000FF000000FF000000FF000000FFFFFF00FFFF
       FF00525252000000000000000000000000000000000000000000000000007A7A
       7A0080FFFF00408080004080800000FFFF00008080000080800080FFFF0080FF
       FF005252520000000000000000000000000000000000000000000000000015C0
       FF0015C0FF0015C0FF005AE4FF005AE4FF005AE4FF005AE4FF0015C0FF0015C0
-      FF0015C0FF000000000000000000000000000000000000000000000080000000
-      FF000000FF00000080000080800000FFFF0000FFFF00008080000080000000FF
-      000000FF00000080000000000000000000000000000000000000000000007A7A
+      FF0015C0FF0000000000000000000000000000000000000000000000CA008C8C
+      FF008C8CFF000000800000BFC6009BFBFF009BFBFF000062660000B9000093FF
+      930093FF9300005E000000000000000000000000000000000000000000007A7A
       7A00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF0000D700000000FF00FFFF
       FF00525252000000000000000000000000000000000000000000000000007A7A
       7A0080FFFF000080800000FFFF0000FFFF0000FFFF00008080000080800080FF
       FF0052525200000000000000000000000000000000000000000018C4FF0065E7
       FF0065E7FF0065E7FF0065E7FF0065E7FF0065E7FF0065E7FF0065E7FF0065E7
-      FF0065E7FF0018C4FF0000000000000000000000000000000000000080000000
-      FF000000FF00000080000080800000FFFF0000FFFF00008080000080000000FF
-      000000FF00000080000000000000000000000000000000000000000000007A7A
+      FF0065E7FF0018C4FF00000000000000000000000000000000000000CA008C8C
+      FF008C8CFF000000800000BFC6009BFBFF009BFBFF000062660000B9000093FF
+      930093FF9300005E000000000000000000000000000000000000000000007A7A
       7A00FFFFFF00FFFFFF00FFFFFF00FFFFFF0000D70000FFFFFF000000FF00FFFF
       FF00525252000000000000000000000000000000000000000000000000007A7A
       7A0080FFFF00008080000080800000FFFF004080800000FFFF000080800080FF
       FF0052525200000000000000000000000000000000000000000019C7FF006FE9
       FF006FE9FF006FE9FF006FE9FF006FE9FF006FE9FF006FE9FF006FE9FF006FE9
-      FF006FE9FF0019C7FF0000000000000000000000000000000000000080000000
-      FF000000FF00000080000080800000FFFF0000FFFF00008080000080000000FF
-      000000FF00000080000000000000000000000000000000000000000000007A7A
+      FF006FE9FF0019C7FF00000000000000000000000000000000000000CA008C8C
+      FF008C8CFF000000800000BFC6009BFBFF009BFBFF000062660000B9000093FF
+      930093FF9300005E000000000000000000000000000000000000000000007A7A
       7A00FFFFFF00FFFFFF00FFFFFF0000D70000FFFFFF00FFFFFF000000FF00FFFF
       FF00525252000000000000000000000000000000000000000000000000007A7A
       7A0080FFFF0080FFFF00008080004080800000FFFF0000FFFF0080FFFF0080FF
       FF005252520000000000000000000000000000000000000000001BCAFF0078EC
       FF0078ECFF0078ECFF0078ECFF0078ECFF0078ECFF0078ECFF0078ECFF0078EC
-      FF0078ECFF001BCAFF0000000000000000000000000000000000000080000000
-      FF000000FF00000080000080800000FFFF0000FFFF00008080000080000000FF
-      000000FF00000080000000000000000000000000000000000000000000007A7A
+      FF0078ECFF001BCAFF00000000000000000000000000000000000000CA008C8C
+      FF008C8CFF000000800000BFC6009BFBFF009BFBFF000062660000B9000093FF
+      930093FF9300005E000000000000000000000000000000000000000000007A7A
       7A00FFFFFF00FFFFFF0000D70000FFFFFF00FFFFFF00FFFFFF000000FF00FFFF
       FF00525252000000000000000000000000000000000000000000000000007A7A
       7A0080FFFF004080800080FFFF004080800000FFFF000080800080FFFF0080FF
       FF005252520000000000000000000000000000000000000000001ECDFF0081EF
       FF0081EFFF0081EFFF0081EFFF0081EFFF0081EFFF0081EFFF0081EFFF0081EF
-      FF0081EFFF001ECDFF0000000000000000000000000000000000000000000000
-      800000008000000000000080800000FFFF0000FFFF00008080000080000000FF
-      000000FF00000080000000000000000000000000000000000000000000007A7A
+      FF0081EFFF001ECDFF00000000000000000000000000000000000000CA000000
+      CA000000CA000000800000BFC6009BFBFF009BFBFF000062660000B9000093FF
+      930093FF9300005E000000000000000000000000000000000000000000007A7A
       7A00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF000000FF00FFFF
       FF00525252000000000000000000000000000000000000000000000000007A7A
       7A0080FFFF000080800000FFFF0000FFFF0000808000008080000080800080FF
       FF005252520000000000000000000000000000000000000000000000000020D0
       FF0020D0FF0020D0FF008BF1FF008BF1FF008BF1FF008BF1FF0020D0FF0020D0
       FF0020D0FF000000000000000000000000000000000000000000000000000000
-      000000000000000000000080800000FFFF0000FFFF00008080000080000000FF
-      000000FF00000080000000000000000000000000000000000000000000007A7A
+      0000000000000000000000BFC6009BFBFF009BFBFF000062660000B9000093FF
+      930093FF9300005E000000000000000000000000000000000000000000007A7A
       7A007A7A7A007A7A7A007A7A7A00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
       FF00525252000000000000000000000000000000000000000000000000007A7A
       7A007A7A7A007A7A7A007A7A7A0000FFFF0000FFFF00008080000080800080FF
       FF00525252000000000000000000000000000000000000000000000000000000
       00000000000022D3FF0094F4FF0094F4FF0094F4FF0094F4FF0022D3FF000000
       0000000000000000000000000000000000000000000000000000000000000000
-      000000000000000000000080800000FFFF0000FFFF0000808000000000000080
-      0000008000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000BFC6009BFBFF009BFBFF000062660000B9000000B9
+      000000B90000005E000000000000000000000000000000000000000000000000
       00007A7A7A007A7A7A007A7A7A00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
       FF00525252000000000000000000000000000000000000000000000000000000
       00007A7A7A007A7A7A007A7A7A000080800000FFFF00008080000080800080FF
       FF00525252000000000000000000000000000000000000000000000000000000
       00000000000025D6FF009EF7FF009EF7FF009EF7FF009EF7FF0025D6FF000000
       0000000000000000000000000000000000000000000000000000000000000000
-      000000000000000000000080800000FFFF0000FFFF0000808000000000000000
+      0000000000000000000000BFC6009BFBFF009BFBFF0000626600000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000007A7A7A007A7A7A00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
       FF00525252000000000000000000000000000000000000000000000000000000
@@ -4028,7 +4103,7 @@ object MainForm: TMainForm
       FF00525252000000000000000000000000000000000000000000000000000000
       0000000000000000000027D9FF0027D9FF0027D9FF0027D9FF00000000000000
       0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000008080000080800000000000000000000000
+      0000000000000000000000BFC60000BFC60000BFC60000626600000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       000000000000000000007A7A7A007A7A7A007A7A7A007A7A7A007A7A7A007A7A
       7A00525252000000000000000000000000000000000000000000000000000000
@@ -4435,18 +4510,18 @@ object MainForm: TMainForm
       0000000000000000000000000000000000000000000000000000000000000000
       000000000000000000000000000000000000424D3E000000000000003E000000
       2800000040000000600000000100010000000000000300000000000000000000
-      000000000000000000000000FFFFFF0000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      00000000000000000000000000000000FFFFFFFFFFFF0000FFFFFC03FFFF0000
-      E007FC03E0070000E007FC03E0070000E007FC03E0070000E007C003E0070000
-      E007C003E0070000E007C003E0070000E007C003E0070000E007C003E0070000
-      E007C003E0070000F007C03FF0070000F807C03FF8070000FC07E03FFC070000
-      FFFFF03FFFFF0000FFFFFFFFFFFF0000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-      FC3FE667E007E007F81FC003E007E007F81FC003E007E007E007C003E007E007
-      C003C003E007E007C003C003E007E007C003C003E007E007C003E403E007E007
-      E007FC03E007E007F81FFC27F007F007F81FFC3FF807F807FC3FFE7FFC07FC07
+      000000000000000000000000FFFFFF00FFFFFFFF00000000FFFFFFFF00000000
+      E997C7FF00000000E187C3FF00000000E187C1FF00000000E187E0FF00000000
+      E187F00F00000000FFFFF80700000000E5A7FC0300000000E187FC0300000000
+      E187FC0300000000E187FC0700000000E187FE0F00000000FFFFFF1F00000000
+      FFFFFFFF00000000FFFFFFFF00000000FFFFFFFFFFFFFFFFFFFFFC03FFFFFFFF
+      E007FC03E007C7FFE007FC03E007C443E007FC03E007C7FFE007C003E007C7FF
+      E007C003E007C483E007C003E007C7FFE007C003E007C7FFE007C003E007C443
+      E007C003E007C7FFF007C03FF007C003F807C03FF807C003FC07E03FFC07C003
+      FFFFF03FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FC3FC003E007E007F81FC003E007E007F81FC003E007E007E007C003E007E007
+      C003C003E007E007C003C003E007E007C003C003E007E007C003C003E007E007
+      E007FC03E007E007F81FFC03F007F007F81FFC3FF807F807FC3FFC3FFC07FC07
       FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
       E007E007E007E007C003C003C003C003C003C003C003C003C003C003C003C003
       C003C003C003C003C003C003C003C003C003C003C003C003C003C003C003C003
@@ -4459,8 +4534,7 @@ object MainForm: TMainForm
       E007E007E007E007E007E007E007E007E007E007E007E007E007E007E007E007
       E007E007E007E007E007E007E007E007E007E007E007E007E007E007E007E007
       E007E007E007E007F007F007F007F007F807F807F807F807FC07FC07FC07FC07
-      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF00000000000000000000000000000000
-      000000000000}
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
   end
   object PM_ArchiveTool: TPopupMenu
     Images = ImageList_Archiver
@@ -4601,6 +4675,7 @@ object MainForm: TMainForm
       object M_Arc_Icons: TMenuItem
         AutoCheck = True
         Caption = 'Icons'
+        ImageIndex = 20
         RadioItem = True
         OnClick = M_Arc_IconsClick
       end
@@ -4608,6 +4683,7 @@ object MainForm: TMainForm
         AutoCheck = True
         Caption = 'Report'
         Checked = True
+        ImageIndex = 19
         RadioItem = True
         OnClick = M_Arc_ReportClick
       end

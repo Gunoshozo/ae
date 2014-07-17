@@ -2,15 +2,15 @@ object GrapSForm: TGrapSForm
   Left = 416
   Top = 300
   AutoScroll = False
-  ClientHeight = 541
-  ClientWidth = 703
+  ClientHeight = 601
+  ClientWidth = 781
   Color = clBtnFace
   Constraints.MinHeight = 560
   Constraints.MinWidth = 594
-  Font.Charset = RUSSIAN_CHARSET
+  Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -9
-  Font.Name = 'Lucida Console'
+  Font.Name = 'Tahoma'
   Font.Style = []
   Menu = MainMenu_GrapS
   OldCreateOrder = False
@@ -20,15 +20,15 @@ object GrapSForm: TGrapSForm
   OnPaint = FormPaint
   OnShow = FormShow
   DesignSize = (
-    703
-    541)
+    781
+    601)
   PixelsPerInch = 96
-  TextHeight = 9
+  TextHeight = 11
   object I_Graps_View: TImage
-    Left = 248
+    Left = 276
     Top = 0
-    Width = 454
-    Height = 540
+    Width = 504
+    Height = 600
     Hint = 'Double-click to save...'
     Anchors = [akLeft, akTop, akRight, akBottom]
     ParentShowHint = False
@@ -36,10 +36,10 @@ object GrapSForm: TGrapSForm
     OnDblClick = M_Graps_SaveAsBMPClick
   end
   object Memo_Graps_HowTo: TMemo
-    Left = 256
-    Top = 8
-    Width = 439
-    Height = 524
+    Left = 284
+    Top = 9
+    Width = 488
+    Height = 582
     Anchors = [akLeft, akTop, akRight, akBottom]
     BorderStyle = bsNone
     Color = clBtnFace
@@ -68,92 +68,92 @@ object GrapSForm: TGrapSForm
     WordWrap = False
   end
   object GB_Graps_Image: TGroupBox
-    Left = 8
-    Top = 256
-    Width = 233
-    Height = 249
+    Left = 9
+    Top = 284
+    Width = 259
+    Height = 277
     Caption = ' Image properties '
     TabOrder = 0
     object L_Graps_Width: TLabelW
-      Left = 8
-      Top = 16
-      Width = 217
-      Height = 17
+      Left = 9
+      Top = 18
+      Width = 241
+      Height = 19
       AutoSize = False
       Caption = 'Enter image width:'
     end
     object L_Graps_Height: TLabelW
-      Left = 8
-      Top = 75
-      Width = 217
-      Height = 11
+      Left = 9
+      Top = 83
+      Width = 241
+      Height = 13
       AutoSize = False
       Caption = 'Enter image height:'
     end
     object L_Graps_Bitdepth: TLabelW
-      Left = 8
-      Top = 136
-      Width = 153
-      Height = 17
+      Left = 9
+      Top = 151
+      Width = 170
+      Height = 19
       AutoSize = False
       Caption = 'Select bit resolution:'
     end
     object L_Graps_CalcStrSizeHEX: TLabelW
-      Left = 8
-      Top = 181
-      Width = 113
-      Height = 28
+      Left = 9
+      Top = 201
+      Width = 125
+      Height = 31
       AutoSize = False
       Caption = 'Calculated size (HEX):'
       WordWrap = True
     end
     object Bevel_Graps_1: TBevel
       Left = 1
-      Top = 173
-      Width = 231
+      Top = 192
+      Width = 257
       Height = 2
       Shape = bsTopLine
     end
     object Bevel_Graps_2: TBevel
       Left = 1
-      Top = 215
-      Width = 231
+      Top = 239
+      Width = 257
       Height = 2
       Shape = bsTopLine
     end
     object L_Graps_StreamSizeValue: TLabelW
-      Left = 123
-      Top = 200
-      Width = 99
-      Height = 9
+      Left = 137
+      Top = 222
+      Width = 110
+      Height = 10
       AutoSize = False
       Caption = '0'
     end
     object E_Graps_Width: TEdit
-      Left = 8
-      Top = 32
-      Width = 217
-      Height = 17
+      Left = 9
+      Top = 36
+      Width = 241
+      Height = 19
       TabOrder = 0
       Text = '1'
       OnChange = E_Graps_WidthChange
     end
     object E_Graps_Height: TEdit
-      Left = 8
-      Top = 88
-      Width = 217
-      Height = 17
+      Left = 9
+      Top = 98
+      Width = 241
+      Height = 19
       TabOrder = 1
       Text = '1'
       OnChange = E_Graps_HeightChange
     end
     object CB_Graps_Bitdepth: TComboBox
-      Left = 168
-      Top = 132
-      Width = 57
-      Height = 17
+      Left = 187
+      Top = 147
+      Width = 63
+      Height = 19
       Style = csDropDownList
-      ItemHeight = 9
+      ItemHeight = 11
       ItemIndex = 3
       TabOrder = 2
       Text = '32'
@@ -165,10 +165,10 @@ object GrapSForm: TGrapSForm
         '32')
     end
     object TrackBar_Graps_Width: TTrackBar
-      Left = 8
-      Top = 49
-      Width = 217
-      Height = 25
+      Left = 9
+      Top = 54
+      Width = 241
+      Height = 28
       Max = 8192
       Min = 1
       Position = 1
@@ -178,10 +178,10 @@ object GrapSForm: TGrapSForm
       OnChange = TrackBar_Graps_WidthChange
     end
     object TrackBar_Graps_Height: TTrackBar
-      Left = 8
-      Top = 105
-      Width = 217
-      Height = 25
+      Left = 9
+      Top = 117
+      Width = 241
+      Height = 27
       Max = 8192
       Min = 1
       Position = 1
@@ -191,19 +191,19 @@ object GrapSForm: TGrapSForm
       OnChange = TrackBar_Graps_HeightChange
     end
     object CB_Graps_Stretch: TCheckBox
-      Left = 8
-      Top = 224
-      Width = 217
-      Height = 17
+      Left = 9
+      Top = 249
+      Width = 241
+      Height = 19
       Caption = 'Stretch for viewer'
       TabOrder = 5
       OnClick = CB_Graps_StretchClick
     end
     object E_Graps_StreamSizeValue: TEdit
-      Left = 120
-      Top = 178
-      Width = 105
-      Height = 17
+      Left = 133
+      Top = 198
+      Width = 117
+      Height = 19
       MaxLength = 16
       ReadOnly = True
       TabOrder = 6
@@ -211,10 +211,10 @@ object GrapSForm: TGrapSForm
       OnChange = E_Graps_StreamSizeValueChange
     end
     object CB_Graps_Interleaved: TCheckBox
-      Left = 8
-      Top = 152
-      Width = 217
-      Height = 17
+      Left = 9
+      Top = 169
+      Width = 241
+      Height = 19
       Caption = 'Interleaved image stream'
       Checked = True
       Enabled = False
@@ -225,8 +225,8 @@ object GrapSForm: TGrapSForm
   object PC_Graps_Controls: TPageControl
     Left = 0
     Top = 0
-    Width = 248
-    Height = 256
+    Width = 276
+    Height = 284
     ActivePage = TS_Graps_FileMode
     BiDiMode = bdLeftToRight
     HotTrack = True
@@ -238,137 +238,137 @@ object GrapSForm: TGrapSForm
       object GB_Graps_Seek: TGroupBox
         Left = 4
         Top = 2
-        Width = 233
-        Height = 223
+        Width = 259
+        Height = 248
         Caption = ' Seek control '
         TabOrder = 0
         object L_Graps_Offset: TLabelW
-          Left = 8
-          Top = 16
-          Width = 217
-          Height = 17
+          Left = 9
+          Top = 18
+          Width = 241
+          Height = 19
           AutoSize = False
           Caption = 'Enter beginning offset:'
         end
         object L_Graps_SeekStep: TLabelW
-          Left = 8
-          Top = 56
-          Width = 217
-          Height = 17
+          Left = 9
+          Top = 62
+          Width = 241
+          Height = 19
           AutoSize = False
           Caption = 'Seeking step (for << and >>):'
         end
         object L_Graps_FinalOffsetText: TLabelW
-          Left = 8
-          Top = 168
-          Width = 217
-          Height = 17
+          Left = 9
+          Top = 187
+          Width = 241
+          Height = 19
           AutoSize = False
           Caption = 'Ending offset:'
         end
         object L_Graps_FinalOffset: TLabelW
-          Left = 120
-          Top = 184
-          Width = 105
-          Height = 9
+          Left = 133
+          Top = 204
+          Width = 117
+          Height = 10
           Alignment = taRightJustify
           AutoSize = False
           Caption = '0'
         end
         object E_Graps_Offset: TEdit
-          Left = 8
-          Top = 32
-          Width = 217
-          Height = 17
+          Left = 9
+          Top = 36
+          Width = 241
+          Height = 19
           TabOrder = 0
           Text = '0'
           OnChange = E_Graps_OffsetChange
         end
         object B_Graps_Back2: TButton
-          Left = 38
-          Top = 120
-          Width = 17
-          Height = 17
+          Left = 42
+          Top = 133
+          Width = 19
+          Height = 19
           Caption = '<'
           TabOrder = 1
           OnClick = B_Graps_Back2Click
         end
         object B_Graps_BackSeek: TButton
-          Left = 56
-          Top = 120
-          Width = 17
-          Height = 17
+          Left = 62
+          Top = 133
+          Width = 19
+          Height = 19
           Caption = '<<'
           TabOrder = 2
           OnClick = B_Graps_BackSeekClick
         end
         object B_Graps_JumpUp: TButton
-          Left = 72
-          Top = 96
-          Width = 89
-          Height = 17
+          Left = 80
+          Top = 107
+          Width = 99
+          Height = 19
           Caption = '^ Size ^'
           TabOrder = 3
           OnClick = B_Graps_JumpUpClick
         end
         object B_Graps_NextSeek: TButton
-          Left = 160
-          Top = 120
-          Width = 17
-          Height = 17
+          Left = 178
+          Top = 133
+          Width = 19
+          Height = 19
           Caption = '>>'
           TabOrder = 5
           OnClick = B_Graps_NextSeekClick
         end
         object B_Graps_Next2: TButton
-          Left = 178
-          Top = 120
-          Width = 17
-          Height = 17
+          Left = 198
+          Top = 133
+          Width = 19
+          Height = 19
           Caption = '>'
           TabOrder = 6
           OnClick = B_Graps_Next2Click
         end
         object E_Graps_Step: TEdit
-          Left = 8
-          Top = 72
-          Width = 217
-          Height = 17
+          Left = 9
+          Top = 80
+          Width = 241
+          Height = 19
           TabOrder = 7
           Text = '1024'
         end
         object B_Graps_Back1: TButton
-          Left = 20
-          Top = 120
-          Width = 17
-          Height = 17
+          Left = 22
+          Top = 133
+          Width = 19
+          Height = 19
           Caption = '.'
           TabOrder = 8
           OnClick = B_Graps_Back1Click
         end
         object B_Graps_Next1: TButton
-          Left = 196
-          Top = 120
-          Width = 17
-          Height = 17
+          Left = 218
+          Top = 133
+          Width = 19
+          Height = 19
           Caption = '.'
           TabOrder = 9
           OnClick = B_Graps_Next1Click
         end
         object B_Graps_Reset: TButton
-          Left = 88
-          Top = 120
-          Width = 57
-          Height = 17
+          Left = 98
+          Top = 133
+          Width = 63
+          Height = 19
           Caption = 'RESET'
           TabOrder = 10
           OnClick = B_Graps_ResetClick
         end
         object B_Graps_JumpDown: TButton
-          Left = 72
-          Top = 145
-          Width = 89
-          Height = 16
+          Left = 80
+          Top = 161
+          Width = 99
+          Height = 18
           Caption = 'v Size v'
           TabOrder = 4
           OnClick = B_Graps_JumpDownClick
@@ -382,76 +382,76 @@ object GrapSForm: TGrapSForm
       object CB_Graps_ProcessList: TGroupBox
         Left = 4
         Top = 2
-        Width = 233
-        Height = 225
+        Width = 259
+        Height = 250
         Caption = ' Process list and seeking '
         TabOrder = 0
         object L_Graps_ProcAddressStart: TLabelW
-          Left = 8
-          Top = 132
-          Width = 217
-          Height = 11
+          Left = 9
+          Top = 147
+          Width = 241
+          Height = 12
           AutoSize = False
           Caption = 'Memory address (HEX):'
         end
         object L_Graps_ProcMemError: TLabelW
-          Left = 8
-          Top = 119
-          Width = 217
-          Height = 9
+          Left = 9
+          Top = 132
+          Width = 241
+          Height = 10
           Alignment = taCenter
           AutoSize = False
           Font.Charset = RUSSIAN_CHARSET
           Font.Color = clRed
-          Font.Height = -9
+          Font.Height = -11
           Font.Name = 'Lucida Console'
           Font.Style = []
           ParentFont = False
         end
         object L_Graps_ProcMemCpy: TLabelW
-          Left = 8
-          Top = 165
-          Width = 161
-          Height = 11
+          Left = 9
+          Top = 183
+          Width = 179
+          Height = 13
           AutoSize = False
           Caption = 'Amount to copy (HEX):'
         end
         object LB_Graps_ProcessList: TListBox
-          Left = 8
-          Top = 14
-          Width = 193
-          Height = 105
+          Left = 9
+          Top = 16
+          Width = 214
+          Height = 116
           ItemHeight = 9
           TabOrder = 0
         end
         object E_Graps_ProcStart: TEdit
-          Left = 8
-          Top = 144
-          Width = 104
-          Height = 17
+          Left = 9
+          Top = 160
+          Width = 115
+          Height = 19
           MaxLength = 16
           TabOrder = 1
           Text = '0'
         end
         object B_Graps_CopyProcMem: TButton
-          Left = 176
-          Top = 144
-          Width = 49
-          Height = 50
+          Left = 196
+          Top = 160
+          Width = 54
+          Height = 56
           Caption = 'Grab memory'
           TabOrder = 2
           WordWrap = True
           OnClick = B_Graps_CopyProcMemClick
         end
         object B_Graps_ProcListRefresh: TButton
-          Left = 204
-          Top = 14
-          Width = 21
-          Height = 106
+          Left = 227
+          Top = 16
+          Width = 23
+          Height = 117
           Caption = 'REFRESH'
           Font.Charset = RUSSIAN_CHARSET
           Font.Color = clWindowText
-          Font.Height = -11
+          Font.Height = -12
           Font.Name = 'Lucida Console'
           Font.Style = []
           ParentFont = False
@@ -460,56 +460,56 @@ object GrapSForm: TGrapSForm
           OnClick = TS_Graps_ProcessListShow
         end
         object E_Graps_ProcMemAmount: TEdit
-          Left = 8
-          Top = 177
-          Width = 104
-          Height = 17
+          Left = 9
+          Top = 197
+          Width = 115
+          Height = 19
           MaxLength = 16
           TabOrder = 4
           Text = '0'
         end
         object B_Graps_MemCpyFromCalc: TButton
-          Left = 112
-          Top = 177
-          Width = 57
-          Height = 17
+          Left = 124
+          Top = 197
+          Width = 64
+          Height = 19
           Caption = 'Get'
           TabOrder = 5
           OnClick = B_Graps_MemCpyFromCalcClick
         end
         object B_Graps_MemAddrPaste: TButton
-          Left = 112
-          Top = 144
-          Width = 57
-          Height = 17
+          Left = 124
+          Top = 160
+          Width = 64
+          Height = 19
           Caption = 'Paste'
           TabOrder = 6
           OnClick = B_Graps_MemAddrPasteClick
         end
         object CB_Graps_MemoryAutoCpy: TCheckBox
-          Left = 8
-          Top = 195
-          Width = 161
-          Height = 28
+          Left = 9
+          Top = 217
+          Width = 179
+          Height = 31
           Caption = 'Automatically grab every...'
           TabOrder = 7
           WordWrap = True
           OnClick = CB_Graps_MemoryAutoCpyClick
         end
         object E_Graps_CpyAutoRef: TEdit
-          Left = 176
-          Top = 200
-          Width = 39
-          Height = 17
+          Left = 196
+          Top = 222
+          Width = 43
+          Height = 19
           ReadOnly = True
           TabOrder = 8
           Text = '500'
         end
         object UD_Graps_AutoMemRef: TUpDown
-          Left = 215
-          Top = 200
-          Width = 12
-          Height = 17
+          Left = 239
+          Top = 222
+          Width = 13
+          Height = 19
           Associate = E_Graps_CpyAutoRef
           Min = 5
           Max = 32767

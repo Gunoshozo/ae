@@ -1,6 +1,6 @@
 {
   AE - VN Tools
-  © 2007-2013 WinKiller Studio and The Contributors.
+  © 2007-2014 WinKiller Studio and The Contributors.
   This software is free. Please see License for details.
 
   Translation library strings module
@@ -487,6 +487,10 @@ begin
  SetLength(Joke,0); // resetting length
 
  JokeAdd(AMS[CAppMessage]);
+ JokeAdd('Smoke weed every day.');
+ JokeAdd('Legalize marijuana!');
+ JokeAdd('Dakara HI HI HI~');
+ JokeAdd('So much CATNIP~');
  JokeAdd('GLUB GLUB. Gone fishing.');
  JokeAdd('UgUU~! ^m^');
  JokeAdd('So long, and thanks for all the fish.');

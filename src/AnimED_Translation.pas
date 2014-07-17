@@ -215,61 +215,61 @@ begin
    end;}
 
  { New experimental translation code }
-   for i := 0 to pred(Form.ComponentCount) do begin
-    NameStr := LS(Form.Components[I].Name);
-    HintStr := LS(Form.Components[I].Name+'.Hint');
-    NameTag := Form.Components[i].Tag;
+   for i := 0 to pred(ComponentCount) do begin
+    NameStr := LS(Components[I].Name);
+    HintStr := LS(Components[I].Name+'.Hint');
+    NameTag := Components[i].Tag;
 
 //  Application.ProcessMessages;
 
     if (NameTag > -1) and ((NameStr <> '') or (HintStr <> '')) then try
-     if Form.Components[i] is TTabSheet    then begin
-      (Form.Components[i] as TTabSheet).Caption         := NameStr;
+     if Components[i] is TTabSheet    then begin
+      (Components[i] as TTabSheet).Caption         := NameStr;
      end;
-     if Form.Components[i] is TGroupBox    then begin
-      (Form.Components[i] as TGroupBox).Caption         := #32+NameStr+#32; // fixes problem with non-breakable spaces under Japanese locale
+     if Components[i] is TGroupBox    then begin
+      (Components[i] as TGroupBox).Caption         := #32+NameStr+#32; // fixes problem with non-breakable spaces under Japanese locale
      end;
-     if Form.Components[i] is TSpeedButton then begin
-      (Form.Components[i] as TSpeedButton).Caption      := NameStr;
-      (Form.Components[i] as TSpeedButton).Hint         := HintStr;
+     if Components[i] is TSpeedButton then begin
+      (Components[i] as TSpeedButton).Caption      := NameStr;
+      (Components[i] as TSpeedButton).Hint         := HintStr;
      end;
-     if Form.Components[i] is TToolButton then begin
+     if Components[i] is TToolButton then begin
       // The absense of caption distorts tool buttons. Stupid VCL is stupid. >_<
       // Commented out due to tons of misalignment and misresizing errors. Stupid VCL is fwapping stupid. T-T
       {if NameStr <> '' then begin
-       (Form.Components[i] as TToolButton).Caption       := NameStr;
+       (Components[i] as TToolButton).Caption       := NameStr;
       end;}
-      (Form.Components[i] as TToolButton).Hint          := HintStr;
+      (Components[i] as TToolButton).Hint          := HintStr;
      end;
-     if Form.Components[i] is TJvArrowButton then begin
-      (Form.Components[i] as TJvArrowButton).Caption    := NameStr;
-      (Form.Components[i] as TJvArrowButton).Hint       := HintStr;
+     if Components[i] is TJvArrowButton then begin
+      (Components[i] as TJvArrowButton).Caption    := NameStr;
+      (Components[i] as TJvArrowButton).Hint       := HintStr;
      end;
-     if Form.Components[i] is TButton      then begin
-      (Form.Components[i] as TButton).Caption           := NameStr;
-      (Form.Components[i] as TButton).Hint              := HintStr;
+     if Components[i] is TButton      then begin
+      (Components[i] as TButton).Caption           := NameStr;
+      (Components[i] as TButton).Hint              := HintStr;
      end;
-     if Form.Components[i] is TRadioButton then begin
-      (Form.Components[i] as TRadioButton).Caption      := NameStr;
-      (Form.Components[i] as TRadioButton).Hint         := HintStr;
+     if Components[i] is TRadioButton then begin
+      (Components[i] as TRadioButton).Caption      := NameStr;
+      (Components[i] as TRadioButton).Hint         := HintStr;
      end;
-     if Form.Components[i] is TCheckBox    then begin
-      (Form.Components[i] as TCheckBox).Caption         := NameStr;
-      (Form.Components[i] as TCheckBox).Hint            := HintStr;
+     if Components[i] is TCheckBox    then begin
+      (Components[i] as TCheckBox).Caption         := NameStr;
+      (Components[i] as TCheckBox).Hint            := HintStr;
      end;
-     if Form.Components[i] is TComboBox    then begin
+     if Components[i] is TComboBox    then begin
 // if we'll uncomment this, we'll destroy all data we had in the particular ComboBox
-//    (Form.Components[i] as TComboBox).Caption         := NameStr;
-      (Form.Components[i] as TComboBox).Hint            := HintStr;
+//    (Components[i] as TComboBox).Caption         := NameStr;
+      (Components[i] as TComboBox).Hint            := HintStr;
      end;
-     if Form.Components[i] is TLabel       then begin
-      (Form.Components[i] as TLabel).Caption            := NameStr;
+     if Components[i] is TLabel       then begin
+      (Components[i] as TLabel).Caption            := NameStr;
      end;
-     if Form.Components[i] is TLabelW      then begin
-      (Form.Components[i] as TLabelW).Caption            := NameStr;
+     if Components[i] is TLabelW      then begin
+      (Components[i] as TLabelW).Caption            := NameStr;
      end;
-     if Form.Components[i] is TMenuItem    then begin
-      (Form.Components[i] as TMenuItem).Caption         := NameStr;
+     if Components[i] is TMenuItem    then begin
+      (Components[i] as TMenuItem).Caption         := NameStr;
      end;
     except
     end;

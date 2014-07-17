@@ -110,8 +110,8 @@ IncludeVerInfo=1
 AutoIncBuild=0
 MajorVer=0
 MinorVer=6
-Release=9
-Build=419
+Release=10
+Build=420
 Debug=0
 PreRelease=0
 Special=0
@@ -120,37 +120,15 @@ DLL=0
 Locale=1049
 CodePage=1251
 [Version Info Keys]
-CompanyName=WinKiller Studio
+CompanyName=WKStudio
 FileDescription=AE - VN Tools
-FileVersion=0.6.9.419
+FileVersion=0.6.10.420
 InternalName=AE.exe
-LegalCopyright=© 2007-2013 WinKiller Studio and The Contributors.
+LegalCopyright=© 2007-2014 WKStudio and The Contributors.
 LegalTrademarks=This software is free. Please see License for details.
 OriginalFilename=Ever17ED.exe
 ProductName=Unofficial VN SDK
-ProductVersion=2014.07.11
+ProductVersion=2014.07.17
 Comments=Meow meow meow~ :3
-[HistoryLists\hlDebugSourcePath]
-Count=5
-Item0=.\format\archives;.\format\graphics;.\format;.\lib\pngobject;.\lib\gifimage;.\lib;.\lib\_jiskit\Unicode dialogs;.\lib\pngobject\obj;.\lib\_jiskit\Unicode components\
-Item1=.\format\archives;.\format\graphics;.\format;.\lib\pngobject;.\lib\gifimage;.\lib;.\lib\_jiskit\Unicode dialogs;.\lib\pngobject\obj
-Item2=.\format\archives;.\format\graphics;.\format;.\lib\pngobject;.\lib\gifimage;.\lib;.\lib\zlibex;.\lib\_jiskit\Unicode dialogs;.\lib\pngobject\obj
-Item3=.\format\archives;.\format\graphics;.\format;.\lib\pngobject;.\lib\gifimage;.\lib;.\lib\zlibex;.\lib\_jiskit\Unicode dialogs
-Item4=.\format\archives;.\format\graphics;.\format;.\lib\pngobject;.\lib\gifimage;.\lib;.\lib\zlibex
-[HistoryLists\hlUnitAliases]
-Count=1
-Item0=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
-[HistoryLists\hlSearchPath]
-Count=6
-Item0=.\format\archives;.\format\graphics;.\format;.\lib\pngobject;.\lib\gifimage;.\lib;.\lib\_jiskit\Unicode dialogs;.\lib\pngobject\obj;.\lib\_jiskit\Unicode components;.\lib\credits;.\lib\delphix\Source
-Item1=.\format\archives;.\format\graphics;.\format;.\lib\pngobject;.\lib\gifimage;.\lib;.\lib\_jiskit\Unicode dialogs;.\lib\pngobject\obj;.\lib\_jiskit\Unicode components;.\lib\credits
-Item2=.\format\archives;.\format\graphics;.\format;.\lib\pngobject;.\lib\gifimage;.\lib;.\lib\_jiskit\Unicode dialogs;.\lib\pngobject\obj;.\lib\_jiskit\Unicode components
-Item3=.\format\archives;.\format\graphics;.\format;.\lib\pngobject;.\lib\gifimage;.\lib;.\lib\zlibex;.\lib\_jiskit\Unicode dialogs;.\lib\pngobject\obj
-Item4=.\format\archives;.\format\graphics;.\format;.\lib\pngobject;.\lib\gifimage;.\lib;.\lib\zlibex;.\lib\_jiskit\Unicode dialogs
-Item5=.\format\archives;.\format\graphics;.\format;.\lib\pngobject;.\lib\gifimage;.\lib;.\lib\zlibex
-[HistoryLists\hlUnitOutputDirectory]
-Count=1
-Item0=.\precompiled
-[HistoryLists\hlOutputDirectorry]
-Count=1
-Item0=..\
+[Excluded Packages]
+c:\borland\delphi7\Projects\Bpl\PngComponentsD7D.bpl=Png components designtime
