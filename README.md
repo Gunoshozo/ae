@@ -19,7 +19,7 @@ Online manual: http://wks.arai-kibou.ru/ae.php?p=docu
 Donation info: http://wks.arai-kibou.ru/donate.php
 
 
-## Depencence
+## Dependence
 
 - `JCL/JVCL - TJVArrowButton` Project JEDI (will be deleted entirely in 0.7.0)
 - `JISKit` unicode/shift-jis components developed by Proger_XP
