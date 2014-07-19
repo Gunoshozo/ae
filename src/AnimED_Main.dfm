@@ -571,7 +571,7 @@ object MainForm: TMainForm
                 MaxWidth = 78
                 MinWidth = 78
               end>
-            Font.Charset = RUSSIAN_CHARSET
+            Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -11
             Font.Name = 'Tahoma'
@@ -615,7 +615,7 @@ object MainForm: TMainForm
           Anchors = [akTop, akRight]
           Caption = 'Close archive'
           Flat = True
-          Font.Charset = RUSSIAN_CHARSET
+          Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -9
           Font.Name = 'Tahoma'
@@ -635,7 +635,7 @@ object MainForm: TMainForm
           Anchors = [akLeft, akTop, akBottom]
           Caption = 'Extract all files'
           Flat = True
-          Font.Charset = RUSSIAN_CHARSET
+          Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -9
           Font.Name = 'Tahoma'
@@ -655,7 +655,7 @@ object MainForm: TMainForm
           Anchors = [akLeft, akTop, akBottom]
           Caption = 'Extract selected'
           Flat = True
-          Font.Charset = RUSSIAN_CHARSET
+          Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -9
           Font.Name = 'Tahoma'
@@ -675,7 +675,7 @@ object MainForm: TMainForm
           Anchors = [akLeft, akTop, akBottom]
           Caption = 'Open archive'
           Flat = True
-          Font.Charset = RUSSIAN_CHARSET
+          Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -9
           Font.Name = 'Tahoma'
@@ -723,7 +723,7 @@ object MainForm: TMainForm
         Style = csDropDownList
         Anchors = [akLeft, akTop, akRight]
         DropDownCount = 32
-        Font.Charset = RUSSIAN_CHARSET
+        Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Lucida Console'
@@ -867,7 +867,7 @@ object MainForm: TMainForm
           Anchors = [akLeft, akTop, akBottom]
           Caption = 'Open audio file'
           Flat = True
-          Font.Charset = RUSSIAN_CHARSET
+          Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -9
           Font.Name = 'Tahoma'
@@ -887,7 +887,7 @@ object MainForm: TMainForm
           Anchors = [akLeft, akTop, akBottom]
           Caption = 'Convert file to...'
           Flat = True
-          Font.Charset = RUSSIAN_CHARSET
+          Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -9
           Font.Name = 'Tahoma'
@@ -907,7 +907,7 @@ object MainForm: TMainForm
           Anchors = [akTop, akRight, akBottom]
           Caption = 'Batch conversion'
           Flat = True
-          Font.Charset = RUSSIAN_CHARSET
+          Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -9
           Font.Name = 'Tahoma'
@@ -1797,7 +1797,7 @@ object MainForm: TMainForm
           BiDiMode = bdLeftToRight
           Caption = 'Open picture file'
           Flat = True
-          Font.Charset = RUSSIAN_CHARSET
+          Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -9
           Font.Name = 'Tahoma'
@@ -1818,7 +1818,7 @@ object MainForm: TMainForm
           Anchors = [akLeft, akTop, akBottom]
           Caption = 'Save picture...'
           Flat = True
-          Font.Charset = RUSSIAN_CHARSET
+          Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -9
           Font.Name = 'Tahoma'
@@ -1838,7 +1838,7 @@ object MainForm: TMainForm
           Anchors = [akLeft, akTop, akBottom]
           Caption = 'Save w/o alpha...'
           Flat = True
-          Font.Charset = RUSSIAN_CHARSET
+          Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -9
           Font.Name = 'Tahoma'
@@ -1858,7 +1858,7 @@ object MainForm: TMainForm
           Anchors = [akLeft, akTop, akBottom]
           Caption = 'Save alpha...'
           Flat = True
-          Font.Charset = RUSSIAN_CHARSET
+          Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -9
           Font.Name = 'Tahoma'
@@ -1878,7 +1878,7 @@ object MainForm: TMainForm
           Anchors = [akTop, akRight, akBottom]
           Caption = 'Batch conversion'
           Flat = True
-          Font.Charset = RUSSIAN_CHARSET
+          Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -9
           Font.Name = 'Tahoma'
@@ -1898,7 +1898,7 @@ object MainForm: TMainForm
           Anchors = [akTop, akRight, akBottom]
           Caption = 'GrapS - RAW reader'
           Flat = True
-          Font.Charset = RUSSIAN_CHARSET
+          Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -9
           Font.Name = 'Tahoma'
@@ -1921,7 +1921,7 @@ object MainForm: TMainForm
         Style = csDropDownList
         Anchors = [akLeft, akTop, akRight]
         DropDownCount = 256
-        Font.Charset = RUSSIAN_CHARSET
+        Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Lucida Console'
@@ -1962,7 +1962,7 @@ object MainForm: TMainForm
           BiDiMode = bdLeftToRight
           Caption = 'Open script file'
           Flat = True
-          Font.Charset = RUSSIAN_CHARSET
+          Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -9
           Font.Name = 'Tahoma'
@@ -1982,7 +1982,7 @@ object MainForm: TMainForm
           Anchors = [akLeft, akTop, akBottom]
           Caption = 'Save decompiled'
           Flat = True
-          Font.Charset = RUSSIAN_CHARSET
+          Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -9
           Font.Name = 'Tahoma'
@@ -2001,7 +2001,7 @@ object MainForm: TMainForm
           Anchors = [akTop, akRight, akBottom]
           Caption = 'Batch compile'
           Flat = True
-          Font.Charset = RUSSIAN_CHARSET
+          Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -9
           Font.Name = 'Tahoma'
@@ -2020,7 +2020,7 @@ object MainForm: TMainForm
           Anchors = [akTop, akRight, akBottom]
           Caption = 'Compile'
           Flat = True
-          Font.Charset = RUSSIAN_CHARSET
+          Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -9
           Font.Name = 'Tahoma'
@@ -2039,7 +2039,7 @@ object MainForm: TMainForm
           Anchors = [akTop, akRight, akBottom]
           Caption = 'Batch decompile'
           Flat = True
-          Font.Charset = RUSSIAN_CHARSET
+          Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -9
           Font.Name = 'Tahoma'
@@ -2062,7 +2062,7 @@ object MainForm: TMainForm
         Style = csDropDownList
         Anchors = [akTop, akRight]
         DropDownCount = 32
-        Font.Charset = RUSSIAN_CHARSET
+        Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Lucida Console'
@@ -2298,7 +2298,7 @@ object MainForm: TMainForm
           Anchors = [akLeft, akTop, akBottom]
           Caption = 'Bruteforce bytes'
           Flat = True
-          Font.Charset = RUSSIAN_CHARSET
+          Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -9
           Font.Name = 'Tahoma'
@@ -2318,7 +2318,7 @@ object MainForm: TMainForm
           Anchors = [akLeft, akTop, akBottom]
           Caption = 'Process data'
           Flat = True
-          Font.Charset = RUSSIAN_CHARSET
+          Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -9
           Font.Name = 'Tahoma'
@@ -2338,7 +2338,7 @@ object MainForm: TMainForm
           Anchors = [akLeft, akTop, akBottom]
           Caption = 'Batch processing'
           Flat = True
-          Font.Charset = RUSSIAN_CHARSET
+          Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -9
           Font.Name = 'Tahoma'
@@ -2358,7 +2358,7 @@ object MainForm: TMainForm
           Anchors = [akLeft, akTop, akBottom]
           Caption = 'Open file'
           Flat = True
-          Font.Charset = RUSSIAN_CHARSET
+          Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -9
           Font.Name = 'Tahoma'
@@ -2377,7 +2377,7 @@ object MainForm: TMainForm
           Anchors = [akTop, akRight, akBottom]
           Caption = 'Close file'
           Flat = True
-          Font.Charset = RUSSIAN_CHARSET
+          Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -9
           Font.Name = 'Tahoma'
@@ -2600,7 +2600,7 @@ object MainForm: TMainForm
           BiDiMode = bdLeftToRight
           Caption = 'Compile from list'
           Flat = True
-          Font.Charset = RUSSIAN_CHARSET
+          Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -9
           Font.Name = 'Tahoma'
@@ -2621,7 +2621,7 @@ object MainForm: TMainForm
           Anchors = [akTop, akRight, akBottom]
           Caption = 'Save text'
           Flat = True
-          Font.Charset = RUSSIAN_CHARSET
+          Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -9
           Font.Name = 'Tahoma'
@@ -2641,7 +2641,7 @@ object MainForm: TMainForm
           Anchors = [akLeft, akTop, akBottom]
           Caption = 'Import data chunks'
           Flat = True
-          Font.Charset = RUSSIAN_CHARSET
+          Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -9
           Font.Name = 'Tahoma'
@@ -2661,7 +2661,7 @@ object MainForm: TMainForm
           Anchors = [akLeft, akTop, akBottom]
           Caption = 'Export data chunks'
           Flat = True
-          Font.Charset = RUSSIAN_CHARSET
+          Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -9
           Font.Name = 'Tahoma'
@@ -2683,7 +2683,7 @@ object MainForm: TMainForm
           BiDiMode = bdLeftToRight
           Caption = 'Open scenario file'
           Flat = True
-          Font.Charset = RUSSIAN_CHARSET
+          Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -9
           Font.Name = 'Tahoma'
@@ -3051,7 +3051,7 @@ object MainForm: TMainForm
         Width = 641
         Height = 21
         Anchors = [akLeft, akRight, akBottom]
-        Font.Charset = RUSSIAN_CHARSET
+        Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
@@ -3595,7 +3595,7 @@ object MainForm: TMainForm
       BorderStyle = bsNone
       Color = clWhite
       ForeColor = 13665296
-      Font.Charset = RUSSIAN_CHARSET
+      Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -9
       Font.Name = 'Tahoma'
@@ -3614,7 +3614,7 @@ object MainForm: TMainForm
       Width = 46
       Height = 13
       Caption = 'Processing:'
-      Font.Charset = RUSSIAN_CHARSET
+      Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -9
       Font.Name = 'Tahoma'
@@ -3634,7 +3634,7 @@ object MainForm: TMainForm
       Anchors = [akLeft, akTop, akRight]
       AutoSize = False
       Caption = '0 / 0'
-      Font.Charset = RUSSIAN_CHARSET
+      Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -9
       Font.Name = 'Tahoma'

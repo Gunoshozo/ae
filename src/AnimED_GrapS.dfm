@@ -401,7 +401,7 @@ object GrapSForm: TGrapSForm
           Height = 10
           Alignment = taCenter
           AutoSize = False
-          Font.Charset = RUSSIAN_CHARSET
+          Font.Charset = DEFAULT_CHARSET
           Font.Color = clRed
           Font.Height = -11
           Font.Name = 'Lucida Console'
@@ -449,7 +449,7 @@ object GrapSForm: TGrapSForm
           Width = 23
           Height = 117
           Caption = 'REFRESH'
-          Font.Charset = RUSSIAN_CHARSET
+          Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -12
           Font.Name = 'Lucida Console'

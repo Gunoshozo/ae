@@ -409,7 +409,7 @@ object FileInfo_Form: TFileInfo_Form
         Anchors = [akLeft, akTop, akRight]
         AutoSize = False
         Caption = 'Archive format IDS'
-        Font.Charset = RUSSIAN_CHARSET
+        Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Tahoma'
@@ -726,7 +726,7 @@ object FileInfo_Form: TFileInfo_Form
           Height = 21
           Anchors = [akLeft, akTop, akRight]
           Color = clBtnFace
-          Font.Charset = RUSSIAN_CHARSET
+          Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
           Font.Height = -11
           Font.Name = 'Tahoma'
