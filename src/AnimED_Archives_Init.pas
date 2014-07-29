@@ -1,6 +1,6 @@
 {
   AE - VN Tools
-  © 2007-2013 WinKiller Studio and The Contributors.
+  © 2007-2014 WinKiller Studio and The Contributors.
   This software is free. Please see License for details.
 
   Archive format initialisation
@@ -94,6 +94,7 @@ uses AA_RFA, // main module
      AA_RPA_RenPy,
      AA_RPD_Rejet,             // 2011/05/06
      AA_SOFTPAL,               // 2010/07/02
+     AA_STR_Petka,             // 2014/07/22
      AA_SZDD,
      AA_SZS_UnicornA,          // 2011/11/12
      AA_TIM2_ARC,              // 2010/06/09
@@ -273,6 +274,7 @@ begin
  AFAdd(IA_IMG_GTA3v2);
  AFAdd(IA_DAT_MC2v1);
  AFAdd(IA_DAT_MC2v2);
+ AFAdd(IA_STR_Petka);          // 2014/07/22
 
  { Read-only just for fun }
 // AFAdd(IA_IMG_Futurama);

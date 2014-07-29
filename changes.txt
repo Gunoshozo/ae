@@ -1,5 +1,7 @@
-  0.6.10.420 (2014.07.17) r81
+  0.6.10.420 (2014.07.22) r81
   =======================
+
+   + Added full StOR "Petka & Vasilij Ivanovich Spasayut Galactiku" archive format support (request and specs from Nik)
 
    ! In attempt to fix improperly displayed interface under non-western locale, internal Helv substitute font and Lucida Console replaced with Tahoma
 
