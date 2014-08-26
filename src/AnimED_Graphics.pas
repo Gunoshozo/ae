@@ -40,6 +40,7 @@ uses Classes, Sysutils, Graphics, IniFiles, pngimage, FileStreamJ,
      AG_YGA_YGM,
      AG_Burns_EENC_PNG,
      AG_AtelierKaguya_PRS,
+     AG_YURIS_YCG,
      _AG_CV2,
 
      AA_RFA;
@@ -107,6 +108,7 @@ begin
   IFADD(IG_EENC_PNG);
   IFADD(IG_PRS);
   IFADD(IG_CV2);
+  IFADD(IG_YURIS_YCG);
 
   FormatList := TStringList.Create;
   for i := 0 to Length(ImFormats)-1 do begin

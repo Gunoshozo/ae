@@ -710,12 +710,12 @@ begin
   Column[0].Width := NewWidth;
   Column[0].MinWidth := NewWidth;
  end;
- with MainForm.LV_ArcFmt do begin
+{ with MainForm.LV_ArcFmt do begin
   NewWidth := Width - 25;
   for i := 1 to Columns.Count-1 do dec(NewWidth,Column[i].MinWidth);
   Column[1].Width := NewWidth;
   Column[1].MinWidth := NewWidth;
- end;
+ end; }
 end;
 
 procedure Convert_MultipleImages;
@@ -855,19 +855,27 @@ begin
  { Starting up... }
  MainForm.Caption := Application.Title + ' "' + RandomJoke + '"';
 
-{ Display about box. Fixes random design issues... :) }
-  TS_About.Show;
+ { Make sure the active tabs are in order }
+ TS_Arc_FileExtraction.Show;
+ TS_ArchiveInterface.Show;
+ TS_EDGE_All.Show;
+ TS_EDGE.Show;
+ TS_PC_CoreLang.Show;
+
+ { Show about box }
+ TS_About.Show;
 
  Core_GUI_ArcClearInfo;
  CleanupInfo_Audio;
  CleanupInfo_Picture;
 
-{ Allright, here we go! }
+ { Allright, here we go! }
  LogM(Application.Title+' '+AMS[AStartedAt]+' '+DateToStr(Date)+' '+TimeToStr(Time)+' -- '+SystemInformation);
 
  // Welcome message
  LogI(AMS[CAppMessage]);
 
+ { Show "Unsupported OS" message }
  L_UnsupportedOS.Visible := isVista78;
 
  CMDParsed := False;

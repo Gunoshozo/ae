@@ -35,6 +35,7 @@ uses AA_RFA,
  procedure IA_YPF_YURIS_v290_34(var ArcFormat : TArcFormats; index : integer);
  procedure IA_YPF_YURIS_v290_C0(var ArcFormat : TArcFormats; index : integer);
  procedure IA_YPF_YURIS_v300(var ArcFormat : TArcFormats; index : integer);
+ procedure IA_YPF_YURIS_v490(var ArcFormat : TArcFormats; index : integer);
  procedure IA_YPF_YURIS_v222z(var ArcFormat : TArcFormats; index : integer);
  procedure IA_YPF_YURIS_v224z(var ArcFormat : TArcFormats; index : integer);
  procedure IA_YPF_YURIS_v238z(var ArcFormat : TArcFormats; index : integer);
@@ -45,25 +46,15 @@ uses AA_RFA,
  procedure IA_YPF_YURIS_v290z_34(var ArcFormat : TArcFormats; index : integer);
  procedure IA_YPF_YURIS_v290z_C0(var ArcFormat : TArcFormats; index : integer);
  procedure IA_YPF_YURIS_v300z(var ArcFormat : TArcFormats; index : integer);
+ procedure IA_YPF_YURIS_v490z(var ArcFormat : TArcFormats; index : integer);
 
  procedure IA_YPF_YURIS_Auto(var ArcFormat : TArcFormats; index : integer);
-
-{ function OA_YPF_YURIS_v222 : boolean;
-  function OA_YPF_YURIS_v224 : boolean;
-  function OA_YPF_YURIS_v238 : boolean;
-  function OA_YPF_YURIS_v247 : boolean;
-  function OA_YPF_YURIS_v255 : boolean;
-  function OA_YPF_YURIS_v286 : boolean;
-  function OA_YPF_YURIS_v287 : boolean;
-  function OA_YPF_YURIS_v290_34 : boolean;
-  function OA_YPF_YURIS_v290_C0 : boolean;
-  function OA_YPF_YURIS_v300 : boolean;}
 
   function OA_YPF_YURIS_Auto : boolean;
 
   function OA_YPF_YURIS(Mode : integer = $FFFF; ExtraKey : byte = $FF) : boolean;
   function SA_YPF_YURIS(Mode : integer) : boolean;
-  function EA_YPF_YURIS(FileRecord : TRFA) : boolean;
+//  function EA_YPF_YURIS(FileRecord : TRFA) : boolean;
 
   function YURIS_CryptLen(CurValue : byte; Version : longword) : byte;
 
@@ -86,13 +77,19 @@ type
  TYPFDir = packed record
   Filetype  : byte; // 0x0F7: 0-ybn, 1-bmp, 2-png, 3-jpg, 4-gif, 5-avi, 6-wav, 7-ogg, 8-psd
                     // 0x122: 0-ybn, 1-bmp, 2-png, 3-jpg, 4-gif, 5-wav, 6-ogg, 7-psd
+                    // 0x1EA: 0-ybn, 1-bmp, 2-png, 3-jpg, 4-gif, 5-wav, 6-ogg  7-psd, 8-ycg
   ZlibFlag  : byte; // 1 - compressed with zlib
   FileSize  : longword; // file size
   CFileSize : longword; // compressed file size
-  Offset    : longword; // file offset
+ end;
+ TYPFDir32 = packed record // part prior to 490
+  Offset    : longword; // 32-bit file offset
   CAdler32  : longword; // packed file checksum
  end;
-
+ TYPFDir64 = packed record // found in 490
+  Offset    : int64;    // 64-bit file offset
+  CAdler32  : longword; // packed file checksum
+ end;
  TYPFRecoveryRecord = packed record
   BlockSize  : longword; // length of recovery record block (usually 0x400)
   BlockNum   : longword; // number of blocks
@@ -104,8 +101,11 @@ type
 const
   YURIS_FT : array[0..8] of string = ('.ybn','.bmp','.png','.jpg','.gif','.avi','.wav','.ogg','.psd');
   YURIS_FT_New : array[0..7] of string = ('.ybn','.bmp','.png','.jpg','.gif','.wav','.ogg','.psd');
+  // Notes about 490:
+  // * ycg is a proprietary image format with zlib container. The files are renamed to .png
+  YURIS_FT_490 : array[0..8] of string = ('.ybn','.bmp','.png','.jpg','.gif','.wav','.ogg','.psd','.ycg');
 
-  ypf_yuris_ver = $20100905;
+  ypf_yuris_ver = $20140825;
   ypf_yuris_id  = 'YU-RIS Game Engine';
   ypf_ext = '.ypf';
 
@@ -122,7 +122,7 @@ begin
   Stat := $F;
   Open := OA_YPF_YURIS_Auto;
   Save := SA_YPF_YURIS;
-  Extr := EA_YPF_YURIS;
+  Extr := EA_zlib;
   FLen := $FF;
 //  SArg := $0;
   Ver  := ypf_yuris_ver;
@@ -289,6 +289,22 @@ begin
  end;
 end;
 
+procedure IA_YPF_YURIS_v490;
+begin
+ with ArcFormat do begin
+  ID   := index;
+  IDS  := ypf_yuris_id+' v490 (0xFF)';
+  Ext  := ypf_ext;
+  Stat := $5;
+  Open := OA_Dummy;
+  Save := SA_YPF_YURIS;
+  Extr := EA_Dummy;
+  FLen := $FF;
+  SArg := $FF01EA;
+  Ver  := ypf_yuris_ver;
+ end;
+end;
+
 procedure IA_YPF_YURIS_v222z;
 begin
  with ArcFormat do begin
@@ -449,6 +465,22 @@ begin
  end;
 end;
 
+procedure IA_YPF_YURIS_v490z;
+begin
+ with ArcFormat do begin
+  ID   := index;
+  IDS  := ypf_yuris_id+' v490 (0xFF) +zlib';
+  Ext  := ypf_ext;
+  Stat := $5;
+  Open := OA_Dummy;
+  Save := SA_YPF_YURIS;
+  Extr := EA_Dummy;
+  FLen := $FF;
+  SArg := $FF11EA;
+  Ver  := ypf_yuris_ver;
+ end;
+end;
+
 function OA_YPF_YURIS_Auto; begin Result := OA_YPF_YURIS($FFFF,$0); end;
 
 function OA_YPF_YURIS;
@@ -457,6 +489,8 @@ var i,j,k : integer;
     Hdr    : TYPFHeader;
     DirHdr : TYPFDirHeader;
     Dir    : TYPFDir;
+    Dir32  : TYPFDir32; // 32-bit offset
+    Dir64  : TYPFDir64; // 64-bit offset
     RecRec : TYPFRecoveryRecord;
     FileName : array of char;
 begin
@@ -522,28 +556,45 @@ begin
 
     SetLength(FileName,0);
 
+    //DEBUG
+    Log(RFA[i].RFA_3+' : '+inttostr(EncFNLen xor $FF));
+
    end;
 
    Read(Dir,SizeOf(Dir)); // the rest of file table
 
-   with Dir, RFA[i] do begin
-
-    RFA_1 := Offset;
-    RFA_2 := FileSize;
-    RFA_C := CFileSize;
-    RFA_X := acZlib;
-    RFA_Z := boolean(ZlibFlag);
-    RFA_T[0][1] := inttohex(CAdler32,8);
-
-    case Hdr.Version of
-     $100..$12C : RFA_T[0][2] := YURIS_FT_New[FileType];
-     else         RFA_T[0][2] := YURIS_FT[FileType];
-    end;
-
+   if Hdr.Version < $1EA then begin
+    Read(Dir32,SizeOf(Dir32));
+   end else begin
+    Read(Dir64,SizeOf(Dir64));
    end;
 
+   with RFA[i] do begin
+    with Dir do begin
+     //DEBUG
+     Log('--- '+inttostr(Filetype));
+
+     RFA_2 := FileSize;
+     RFA_C := CFileSize;
+     RFA_X := acZlib;
+     RFA_Z := boolean(ZlibFlag);
+     case Hdr.Version of
+      $100..$12C : RFA_T[0][2] := YURIS_FT_New[FileType];
+      $1EA       : RFA_T[0][2] := YURIS_FT_490[FileType];
+      else         RFA_T[0][2] := YURIS_FT[FileType];
+     end;
+    end;
+    if Hdr.Version < $1EA then with Dir32 do begin
+     RFA_1 := Offset;
+     RFA_T[0][1] := inttohex(CAdler32,8);
+    end else with Dir64 do begin
+     RFA_1 := Offset;
+     RFA_T[0][1] := inttohex(CAdler32,8);
+    end;
+   end; // with RFA[i]
+
    if Hdr.Version { $DE..$E0 } < $E1 then Read(RecRec,SizeOf(RecRec)); // reading rr header
-   
+
   end;
 
  end; // with ArchiveStream
@@ -559,6 +610,8 @@ var i, j     : integer;
     Hdr      : TYPFHeader;
     DirHdr   : TYPFDirHeader;
     Dir      : TYPFDir;
+    Dir32    : TYPFDir32;
+    Dir64    : TYPFDir64;
     RecRec   : TYPFRecoveryRecord;
     XorKey   : byte;
     CompMode : boolean;
@@ -578,6 +631,11 @@ begin
   FillChar(Dummy,SizeOf(Dummy),0);
 
   UpOffset := (SizeOf(DirHdr)+SizeOf(Dir))*FileCount; // size of filetable without names
+  if Version < $1EA then begin
+   UpOffset := UpOffset + SizeOf(Dir32)*FileCount;
+  end else begin
+   UpOffset := UpOffset + SizeOf(Dir64)*FileCount;
+  end;
 
   for i := 1 to RecordsCount do UpOffset := UpOffset + Length(AddedFiles.Strings[i-1]); // + names
 
@@ -592,9 +650,8 @@ begin
   ReOffset := UpOffset + SizeOf(Hdr);
 
   case Version of
-     $0..$FF  : FTSize := UpOffset; // Filetable size
-   $100..$122 : FTSize := ReOffset; // Filetable size + Header size
-   
+     $0..$FF, $12C..$1EA : FTSize := UpOffset; // Filetable size
+   $100..$122            : FTSize := ReOffset; // Filetable size + Header size
   end;
 
  end;
@@ -644,11 +701,24 @@ begin
    with Dir do begin
 
     FileSize := FileDataStream.Size; // uncompressed size of file
-    Offset   := ReOffset;            // file offset in archive
+
+    if Hdr.Version < $1EA then with Dir32 do begin
+     Offset  := ReOffset;            // 32 bit file offset in archive
+    end else with Dir64 do begin
+     Offset  := ReOffset;            // 64 bit file offset in archive
+    end;
 
     // working with Filetype field
     Ext      := lowercase(ExtractFileExt(AddedFiles.Strings[i-1]));
+    // zero if extension is not present in type table
+    Filetype := 0;
     case Hdr.Version of
+    // to-do: The code for v4.90 is more tricky. The new filetype YCG (proprietary image in zlib container)
+    //        is renamed to .png, yet its filetype is kept here.
+    $1EA       : for j := 0 to Length(YURIS_FT_490)-1 do if Ext = YURIS_FT_490[j] then begin
+                  Filetype := j;
+                  Break;
+                 end;
     $100..$12C : for j := 0 to Length(YURIS_FT_New)-1 do if Ext = YURIS_FT_New[j] then begin
                   Filetype := j;
                   Break;
@@ -673,8 +743,13 @@ begin
      ZlibFlag  := 0;
      CFileSize := FileSize;
 
-     CAdler32 := sAdler32Init;                   // initialising file's adler32
-     sAdler32(FileDataStream,integer(CAdler32)); // calculating file's adler32
+     if Hdr.Version < $1EA then with Dir32 do begin
+      CAdler32 := sAdler32Init;                   // initialising file's adler32
+      sAdler32(FileDataStream,integer(CAdler32)); // calculating file's adler32
+     end else with Dir64 do begin
+      CAdler32 := sAdler32Init;                   // initialising file's adler32
+      sAdler32(FileDataStream,integer(CAdler32)); // calculating file's adler32
+     end;
 
      FileDataStream.Seek(0,soBeginning);         // rewinding file stream
 
@@ -691,7 +766,7 @@ begin
                    RecRec.BlockNum  := SizeBlock(FileDataStream.Size,DefBlockLen);
                   end;
      $0E1..$12B : ReOffset := ReOffset + SizeOf(TYPFRecoveryRecord) + 2*SizeBlock(FileDataStream.Size,DefBlockLen) + DefBlockLen; // updating offset counter
-     $12C       : ReOffset := ReOffset + 4; // 4 zero-bytes
+     $12C..$1EA : ReOffset := ReOffset + 4; // 4 zero-bytes
      end;
 
     end else begin // zlib compression
@@ -703,8 +778,13 @@ begin
 
      CFileSize := tmpStream.Size;           // setting compressed file size
 
-     CAdler32 := sAdler32Init;              // initialising file's adler32
-     sAdler32(tmpStream,integer(CAdler32)); // calculating file's adler32
+     if Hdr.Version < $1EA then with Dir32 do begin
+      CAdler32 := sAdler32Init;              // initialising file's adler32
+      sAdler32(tmpStream,integer(CAdler32)); // calculating file's adler32
+     end else with Dir64 do begin
+      CAdler32 := sAdler32Init;              // initialising file's adler32
+      sAdler32(tmpStream,integer(CAdler32)); // calculating file's adler32
+     end;
 
      tmpStream.Seek(0,soBeginning);         // rewinding compressed stream
 
@@ -721,7 +801,7 @@ begin
                    RecRec.BlockNum  := SizeBlock(tmpStream.Size,DefBlockLen);
                   end;
      $0E1..$12B : ReOffset := ReOffset + SizeOf(TYPFRecoveryRecord) + 2*SizeBlock(tmpStream.Size,DefBlockLen) + DefBlockLen; // updating offset counter
-     $12C       : ReOffset := ReOffset + 4; // 4 zero-bytes
+     $12C..$1EA : ReOffset := ReOffset + 4; // 4 zero-bytes
      end;
 
      FreeAndNil(tmpStream); // freeing compression stream
@@ -733,6 +813,13 @@ begin
 
    // writing part of table
    tmpTable.Write(Dir,SizeOf(Dir));
+   // Versions prior to 4.90 use 32-bit chunk of filetable
+   if Hdr.Version < $1EA then begin
+    tmpTable.Write(Dir32,SizeOf(Dir32));
+   end else begin
+    tmpTable.Write(Dir64,SizeOf(Dir64));
+   end;
+
    // ...and rr table entry if needed
    if Hdr.Version < $E1 then tmpTable.Write(RecRec,SizeOf(RecRec));
 
@@ -752,7 +839,7 @@ begin
 
 end;
 
-function EA_YPF_YURIS;
+{function EA_YPF_YURIS;
 var tmpStreamC : TStream;
 begin
  Result := False;
@@ -781,29 +868,29 @@ begin
   Result := True;
 
  except
-  { улыбаемся и машем }
+
  end;
-end;
+end;}
 
 // CurValue := CurValue xor $FF;
 // Before calling this function - for decoding. After - for encoding
 function YURIS_CryptLen;
 const LenTable : array[0..23] of byte = (
- $03,$48,$06,$35,         // $122
+ $03,$48,$06,$35,         // $122, $1EA
  $0C,$10,$11,$19,$1C,$1E, // $000..$0FF
  $09,$0B,$0D,$13,$15,$1B, // $12C
  $20,$23,$26,$29,
  $2C,$2F,$2E,$32);
 var i, j : integer;
 begin
-
+ // the cells are used in pairs, so j = 5 will point to 10 and its neighbour 11
  case Version of
-  $122..$12B : j := 0;
-  $12C       : j := 5;
-  else         j := 2; // $00..$FF, $100..$121, $12D..$infinity :3
+  $122..$12B,$1EA : j := 0;
+  $12C            : j := 5;
+  else              j := 2; // $00..$FF, $100..$121, $12D..$infinity :3
  end;
 
- Result := CurValue;
+ Result := CurValue; // not encrypted by default
 
  for i := j to 11 do begin
   if CurValue = LenTable[i*2] then begin

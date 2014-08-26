@@ -69,6 +69,7 @@ uses AA_RFA, // main module
      AA_MRG_Overture,          // 2011/06/17
      AA_NEJII,
      AA_NFS_NAGS,
+     AA_NPA_NitroPlus,         // 2014/08/07
      AA_nScripter,
      AA_PAC_Graduation,
      AA_PAC_Marine,            // 2012/04/04
@@ -209,6 +210,7 @@ begin
  AFAdd(IA_ARC_AI6);            // 2011/02/26
  AFAdd(IA_PAK_NitroPlus_Pak1);
  AFAdd(IA_PAK_NitroPlus_Pak2);
+ AFAdd(IA_NPA_NitroPlus);      // 2014/08/07
  AFAdd(IA_NFS_NAGS);
  AFAdd(IA_PAC_Tech);
  AFAdd(IA_ARC_CRC);
@@ -228,6 +230,7 @@ begin
  AFAdd(IA_YPF_YURIS_v290_34);  // 2010/07/31
  AFAdd(IA_YPF_YURIS_v290_C0);  // 2010/08/26
  AFAdd(IA_YPF_YURIS_v300);     // 2010/09/05
+ AFAdd(IA_YPF_YURIS_v490);     // 2014/08/25
  AFAdd(IA_YPF_YURIS_v222z);    // 2010/08/30
  AFAdd(IA_YPF_YURIS_v224z);    // 2010/08/30
  AFAdd(IA_YPF_YURIS_v238z);    // 2010/08/20
@@ -238,6 +241,7 @@ begin
  AFAdd(IA_YPF_YURIS_v290z_34); // 2010/07/31
  AFAdd(IA_YPF_YURIS_v290z_C0); // 2010/08/26
  AFAdd(IA_YPF_YURIS_v300z);    // 2010/09/05
+ AFAdd(IA_YPF_YURIS_v490z);    // 2014/08/25
  AFAdd(IA_VFS_SystemAoi_v2);   // 2010/08/16
  AFAdd(IA_ARC_MikoMai);
  AFAdd(IA_IFL_Arpeggio);       // 2010/12/10

@@ -344,7 +344,7 @@ begin
 
      ForceDirectories(ExtractFilePath(FileName));
 
-     FileDataStream := TFileStreamJ.Create(FileName,fmCreate);
+     OpenFileStream(FileDataStream,FileName,fmCreate);
 
    { THIS IS THE ACTUAL EXTRACTION CALL }
      if FileRecord.RFA_C <> 0 then begin // File size check. If 0, then no extraction is actually performed

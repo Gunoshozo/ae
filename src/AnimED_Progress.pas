@@ -18,8 +18,8 @@ const pcolDefault = $00D08410;
       pcolWrite   = $00C080FF; //to-do: find it =_=
                                //update: FOUND ! ^__^
 
-procedure Progress_Max(i : integer; ColorMode : TColor = pcolDefault);
-procedure Progress_Pos(i : integer);
+procedure Progress_Max(i : int64; ColorMode : TColor = pcolDefault);
+procedure Progress_Pos(i : int64);
 //procedure Progress_Col(ColorMode : TColor);
 
 implementation
