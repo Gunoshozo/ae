@@ -557,7 +557,7 @@ begin
     SetLength(FileName,0);
 
     //DEBUG
-    Log(RFA[i].RFA_3+' : '+inttostr(EncFNLen xor $FF));
+    //Log(RFA[i].RFA_3+' : '+inttostr(EncFNLen xor $FF));
 
    end;
 
@@ -572,7 +572,7 @@ begin
    with RFA[i] do begin
     with Dir do begin
      //DEBUG
-     Log('--- '+inttostr(Filetype));
+     //Log('--- '+inttostr(Filetype));
 
      RFA_2 := FileSize;
      RFA_C := CFileSize;
