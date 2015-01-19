@@ -1,5 +1,7 @@
-  0.6.10.420 (2014.08.26) r81
+  0.6.10.420 (2015.01.19) r81
   =======================
+
+   + Added full Studio Miris ARC v1a archive format support (requested by Hiver Laurant)
 
    + Added read-only YU-RIS YCG image format support (requested by ZS)
 

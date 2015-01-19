@@ -1,6 +1,6 @@
 {
   AE - VN Tools
-  © 2007-2014 WinKiller Studio and The Contributors.
+  © 2007-2015 WKStudio and The Contributors.
   This software is free. Please see License for details.
 
   Archive format initialisation
@@ -27,6 +27,7 @@ uses AA_RFA, // main module
      AA_ARC_MAI,               // 2011/04/26
      AA_ARC_Majiro,
      AA_ARC_MikoMai,           // 2010/08/18
+     AA_ARC_Miris,             // 2015/01/19
      AA_ARC_RPM,
      AA_ARC_Will,
      AA_BIN_ACPXPK01,          // 2010/06/12
@@ -247,6 +248,7 @@ begin
  AFAdd(IA_IFL_Arpeggio);       // 2010/12/10
  AFAdd(IA_RPD_Rejet);          // 2011/05/06
  AFAdd(IA_DAT_2XT);            // 2012/03/21
+ AFAdd(IA_ARC_Miris);          // 2015/01/19
 
  { Read-only }
 

@@ -124,11 +124,9 @@ CompanyName=WKStudio
 FileDescription=AE - VN Tools
 FileVersion=0.6.10.420
 InternalName=AE.exe
-LegalCopyright=© 2007-2014 WKStudio and The Contributors.
+LegalCopyright=© 2007-2015 WKStudio and The Contributors.
 LegalTrademarks=This software is free. Please see License for details.
 OriginalFilename=Ever17ED.exe
 ProductName=Unofficial VN SDK
-ProductVersion=2014.08.26
+ProductVersion=2015.01.19
 Comments=Meow meow meow~ :3
-[Excluded Packages]
-c:\borland\delphi7\Projects\Bpl\PngComponentsD7D.bpl=Png components designtime
