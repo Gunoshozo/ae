@@ -1,6 +1,6 @@
 object MainForm: TMainForm
-  Left = 219
-  Top = 175
+  Left = 194
+  Top = 120
   Width = 675
   Height = 623
   AlphaBlend = True
@@ -63,7 +63,7 @@ object MainForm: TMainForm
             357)
           object GB_ArchiveInfo: TGroupBox
             Left = 0
-            Top = 285
+            Top = 281
             Width = 633
             Height = 65
             Anchors = [akLeft, akRight, akBottom]
@@ -195,7 +195,7 @@ object MainForm: TMainForm
             Left = 0
             Top = 6
             Width = 633
-            Height = 276
+            Height = 272
             Anchors = [akLeft, akTop, akRight, akBottom]
             Columns = <
               item
@@ -256,18 +256,18 @@ object MainForm: TMainForm
             Left = 0
             Top = 0
             Width = 633
-            Height = 350
+            Height = 346
             Anchors = [akLeft, akTop, akRight, akBottom]
             Caption = ' Archive tool setup '
             TabOrder = 0
             DesignSize = (
               633
-              350)
+              346)
             object PC_ArchiveToolSetup: TPageControl
               Left = 8
               Top = 16
               Width = 617
-              Height = 321
+              Height = 317
               ActivePage = TS_Arc_FileExtraction
               Anchors = [akLeft, akTop, akRight, akBottom]
               Images = ImageList_Archiver
@@ -278,7 +278,7 @@ object MainForm: TMainForm
                 ImageIndex = 8
                 DesignSize = (
                   609
-                  289)
+                  285)
                 object GB_ArcFileOverwritingMode: TGroupBox
                   Left = 0
                   Top = 0
@@ -368,7 +368,7 @@ object MainForm: TMainForm
                 ImageIndex = 12
                 DesignSize = (
                   609
-                  289)
+                  285)
                 object GB_ArchiveAddingMethod: TGroupBox
                   Left = 0
                   Top = 0
@@ -458,7 +458,7 @@ object MainForm: TMainForm
                 ImageIndex = 6
                 DesignSize = (
                   609
-                  289)
+                  285)
                 object GB_ArchiveHiddenScan: TGroupBox
                   Left = 0
                   Top = 0
@@ -499,7 +499,7 @@ object MainForm: TMainForm
                 ImageIndex = 19
                 DesignSize = (
                   609
-                  289)
+                  285)
                 object CB_ArchiveListHumanReadable: TCheckBox
                   Left = 0
                   Top = 0
@@ -523,7 +523,7 @@ object MainForm: TMainForm
             Left = 0
             Top = 6
             Width = 633
-            Height = 344
+            Height = 340
             Anchors = [akLeft, akTop, akRight, akBottom]
             Columns = <
               item
@@ -722,7 +722,7 @@ object MainForm: TMainForm
         Font.Name = 'Lucida Console'
         Font.Pitch = fpFixed
         Font.Style = []
-        ItemHeight = 0
+        ItemHeight = 11
         ParentFont = False
         ParentShowHint = False
         ShowHint = True
@@ -939,7 +939,7 @@ object MainForm: TMainForm
             357)
           object GB_ImageOperations: TGroupBox
             Left = 0
-            Top = 240
+            Top = 236
             Width = 435
             Height = 43
             Anchors = [akLeft, akRight, akBottom]
@@ -1139,19 +1139,19 @@ object MainForm: TMainForm
             Left = 0
             Top = 0
             Width = 633
-            Height = 239
+            Height = 235
             Anchors = [akLeft, akTop, akRight, akBottom]
             Caption = ' Preview (double-click spawns the preview window) '
             TabOrder = 1
             DesignSize = (
               633
-              239)
+              235)
             object I_EDGE_ImageA: TImage
               Tag = -1
               Left = 318
               Top = 32
               Width = 310
-              Height = 202
+              Height = 198
               Anchors = [akTop, akRight, akBottom]
               Center = True
               IncrementalDisplay = True
@@ -1164,7 +1164,7 @@ object MainForm: TMainForm
               Left = 3
               Top = 32
               Width = 310
-              Height = 202
+              Height = 198
               Anchors = [akLeft, akTop, akBottom]
               Center = True
               IncrementalDisplay = True
@@ -1196,14 +1196,14 @@ object MainForm: TMainForm
               Left = 315
               Top = 6
               Width = 2
-              Height = 232
+              Height = 228
               Anchors = [akTop, akBottom]
               Shape = bsLeftLine
             end
           end
           object GB_ImageInfo: TGroupBox
             Left = 0
-            Top = 285
+            Top = 281
             Width = 633
             Height = 65
             Anchors = [akLeft, akRight, akBottom]
@@ -1317,7 +1317,7 @@ object MainForm: TMainForm
           end
           object GB_PreviewColor: TGroupBox
             Left = 440
-            Top = 240
+            Top = 236
             Width = 193
             Height = 43
             Anchors = [akRight, akBottom]
@@ -1382,18 +1382,18 @@ object MainForm: TMainForm
             Left = 0
             Top = 0
             Width = 633
-            Height = 350
+            Height = 346
             Anchors = [akLeft, akTop, akRight, akBottom]
             Caption = ' Image tool setup '
             TabOrder = 0
             DesignSize = (
               633
-              350)
+              346)
             object PC_ImageToolSetup: TPageControl
               Left = 8
               Top = 16
               Width = 617
-              Height = 328
+              Height = 324
               ActivePage = TS_EDGE_PRT
               Anchors = [akLeft, akTop, akRight, akBottom]
               Images = ImageList_Archiver
@@ -1404,7 +1404,7 @@ object MainForm: TMainForm
                 ImageIndex = 4
                 DesignSize = (
                   609
-                  296)
+                  292)
                 object GB_EDGE_General: TGroupBox
                   Left = 0
                   Top = 0
@@ -1635,7 +1635,7 @@ object MainForm: TMainForm
                 ImageIndex = 4
                 DesignSize = (
                   609
-                  296)
+                  292)
                 object CB_PRT_Coords: TCheckBox
                   Left = 0
                   Top = 93
@@ -2057,7 +2057,7 @@ object MainForm: TMainForm
         Font.Name = 'Lucida Console'
         Font.Pitch = fpFixed
         Font.Style = []
-        ItemHeight = 0
+        ItemHeight = 11
         ParentFont = False
         ParentShowHint = False
         ShowHint = True
@@ -2093,20 +2093,20 @@ object MainForm: TMainForm
         object L_DataConv_Mode: TLabelW
           Left = 8
           Top = 16
-          Width = 441
+          Width = 353
           Height = 17
           Anchors = [akLeft, akTop, akRight]
           AutoSize = False
           Caption = 'Mode selection:'
         end
-        object L_DataConv_Parameter: TLabelW
-          Left = 456
+        object L_DataConv_Parameters: TLabelW
+          Left = 368
           Top = 16
-          Width = 73
+          Width = 153
           Height = 17
           Anchors = [akTop, akRight]
           AutoSize = False
-          Caption = 'Parameter:'
+          Caption = 'Parameters:'
         end
         object L_DataConv_KeyFile: TLabel
           Left = 8
@@ -2118,7 +2118,7 @@ object MainForm: TMainForm
           Caption = 'Key file:'
         end
         object B_DataConv_Keyfile: TButton
-          Left = 504
+          Left = 496
           Top = 59
           Width = 25
           Height = 21
@@ -2131,9 +2131,9 @@ object MainForm: TMainForm
           OnClick = B_DataConv_KeyfileClick
         end
         object GB_DataConv_Value: TGroupBox
-          Left = 536
+          Left = 528
           Top = 11
-          Width = 97
+          Width = 105
           Height = 69
           Anchors = [akTop, akRight]
           Caption = ' Value '
@@ -2142,7 +2142,7 @@ object MainForm: TMainForm
           TabOrder = 1
           object L_VI_8: TLabelW
             Tag = -1
-            Left = 8
+            Left = 16
             Top = 32
             Width = 49
             Height = 13
@@ -2154,7 +2154,7 @@ object MainForm: TMainForm
             Tag = -1
             Left = 8
             Top = 48
-            Width = 49
+            Width = 57
             Height = 13
             Alignment = taRightJustify
             AutoSize = False
@@ -2162,7 +2162,7 @@ object MainForm: TMainForm
           end
           object L_VI_HEX: TLabelW
             Tag = -1
-            Left = 8
+            Left = 16
             Top = 16
             Width = 49
             Height = 13
@@ -2172,7 +2172,7 @@ object MainForm: TMainForm
           end
           object L_VI_8Value: TLabelW
             Tag = -1
-            Left = 64
+            Left = 72
             Top = 32
             Width = 25
             Height = 13
@@ -2181,7 +2181,7 @@ object MainForm: TMainForm
           end
           object L_VI_8ZValue: TLabelW
             Tag = -1
-            Left = 64
+            Left = 72
             Top = 48
             Width = 25
             Height = 13
@@ -2190,7 +2190,7 @@ object MainForm: TMainForm
           end
           object L_VI_HEXValue: TLabelW
             Tag = -1
-            Left = 64
+            Left = 72
             Top = 16
             Width = 25
             Height = 13
@@ -2198,34 +2198,35 @@ object MainForm: TMainForm
             Caption = 'FF'
           end
         end
-        object UD_DataConv_Value: TUpDown
+        object UD_DataConv_Value1: TUpDown
           Tag = -1
-          Left = 513
+          Left = 425
           Top = 32
           Width = 16
           Height = 21
           Anchors = [akTop, akRight]
-          Associate = E_DataConv_Value
-          Max = 255
+          Associate = E_DataConv_Value1
+          Max = 4095
           TabOrder = 2
           Thousands = False
         end
-        object E_DataConv_Value: TEdit
+        object E_DataConv_Value1: TEdit
           Tag = -1
-          Left = 456
+          Left = 368
           Top = 32
           Width = 57
           Height = 21
           Anchors = [akTop, akRight]
-          MaxLength = 3
+          MaxLength = 4
           TabOrder = 3
           Text = '0'
-          OnChange = E_DataConv_ValueChange
+          OnChange = E_DataConv_Value1Change
+          OnClick = E_DataConv_Value1Change
         end
         object CB_DataConv_Mode: TComboBox
           Left = 8
           Top = 32
-          Width = 441
+          Width = 353
           Height = 21
           Style = csDropDownList
           Anchors = [akLeft, akTop, akRight]
@@ -2251,7 +2252,7 @@ object MainForm: TMainForm
           Tag = -1
           Left = 96
           Top = 59
-          Width = 409
+          Width = 401
           Height = 21
           Anchors = [akLeft, akTop, akRight]
           TabOrder = 5
@@ -2264,6 +2265,31 @@ object MainForm: TMainForm
           Anchors = [akLeft, akTop, akRight, akBottom]
           Caption = ' HEX Viewer '
           TabOrder = 6
+        end
+        object E_DataConv_Value2: TEdit
+          Tag = -1
+          Left = 448
+          Top = 32
+          Width = 57
+          Height = 21
+          Anchors = [akTop, akRight]
+          MaxLength = 4
+          TabOrder = 7
+          Text = '0'
+          OnChange = E_DataConv_Value2Change
+          OnClick = E_DataConv_Value2Change
+        end
+        object UD_DataConv_Value2: TUpDown
+          Tag = -1
+          Left = 505
+          Top = 32
+          Width = 16
+          Height = 21
+          Anchors = [akTop, akRight]
+          Associate = E_DataConv_Value2
+          Max = 4095
+          TabOrder = 8
+          Thousands = False
         end
       end
       object GB_MiscTool: TGroupBox
@@ -3289,7 +3315,7 @@ object MainForm: TMainForm
           Height = 21
           Style = csDropDownList
           Anchors = [akTop, akRight]
-          ItemHeight = 0
+          ItemHeight = 13
           TabOrder = 9
           OnChange = CB_Log_ConSchemeChange
         end
