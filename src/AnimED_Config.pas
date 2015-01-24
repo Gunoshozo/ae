@@ -1,6 +1,6 @@
 {
   AE - VN Tools
-  © 2007-2014 WinKiller Studio.
+  © 2007-2015 WKStudio & The Contributors.
   This software is free. Please see License for details.
 
   Configuration functions unit + TIniFile wrapper
@@ -96,8 +96,10 @@ begin
   { Misc Tool }
     try    CB_DataConv_Mode.ItemIndex   := ReadInteger(conf,'DataConvMode',0);
     except CB_DataConv_Mode.ItemIndex   := 0; end;
-    try    UD_DataConv_Value.Position   := ReadInteger(conf,'DataConvValue',0);
-    except UD_DataConv_Value.Position   := 0; end;
+    try    UD_DataConv_Value1.Position  := ReadInteger(conf,'DataConvValue1',0);
+    except UD_DataConv_Value1.Position  := 0; end;
+    try    UD_DataConv_Value2.Position  := ReadInteger(conf,'DataConvValue2',0);
+    except UD_DataConv_Value2.Position  := 0; end;
 
     E_DataConv_Keyfile.Text             := ReadString(conf,'DataConvKeyfile','');
 
@@ -231,7 +233,8 @@ begin
 
     { Misc Tool }
     WriteInteger(conf,'DataConvMode',CB_DataConv_Mode.ItemIndex);
-    WriteInteger(conf,'DataConvValue',UD_DataConv_Value.Position);
+    WriteInteger(conf,'DataConvValue1',UD_DataConv_Value1.Position);
+    WriteInteger(conf,'DataConvValue2',UD_DataConv_Value2.Position);
     WriteString(conf,'DataConvKeyfile',E_DataConv_Keyfile.Text);
 
     { Options tabsheet }

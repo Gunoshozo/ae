@@ -1,6 +1,6 @@
 {
   AE - VN Tools
-  © 2007-2014 WinKiller Studio & The Contributors.
+  © 2007-2015 WKStudio & The Contributors.
   This software is free. Please see License for details.
 
   Game archive data formats & functions
@@ -86,8 +86,8 @@ uses AnimED_Main;
 function Open_Archive;
 var i, j : longword;
     DetectionList : array of byte;
-const Go = 5;
-      Fail = 1;
+const Detection_Go = 5;
+      Detection_Fail = 1;
 label Detected;
  procedure WriteCPUTacts(var z : longword; var IDS : string);
  begin
@@ -124,42 +124,42 @@ begin
     if ArcFormats[SelFID].Open = True then begin
      j := GetCPUTacts-j;
      WriteCPUTacts(j,ArcFormats[SelFID].IDS);
-     DetectionList[SelFID] := Go;
+     DetectionList[SelFID] := Detection_Go;
      goto Detected;
     end else begin
      j := GetCPUTacts-j;
      WriteCPUTacts(j,ArcFormats[SelFID].IDS);
-     DetectionList[SelFID] := Fail;
+     DetectionList[SelFID] := Detection_Fail;
     end;
    end;
 
    // Метод расширений
    for i := 0 to ArcFormatsCount do begin
-    if DetectionList[i] <> Fail then begin
+    if DetectionList[i] <> Detection_Fail then begin
      if lowercase(ExtractFileExt(ArchiveFilename)) = ArcFormats[i].Ext then begin
       RFA_Flush;
       j := GetCPUTacts;
       if ArcFormats[i].Open = True then begin
        j := GetCPUTacts-j;
        WriteCPUTacts(j,ArcFormats[i].IDS);
-       DetectionList[i] := Go;
+       DetectionList[i] := Detection_Go;
        goto Detected;
-      end else DetectionList[i] := Fail;
+      end else DetectionList[i] := Detection_Fail;
      end;
     end;
    end;
 
    // Метод перебора
    for i := 0 to ArcFormatsCount{-1 skipping dummy procedure} do begin
-    if DetectionList[i] <> Fail then begin
+    if DetectionList[i] <> Detection_Fail then begin
      RFA_Flush;
      j := GetCPUTacts;
      if ArcFormats[i].Open = True then begin
       j := GetCPUTacts-j;
       WriteCPUTacts(j,ArcFormats[i].IDS);
-      DetectionList[i] := Go;
+      DetectionList[i] := Detection_Go;
       break; // goto Detected; is not required, since it's right after this function
-     end else DetectionList[i] := Fail;
+     end else DetectionList[i] := Detection_Fail;
     end;
 
     if i <> ArcFormatsCount then begin
@@ -172,7 +172,7 @@ begin
 
    Detected:
 
-   for i := 0 to ArcFormatsCount do if DetectionList[i] = Go then begin
+   for i := 0 to ArcFormatsCount do if DetectionList[i] = Detection_Go then begin
     LogD(ArcFormats[i].IDS+'... Detected!');
     RFA_ID := i;
     break;
@@ -202,11 +202,13 @@ begin
 
     LV_ArcFileList.Items.BeginUpdate; // turning the ListView off
 
-    for i := 1 to RecordsCount do begin
+    for i := 1 to RecordsCount do try
   {*}Progress_Pos(i);
 
      with RFA[i] do Core_GUI_ArcAddItem(RFA_3,RFA_1,RFA_C,RFA_2,i);
-
+    except
+  {*}Progress_Pos(i);
+     LogW('Errorneous item '+RFA[i].RFA_3+' has been detected.');
     end;
 
     LV_ArcFileList.Items.EndUpdate; // turning the ListView on

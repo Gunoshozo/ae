@@ -1,6 +1,6 @@
 {
   AE - VN Tools
-  © 2007-2014 WinKiller Studio and The Contributors.
+  © 2007-2015 WKStudio and The Contributors.
   This software is free. Please see License for details.
 
   Main form unit
@@ -293,7 +293,7 @@ type
     M_Arc_ExtAllRAW: TMenuItem;
     M_Arc_RAW: TMenuItem;
     L_DataConv_Mode: TLabelW;
-    L_DataConv_Parameter: TLabelW;
+    L_DataConv_Parameters: TLabelW;
     GB_DataConv_Value: TGroupBox;
     L_VI_8: TLabelW;
     L_VI_8Z: TLabelW;
@@ -301,8 +301,8 @@ type
     L_VI_8Value: TLabelW;
     L_VI_8ZValue: TLabelW;
     L_VI_HEXValue: TLabelW;
-    UD_DataConv_Value: TUpDown;
-    E_DataConv_Value: TEdit;
+    UD_DataConv_Value1: TUpDown;
+    E_DataConv_Value1: TEdit;
     CB_DataConv_Mode: TComboBox;
     E_DataConv_Keyfile: TEdit;
     L_DataConv_KeyFile: TLabel;
@@ -426,6 +426,8 @@ type
     CB_AutoFilelistGenerate: TCheckBox;
     SB_Data_Open: TSpeedButton;
     SB_Data_Close: TSpeedButton;
+    E_DataConv_Value2: TEdit;
+    UD_DataConv_Value2: TUpDown;
 
     procedure FormCreate(Sender: TObject);
     procedure SB_ExtractFileClick(Sender: TObject);
@@ -559,7 +561,7 @@ type
     procedure M_Arc_ExtRAWClick(Sender: TObject);
     procedure M_Arc_ExtAllRAWClick(Sender: TObject);
     procedure FormPaint(Sender: TObject);
-    procedure E_DataConv_ValueChange(Sender: TObject);
+    procedure E_DataConv_Value1Change(Sender: TObject);
     procedure SB_EDGE_JPHTMLClick(Sender: TObject);
     procedure TS_ArchiverShow(Sender: TObject);
     procedure M_Arc_HiddenDataCheckClick(Sender: TObject);
@@ -585,6 +587,7 @@ type
     procedure CB_EDGE_GrayScaleModeChange(Sender: TObject);
     procedure TB_EDGE_GrayscaleClick(Sender: TObject);
     procedure TB_EDGE_ColorSwapClick(Sender: TObject);
+    procedure E_DataConv_Value2Change(Sender: TObject);
 
   private
     { Private declarations }
@@ -1248,12 +1251,13 @@ end;
 
 procedure TMainForm.SB_Data_ProcessClick(Sender: TObject);
 var iStream, kStream, oStream : TStream;
-    Mode, Value : byte;
+    Mode, Value1, Value2 : byte;
     FileName, kFileName : widestring;
 begin
 
  Mode  := CB_DataConv_Mode.ItemIndex;
- Value := UD_DataConv_Value.Position;
+ Value1 := UD_DataConv_Value1.Position;
+ Value2 := UD_DataConv_Value2.Position;
 
  if ODialog_File(FileName) then begin
 
@@ -1289,10 +1293,10 @@ begin
              LogE('ZLib error.'); //to-do: translate me
             end;
    bcKey  : begin
-             BlockConvIO(iStream,oStream,kStream,Value,Mode);
+             BlockConvIO(iStream,oStream,kStream,Value1,Mode);
              FreeAndNil(kStream);
             end;
-   else     BlockConvIO(iStream,oStream,kStream,Value,Mode);
+   else     BlockConvIO(iStream,oStream,kStream,Value1,Mode);
   end;
 
   FreeAndNil(iStream);
@@ -2160,13 +2164,14 @@ end;
 
 procedure TMainForm.SB_Data_BatchClick(Sender: TObject);
 var iStream, kStream, oStream : TStream;
-    Mode, Value : byte;
+    Mode, Value1, Value2 : byte;
     FileName, kFileName : widestring;
     i : integer;
 begin
 
  Mode  := CB_DataConv_Mode.ItemIndex;
- Value := UD_DataConv_Value.Position;
+ Value1 := UD_DataConv_Value1.Position;
+ Value2 := UD_DataConv_Value2.Position;
 
  RootDir := BrowseForFolder(pwidechar(widestring(AMS[ABrowseForDirTitle])),'',True);
  if RootDir <> '' then begin
@@ -2212,10 +2217,10 @@ begin
      case Mode of
       bcZlib : ZDecompressStream(iStream,oStream);
       bcKey  : begin
-                BlockConvIO(iStream,oStream,kStream,Value,Mode);
+                BlockConvIO(iStream,oStream,kStream,Value1,Mode);
                 FreeAndNil(kStream);
                end;
-      else     BlockConvIO(iStream,oStream,kStream,Value,Mode);
+      else     BlockConvIO(iStream,oStream,kStream,Value1,Mode);
      end;
 
      FreeAndNil(iStream);
@@ -2406,9 +2411,9 @@ begin
  if TS_Image.Visible then GUI_ImageTool_Measurement;
 end;
 
-procedure TMainForm.E_DataConv_ValueChange(Sender: TObject);
+procedure TMainForm.E_DataConv_Value1Change(Sender: TObject);
 begin
- ValueInterpreter(UD_DataConv_Value.Position);
+ ValueInterpreter(UD_DataConv_Value1.Position);
 end;
 
 procedure TMainForm.SB_EDGE_JPHTMLClick(Sender: TObject);
@@ -2682,6 +2687,11 @@ end;
 procedure TMainForm.TB_EDGE_ColorSwapClick(Sender: TObject);
 begin
  EDGE_ColourSwap(CB_EDGE_ColourSwapMode.ItemIndex);
+end;
+
+procedure TMainForm.E_DataConv_Value2Change(Sender: TObject);
+begin
+ ValueInterpreter(UD_DataConv_Value2.Position);
 end;
 
 end.
