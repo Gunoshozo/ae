@@ -1,11 +1,11 @@
 {
   AE - VN Tools
-  © 2007-2014 WinKiller Studio & The Contributors.
+  © 2007-2015 WKStudio & The Contributors.
   This software is free. Please see License for details.
 
   Alcot games ARC archive format & functions
 
-  Written by Nik.
+  Written by Nik & dsp2003.
 }
 
 unit AA_ARC_Alcot;
@@ -81,7 +81,7 @@ begin
   Extr := EA_RAW;
   FLen := 48;
   SArg := 0;
-  Ver  := $20090828;
+  Ver  := $20150124;
  end;
 end;
 
@@ -97,7 +97,7 @@ begin
   Extr := EA_RAW;
   FLen := 32;
   SArg := 0;
-  Ver  := $20140701;
+  Ver  := $20150124;
  end;
 end;
 
@@ -122,6 +122,8 @@ begin
    RecordsCount := FileCount;
    Read(FileExtensions[1],SizeOf(FileExtensions));
    Read(THdr,sizeof(THdr));
+
+   if ArchiveStream.Size < CTableSize then Exit; // sanity check
 
    tmpstream := TMemoryStream.Create;
    tmpstream.CopyFrom(ArchiveStream,CTableSize - SizeOf(THdr));
@@ -183,6 +185,8 @@ begin
    RecordsCount := FileCount;
    Read(FileExtensions[1],SizeOf(FileExtensions));
    Read(THdr,sizeof(THdr));
+
+   if ArchiveStream.Size < CTableSize then Exit; // sanity check
 
    tmpstream := TMemoryStream.Create;
    tmpstream.CopyFrom(ArchiveStream,CTableSize - SizeOf(THdr));

@@ -1,5 +1,7 @@
-  0.6.10.420 (2015.01.19) r81
+  0.6.10.420 (2015.01.24) r81
   =======================
+
+   * Fixed bugs in Alcot 32/48 ARC format implementation and UI of Data Tool
 
    + Added full Studio Miris ARC v1a archive format support (requested by Hiver Laurant)
 
