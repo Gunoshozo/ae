@@ -1,6 +1,6 @@
 {
   AE - VN Tools
-  © 2007-2014 WinKiller Studio & The Contributors.
+  © 2007-2015 WKStudio & The Contributors.
   This software is free. Please see License for details.
 
   GUI & skin unit (incomplete, external skins are not supported yet)
@@ -375,15 +375,15 @@ end;
 procedure Skin_DrawMainLogo;
 var DrawX, DrawY, DrawW, DrawH, i,j,k,l : integer;
     tmpBMP : TBitmap; // double buffer
-    GradientColours : array[1..4] of longword;
-//const GradientColours : array[1..4] of longword = ($A7E7F5,$7CD8F2,$45C4E9,$8CCFE8);
+//    GradientColours : array[1..4] of longword;
+const GradientColours : array[1..4] of longword = ($A7E7F5,$7CD8F2,$45C4E9,$8CCFE8);
 begin
- randomize;
+// randomize;
 
- GradientColours[1] := $E7F5A7 xor random($1a1a1a);
- GradientColours[2] := $D8F27C xor random($aeaeae);
- GradientColours[3] := $C4E945 xor random($ffffff);
- GradientColours[4] := $CFE88C xor random($aeaeae);
+// GradientColours[1] := $E7F5A7 xor random($1a1a1a);
+// GradientColours[2] := $D8F27C xor random($aeaeae);
+// GradientColours[3] := $C4E945 xor random($ffffff);
+// GradientColours[4] := $CFE88C xor random($aeaeae);
 
  with MainForm, Skin do begin
 
@@ -417,13 +417,18 @@ begin
 
    randomize;
 
-   Canvas.Pen.Color := (GradientColours[3] or GradientColours[2]) xor random($adbeef);
-   Canvas.Brush.Color := (GradientColours[1] and GradientColours[4]) xor random($adf00d);
+//   Canvas.Pen.Color := (GradientColours[3] or GradientColours[2]) xor random($adbeef);
+//   Canvas.Brush.Color := (GradientColours[1] and GradientColours[4]) xor random($adf00d);
+   Canvas.Pen.Color := GradientColours[random(4)+1];
+   Canvas.Brush.Color := GradientColours[random(4)+1];
+
 
    for l := 1 to Random(Random(50)) do begin
 
-    Canvas.Pen.Color := (GradientColours[3] or GradientColours[2]) xor random($adbeef);
-    Canvas.Brush.Color := (GradientColours[1] and GradientColours[4]) xor random($adf00d);
+//    Canvas.Pen.Color := (GradientColours[3] or GradientColours[2]) xor random($adbeef);
+//    Canvas.Brush.Color := (GradientColours[1] and GradientColours[4]) xor random($adf00d);
+    Canvas.Pen.Color := GradientColours[random(4)+1];
+    Canvas.Brush.Color := GradientColours[random(4)+1];
 
     i := Random(DrawW);
     j := Random(DrawH div 2);

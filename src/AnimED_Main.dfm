@@ -1,6 +1,6 @@
 object MainForm: TMainForm
-  Left = 194
-  Top = 120
+  Left = 190
+  Top = 143
   Width = 675
   Height = 623
   AlphaBlend = True
@@ -63,7 +63,7 @@ object MainForm: TMainForm
             357)
           object GB_ArchiveInfo: TGroupBox
             Left = 0
-            Top = 281
+            Top = 280
             Width = 633
             Height = 65
             Anchors = [akLeft, akRight, akBottom]
@@ -195,7 +195,7 @@ object MainForm: TMainForm
             Left = 0
             Top = 6
             Width = 633
-            Height = 272
+            Height = 271
             Anchors = [akLeft, akTop, akRight, akBottom]
             Columns = <
               item
@@ -256,18 +256,18 @@ object MainForm: TMainForm
             Left = 0
             Top = 0
             Width = 633
-            Height = 346
+            Height = 345
             Anchors = [akLeft, akTop, akRight, akBottom]
             Caption = ' Archive tool setup '
             TabOrder = 0
             DesignSize = (
               633
-              346)
+              345)
             object PC_ArchiveToolSetup: TPageControl
               Left = 8
               Top = 16
               Width = 617
-              Height = 317
+              Height = 316
               ActivePage = TS_Arc_FileExtraction
               Anchors = [akLeft, akTop, akRight, akBottom]
               Images = ImageList_Archiver
@@ -278,7 +278,7 @@ object MainForm: TMainForm
                 ImageIndex = 8
                 DesignSize = (
                   609
-                  285)
+                  284)
                 object GB_ArcFileOverwritingMode: TGroupBox
                   Left = 0
                   Top = 0
@@ -368,7 +368,7 @@ object MainForm: TMainForm
                 ImageIndex = 12
                 DesignSize = (
                   609
-                  285)
+                  284)
                 object GB_ArchiveAddingMethod: TGroupBox
                   Left = 0
                   Top = 0
@@ -458,7 +458,7 @@ object MainForm: TMainForm
                 ImageIndex = 6
                 DesignSize = (
                   609
-                  285)
+                  284)
                 object GB_ArchiveHiddenScan: TGroupBox
                   Left = 0
                   Top = 0
@@ -499,7 +499,7 @@ object MainForm: TMainForm
                 ImageIndex = 19
                 DesignSize = (
                   609
-                  285)
+                  284)
                 object CB_ArchiveListHumanReadable: TCheckBox
                   Left = 0
                   Top = 0
@@ -523,7 +523,7 @@ object MainForm: TMainForm
             Left = 0
             Top = 6
             Width = 633
-            Height = 340
+            Height = 339
             Anchors = [akLeft, akTop, akRight, akBottom]
             Columns = <
               item
@@ -926,7 +926,7 @@ object MainForm: TMainForm
         Top = 96
         Width = 641
         Height = 389
-        ActivePage = TS_EDGE_Setup
+        ActivePage = TS_EDGE
         Anchors = [akLeft, akTop, akRight, akBottom]
         Images = ImageList_Archiver
         Style = tsButtons
@@ -939,7 +939,7 @@ object MainForm: TMainForm
             357)
           object GB_ImageOperations: TGroupBox
             Left = 0
-            Top = 236
+            Top = 235
             Width = 435
             Height = 43
             Anchors = [akLeft, akRight, akBottom]
@@ -1139,19 +1139,19 @@ object MainForm: TMainForm
             Left = 0
             Top = 0
             Width = 633
-            Height = 235
+            Height = 234
             Anchors = [akLeft, akTop, akRight, akBottom]
             Caption = ' Preview (double-click spawns the preview window) '
             TabOrder = 1
             DesignSize = (
               633
-              235)
+              234)
             object I_EDGE_ImageA: TImage
               Tag = -1
               Left = 318
               Top = 32
               Width = 310
-              Height = 198
+              Height = 197
               Anchors = [akTop, akRight, akBottom]
               Center = True
               IncrementalDisplay = True
@@ -1164,7 +1164,7 @@ object MainForm: TMainForm
               Left = 3
               Top = 32
               Width = 310
-              Height = 198
+              Height = 197
               Anchors = [akLeft, akTop, akBottom]
               Center = True
               IncrementalDisplay = True
@@ -1196,14 +1196,14 @@ object MainForm: TMainForm
               Left = 315
               Top = 6
               Width = 2
-              Height = 228
+              Height = 227
               Anchors = [akTop, akBottom]
               Shape = bsLeftLine
             end
           end
           object GB_ImageInfo: TGroupBox
             Left = 0
-            Top = 281
+            Top = 280
             Width = 633
             Height = 65
             Anchors = [akLeft, akRight, akBottom]
@@ -1317,7 +1317,7 @@ object MainForm: TMainForm
           end
           object GB_PreviewColor: TGroupBox
             Left = 440
-            Top = 236
+            Top = 235
             Width = 193
             Height = 43
             Anchors = [akRight, akBottom]
@@ -1382,18 +1382,18 @@ object MainForm: TMainForm
             Left = 0
             Top = 0
             Width = 633
-            Height = 346
+            Height = 345
             Anchors = [akLeft, akTop, akRight, akBottom]
             Caption = ' Image tool setup '
             TabOrder = 0
             DesignSize = (
               633
-              346)
+              345)
             object PC_ImageToolSetup: TPageControl
               Left = 8
               Top = 16
               Width = 617
-              Height = 324
+              Height = 323
               ActivePage = TS_EDGE_PRT
               Anchors = [akLeft, akTop, akRight, akBottom]
               Images = ImageList_Archiver
@@ -1404,7 +1404,7 @@ object MainForm: TMainForm
                 ImageIndex = 4
                 DesignSize = (
                   609
-                  292)
+                  291)
                 object GB_EDGE_General: TGroupBox
                   Left = 0
                   Top = 0
@@ -1635,7 +1635,7 @@ object MainForm: TMainForm
                 ImageIndex = 4
                 DesignSize = (
                   609
-                  292)
+                  291)
                 object CB_PRT_Coords: TCheckBox
                   Left = 0
                   Top = 93
@@ -1916,7 +1916,7 @@ object MainForm: TMainForm
         Font.Name = 'Lucida Console'
         Font.Pitch = fpFixed
         Font.Style = []
-        ItemHeight = 0
+        ItemHeight = 11
         ParentFont = False
         TabOrder = 2
         OnChange = CB_ImageFormatChange
@@ -2734,7 +2734,7 @@ object MainForm: TMainForm
         Top = 0
         Width = 641
         Height = 485
-        ActivePage = TS_PC_SkinColour
+        ActivePage = TS_PC_CoreLang
         Anchors = [akLeft, akTop, akRight, akBottom]
         MultiLine = True
         Style = tsButtons
@@ -3361,7 +3361,7 @@ object MainForm: TMainForm
         Alignment = taRightJustify
         Anchors = [akLeft, akTop, akRight]
         AutoSize = False
-        Caption = #169' 2007-2014 WKStudio and The Contributors.'
+        Caption = #169' 2007-2015 WKStudio and The Contributors.'
         Color = clBtnFace
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
