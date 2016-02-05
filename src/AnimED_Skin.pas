@@ -1,6 +1,6 @@
 {
   AE - VN Tools
-  © 2007-2015 WKStudio & The Contributors.
+  © 2007-2016 WKStudio and The Contributors.
   This software is free. Please see License for details.
 
   GUI & skin unit (incomplete, external skins are not supported yet)

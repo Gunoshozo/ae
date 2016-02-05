@@ -1,6 +1,6 @@
 {
   AE - VN Tools
-  © 2007-2013 WinKiller Studio & The Contributors.
+  © 2007-2016 WKStudio and The Contributors.
   This software is free. Please see license for details.
 
   Process Memory Reader test application

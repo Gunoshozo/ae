@@ -1,6 +1,6 @@
 {
   AE - VN Tools
-  © 2007-2014 WinKiller Studio & The Contributors.
+  © 2007-2016 WKStudio and The Contributors.
   This software is free. Please see License for details.
   
   Tech-Arts EAGLS Encrypted Bitmap Image Format library

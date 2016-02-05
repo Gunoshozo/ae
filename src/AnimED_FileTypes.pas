@@ -1,6 +1,6 @@
 {
   AE - VN Tools
-  © 2007-2014 WinKiller Studio & The Contributors.
+  © 2007-2016 WKStudio and The Contributors.
   This software is free. Please see License for details.
 
   File types & compression file types exception list
