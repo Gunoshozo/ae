@@ -1,9 +1,9 @@
 object GrapSForm: TGrapSForm
-  Left = 416
-  Top = 300
+  Left = 190
+  Top = 132
   AutoScroll = False
-  ClientHeight = 601
-  ClientWidth = 781
+  ClientHeight = 590
+  ClientWidth = 644
   Color = clBtnFace
   Constraints.MinHeight = 560
   Constraints.MinWidth = 594
@@ -20,15 +20,15 @@ object GrapSForm: TGrapSForm
   OnPaint = FormPaint
   OnShow = FormShow
   DesignSize = (
-    781
-    601)
+    644
+    590)
   PixelsPerInch = 96
   TextHeight = 11
   object I_Graps_View: TImage
     Left = 276
     Top = 0
-    Width = 504
-    Height = 600
+    Width = 367
+    Height = 566
     Hint = 'Double-click to save...'
     Anchors = [akLeft, akTop, akRight, akBottom]
     ParentShowHint = False
@@ -38,8 +38,8 @@ object GrapSForm: TGrapSForm
   object Memo_Graps_HowTo: TMemo
     Left = 284
     Top = 9
-    Width = 488
-    Height = 582
+    Width = 351
+    Height = 549
     Anchors = [akLeft, akTop, akRight, akBottom]
     BorderStyle = bsNone
     Color = clBtnFace
@@ -64,163 +64,8 @@ object GrapSForm: TGrapSForm
       ''
       'P.S. You can also search directly in application'#39's memory. ^_~')
     ReadOnly = True
-    TabOrder = 1
-    WordWrap = False
-  end
-  object GB_Graps_Image: TGroupBox
-    Left = 9
-    Top = 284
-    Width = 259
-    Height = 277
-    Caption = ' Image properties '
     TabOrder = 0
-    object L_Graps_Width: TLabelW
-      Left = 9
-      Top = 18
-      Width = 241
-      Height = 19
-      AutoSize = False
-      Caption = 'Enter image width:'
-    end
-    object L_Graps_Height: TLabelW
-      Left = 9
-      Top = 83
-      Width = 241
-      Height = 13
-      AutoSize = False
-      Caption = 'Enter image height:'
-    end
-    object L_Graps_Bitdepth: TLabelW
-      Left = 9
-      Top = 151
-      Width = 170
-      Height = 19
-      AutoSize = False
-      Caption = 'Select bit resolution:'
-    end
-    object L_Graps_CalcStrSizeHEX: TLabelW
-      Left = 9
-      Top = 201
-      Width = 125
-      Height = 31
-      AutoSize = False
-      Caption = 'Calculated size (HEX):'
-      WordWrap = True
-    end
-    object Bevel_Graps_1: TBevel
-      Left = 1
-      Top = 192
-      Width = 257
-      Height = 2
-      Shape = bsTopLine
-    end
-    object Bevel_Graps_2: TBevel
-      Left = 1
-      Top = 239
-      Width = 257
-      Height = 2
-      Shape = bsTopLine
-    end
-    object L_Graps_StreamSizeValue: TLabelW
-      Left = 137
-      Top = 222
-      Width = 110
-      Height = 10
-      AutoSize = False
-      Caption = '0'
-    end
-    object E_Graps_Width: TEdit
-      Left = 9
-      Top = 36
-      Width = 241
-      Height = 19
-      TabOrder = 0
-      Text = '1'
-      OnChange = E_Graps_WidthChange
-    end
-    object E_Graps_Height: TEdit
-      Left = 9
-      Top = 98
-      Width = 241
-      Height = 19
-      TabOrder = 1
-      Text = '1'
-      OnChange = E_Graps_HeightChange
-    end
-    object CB_Graps_Bitdepth: TComboBox
-      Left = 187
-      Top = 147
-      Width = 63
-      Height = 19
-      Style = csDropDownList
-      ItemHeight = 11
-      ItemIndex = 3
-      TabOrder = 2
-      Text = '32'
-      OnChange = CB_Graps_BitdepthChange
-      Items.Strings = (
-        '8'
-        '16'
-        '24'
-        '32')
-    end
-    object TrackBar_Graps_Width: TTrackBar
-      Left = 9
-      Top = 54
-      Width = 241
-      Height = 28
-      Max = 8192
-      Min = 1
-      Position = 1
-      TabOrder = 3
-      ThumbLength = 10
-      TickMarks = tmTopLeft
-      OnChange = TrackBar_Graps_WidthChange
-    end
-    object TrackBar_Graps_Height: TTrackBar
-      Left = 9
-      Top = 117
-      Width = 241
-      Height = 27
-      Max = 8192
-      Min = 1
-      Position = 1
-      TabOrder = 4
-      ThumbLength = 10
-      TickMarks = tmTopLeft
-      OnChange = TrackBar_Graps_HeightChange
-    end
-    object CB_Graps_Stretch: TCheckBox
-      Left = 9
-      Top = 249
-      Width = 241
-      Height = 19
-      Caption = 'Stretch for viewer'
-      TabOrder = 5
-      OnClick = CB_Graps_StretchClick
-    end
-    object E_Graps_StreamSizeValue: TEdit
-      Left = 133
-      Top = 198
-      Width = 117
-      Height = 19
-      MaxLength = 16
-      ReadOnly = True
-      TabOrder = 6
-      Text = '0'
-      OnChange = E_Graps_StreamSizeValueChange
-    end
-    object CB_Graps_Interleaved: TCheckBox
-      Left = 9
-      Top = 169
-      Width = 241
-      Height = 19
-      Caption = 'Interleaved image stream'
-      Checked = True
-      Enabled = False
-      State = cbChecked
-      TabOrder = 7
-    end
+    WordWrap = False
   end
   object PC_Graps_Controls: TPageControl
     Left = 0
@@ -232,14 +77,14 @@ object GrapSForm: TGrapSForm
     HotTrack = True
     ParentBiDiMode = False
     Style = tsButtons
-    TabOrder = 2
+    TabOrder = 1
     object TS_Graps_FileMode: TTabSheet
       Caption = 'File Mode'
       object GB_Graps_Seek: TGroupBox
         Left = 4
         Top = 2
         Width = 259
-        Height = 248
+        Height = 250
         Caption = ' Seek control '
         TabOrder = 0
         object L_Graps_Offset: TLabelW
@@ -419,9 +264,9 @@ object GrapSForm: TGrapSForm
         object LB_Graps_ProcessList: TListBox
           Left = 9
           Top = 16
-          Width = 214
+          Width = 216
           Height = 116
-          ItemHeight = 9
+          ItemHeight = 11
           TabOrder = 0
         end
         object E_Graps_ProcStart: TEdit
@@ -444,9 +289,9 @@ object GrapSForm: TGrapSForm
           OnClick = B_Graps_CopyProcMemClick
         end
         object B_Graps_ProcListRefresh: TButton
-          Left = 227
+          Left = 229
           Top = 16
-          Width = 23
+          Width = 21
           Height = 117
           Caption = 'REFRESH'
           Font.Charset = DEFAULT_CHARSET
@@ -520,6 +365,227 @@ object GrapSForm: TGrapSForm
         end
       end
     end
+  end
+  object PageControl1: TPageControl
+    Left = 0
+    Top = 288
+    Width = 276
+    Height = 284
+    ActivePage = TabSheet1
+    BiDiMode = bdLeftToRight
+    HotTrack = True
+    ParentBiDiMode = False
+    Style = tsButtons
+    TabOrder = 2
+    object TabSheet1: TTabSheet
+      Caption = 'Image properties'
+      object GB_Graps_Image: TGroupBox
+        Left = 4
+        Top = 2
+        Width = 259
+        Height = 250
+        Caption = ' Image properties '
+        TabOrder = 0
+        object L_Graps_Width: TLabelW
+          Left = 9
+          Top = 18
+          Width = 241
+          Height = 19
+          AutoSize = False
+          Caption = 'Enter image width:'
+        end
+        object L_Graps_Height: TLabelW
+          Left = 9
+          Top = 83
+          Width = 241
+          Height = 13
+          AutoSize = False
+          Caption = 'Enter image height:'
+        end
+        object L_Graps_Bitdepth: TLabelW
+          Left = 9
+          Top = 151
+          Width = 170
+          Height = 19
+          AutoSize = False
+          Caption = 'Select bit resolution:'
+        end
+        object E_Graps_Width: TEdit
+          Left = 9
+          Top = 36
+          Width = 241
+          Height = 19
+          TabOrder = 0
+          Text = '1'
+          OnChange = E_Graps_WidthChange
+        end
+        object E_Graps_Height: TEdit
+          Left = 9
+          Top = 98
+          Width = 241
+          Height = 19
+          TabOrder = 1
+          Text = '1'
+          OnChange = E_Graps_HeightChange
+        end
+        object CB_Graps_Bitdepth: TComboBox
+          Left = 187
+          Top = 147
+          Width = 63
+          Height = 19
+          Style = csDropDownList
+          ItemHeight = 11
+          ItemIndex = 3
+          TabOrder = 2
+          Text = '32'
+          OnChange = CB_Graps_BitdepthChange
+          Items.Strings = (
+            '8'
+            '16'
+            '24'
+            '32')
+        end
+        object TrackBar_Graps_Width: TTrackBar
+          Left = 9
+          Top = 54
+          Width = 241
+          Height = 28
+          Max = 8192
+          Min = 1
+          Position = 1
+          TabOrder = 3
+          ThumbLength = 10
+          TickMarks = tmTopLeft
+          OnChange = TrackBar_Graps_WidthChange
+        end
+        object TrackBar_Graps_Height: TTrackBar
+          Left = 9
+          Top = 117
+          Width = 241
+          Height = 27
+          Max = 8192
+          Min = 1
+          Position = 1
+          TabOrder = 4
+          ThumbLength = 10
+          TickMarks = tmTopLeft
+          OnChange = TrackBar_Graps_HeightChange
+        end
+        object CB_Graps_Interleaved: TCheckBox
+          Left = 9
+          Top = 169
+          Width = 241
+          Height = 19
+          Caption = 'Interleaved stream (BMP-alike)'
+          Checked = True
+          Enabled = False
+          State = cbChecked
+          TabOrder = 5
+        end
+        object CB_Graps_HasPalette: TCheckBox
+          Left = 9
+          Top = 193
+          Width = 88
+          Height = 19
+          Caption = 'Has palette at:'
+          Checked = True
+          State = cbChecked
+          TabOrder = 6
+        end
+        object E_Graps_PaletteOffset: TEdit
+          Left = 96
+          Top = 193
+          Width = 153
+          Height = 19
+          TabOrder = 7
+          Text = '0'
+          OnChange = E_Graps_OffsetChange
+        end
+      end
+    end
+    object TabSheet2: TTabSheet
+      Caption = 'Additional options'
+      ImageIndex = 1
+      OnShow = TS_Graps_ProcessListShow
+      object GroupBox2: TGroupBox
+        Left = 4
+        Top = 2
+        Width = 259
+        Height = 250
+        Caption = ' Additional options '
+        TabOrder = 0
+        object L_Graps_CalcStrSizeHEX: TLabelW
+          Left = 9
+          Top = 19
+          Width = 125
+          Height = 31
+          AutoSize = False
+          Caption = 'Calculated size (HEX):'
+          WordWrap = True
+        end
+        object L_Graps_StreamSizeValue: TLabelW
+          Left = 137
+          Top = 40
+          Width = 110
+          Height = 10
+          AutoSize = False
+          Caption = '0'
+        end
+        object Bevel_Graps_2: TBevel
+          Left = 1
+          Top = 248
+          Width = 257
+          Height = 2
+          Shape = bsTopLine
+        end
+        object Bevel_Graps_1: TBevel
+          Left = 1
+          Top = 216
+          Width = 257
+          Height = 2
+          Shape = bsTopLine
+        end
+        object CB_Graps_Stretch: TCheckBox
+          Left = 9
+          Top = 223
+          Width = 241
+          Height = 19
+          Caption = 'Stretch for viewer'
+          TabOrder = 0
+          OnClick = CB_Graps_StretchClick
+        end
+        object E_Graps_StreamSizeValue: TEdit
+          Left = 133
+          Top = 14
+          Width = 117
+          Height = 19
+          MaxLength = 16
+          ReadOnly = True
+          TabOrder = 1
+          Text = '0'
+          OnChange = E_Graps_StreamSizeValueChange
+        end
+      end
+    end
+  end
+  object StatusBar1: TStatusBar
+    Left = 0
+    Top = 571
+    Width = 644
+    Height = 19
+    Panels = <
+      item
+        Text = '65535 x 65535'
+        Width = 100
+      end
+      item
+        Text = '256 bit'
+        Width = 50
+      end
+      item
+        Text = 'C:\Windows\System32\Drivers\Etc\hosts'
+        Width = 0
+      end>
   end
   object MainMenu_GrapS: TMainMenu
     Left = 317

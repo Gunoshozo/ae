@@ -1,6 +1,6 @@
 {
   AE - VN Tools
-  © 2007-2013 WinKiller Studio. Open Source.
+  © 2007-2016 WKStudio & The Contributors. Open Source.
   This software is free. Please see License for details.
 
   Console unit

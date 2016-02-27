@@ -1,6 +1,6 @@
 {
   AE - VN Tools
-  (c) 2007-2014 WinKiller Studio & The Contributors.
+  (c) 2007-2014 WKStudio & The Contributors.
   This software is free. Please see License for details.
 
   Nitro+ and Nitro+ ChiRAL 'npa' game archive format & functions

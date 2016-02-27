@@ -1,6 +1,6 @@
 {
   AE - VN Tools
-  © 2007-2016 WKStudio and The Contributors.
+  © 2007-2016 WKStudio & The Contributors.
   This software is free. Please see License for details.
 
   IKURA GDL SM2MPX10/SM2MPX20 and Digital Romance System archive formats & functions

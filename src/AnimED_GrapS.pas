@@ -1,6 +1,6 @@
 {
   AE - VN Tools
-  © 2007-2013 WinKiller Studio. Open Source.
+  © 2007-2016 WKStudio & The Contributors. Open Source.
   This software is free. Please see License for details.
 
   GrapS - the RAW image reader tool
@@ -36,19 +36,6 @@ type
     M_Graps_SaveAsBMP: TMenuItem;
     M_Graps_Sep2: TMenuItem;
     M_Graps_Exit: TMenuItem;
-    GB_Graps_Image: TGroupBox;
-    L_Graps_Width: TLabelW;
-    E_Graps_Width: TEdit;
-    L_Graps_Height: TLabelW;
-    E_Graps_Height: TEdit;
-    L_Graps_Bitdepth: TLabelW;
-    CB_Graps_Bitdepth: TComboBox;
-    L_Graps_CalcStrSizeHEX: TLabelW;
-    Bevel_Graps_1: TBevel;
-    TrackBar_Graps_Width: TTrackBar;
-    TrackBar_Graps_Height: TTrackBar;
-    Bevel_Graps_2: TBevel;
-    CB_Graps_Stretch: TCheckBox;
     Memo_Graps_HowTo: TMemo;
     M_Graps_Help: TMenuItem;
     PC_Graps_Controls: TPageControl;
@@ -77,9 +64,7 @@ type
     L_Graps_ProcAddressStart: TLabelW;
     L_Graps_ProcMemError: TLabelW;
     B_Graps_ProcListRefresh: TButton;
-    E_Graps_StreamSizeValue: TEdit;
     E_Graps_ProcMemAmount: TEdit;
-    L_Graps_StreamSizeValue: TLabelW;
     L_Graps_ProcMemCpy: TLabelW;
     B_Graps_MemCpyFromCalc: TButton;
     B_Graps_MemAddrPaste: TButton;
@@ -87,7 +72,29 @@ type
     E_Graps_CpyAutoRef: TEdit;
     UD_Graps_AutoMemRef: TUpDown;
     T_Graps_AutoMemRef: TTimer;
+    PageControl1: TPageControl;
+    TabSheet1: TTabSheet;
+    TabSheet2: TTabSheet;
+    GroupBox2: TGroupBox;
+    CB_Graps_Stretch: TCheckBox;
+    L_Graps_CalcStrSizeHEX: TLabelW;
+    E_Graps_StreamSizeValue: TEdit;
+    L_Graps_StreamSizeValue: TLabelW;
+    Bevel_Graps_2: TBevel;
+    Bevel_Graps_1: TBevel;
+    GB_Graps_Image: TGroupBox;
+    L_Graps_Width: TLabelW;
+    L_Graps_Height: TLabelW;
+    L_Graps_Bitdepth: TLabelW;
+    E_Graps_Width: TEdit;
+    E_Graps_Height: TEdit;
+    CB_Graps_Bitdepth: TComboBox;
+    TrackBar_Graps_Width: TTrackBar;
+    TrackBar_Graps_Height: TTrackBar;
     CB_Graps_Interleaved: TCheckBox;
+    CB_Graps_HasPalette: TCheckBox;
+    E_Graps_PaletteOffset: TEdit;
+    StatusBar1: TStatusBar;
     procedure M_Graps_ExitClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure M_Graps_OpenFileClick(Sender: TObject);
@@ -147,8 +154,8 @@ var
   GlobalOffset : longint;
   Palette : TPalette;
 
-const GRAPS_VERSION = $20130308;
-      GRAPS_BUILD   = 27;
+const GRAPS_VERSION = $20150128;
+      GRAPS_BUILD   = 28;
 
 implementation
 
@@ -252,13 +259,21 @@ begin
 
    Write(Image_BMP,SizeOf(Image_BMP));
 
-   iStream.Seek(iPos,soBeginning);
-
    // 8 bit fix
    if BitDepth = 8 then begin
-    Palette := GrayscalePalette;
+    // reading palette if exists
+    if CB_Graps_HasPalette.Checked then try
+     iStream.Seek(strtoint(E_Graps_PaletteOffset.Text),soBeginning);
+     iStream.Read(Palette,sizeof(Palette));
+    except
+     // failed to read palette
+    end
+    // else generating a standard grayscale one
+    else Palette := GrayscalePalette;
     Write(Palette,SizeOf(Palette));
    end;
+
+   iStream.Seek(iPos,soBeginning);
 
  { проверка на окончание файла и подсчёт }
    if Image_ControlSize > iStream.Size - iPos then begin

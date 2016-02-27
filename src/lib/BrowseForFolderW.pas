@@ -1,6 +1,6 @@
 {
   AE - VN Tools
-  Â© 2007-2016 WKStudio and The Contributors.
+  © 2007-2016 WKStudio & The Contributors.
   This software is free. Please see License for details.
 
   BrowseForFolder - Widestring Version
@@ -21,7 +21,7 @@ function BrowseForFolder(const browseTitle: WideString;
 implementation
 
 uses
-  Windows, Forms, shlobj;
+  Windows, Forms, shlobj, activex;
 
 var
   lg_StartFolder: WideString;
@@ -84,7 +84,8 @@ begin
       result := folder
     else
       result := '';
-    GlobalFreePtr(find_context);
+    //GlobalFreePtr(find_context);
+    CoTaskMemFree(find_context);
   end
   else
     result := '';

@@ -343,12 +343,12 @@ end;
 
 function ForceDirectories(Path: WideString): Boolean;
 var
-  I: Word;
+  i: Word;
 begin
   Result := True;
   Path := IncludeTrailingBackslash(Path);
 
-  for I := 1 to Length(Path) do
+  for i := 1 to Length(Path) do
     if Path[I] = '\' then
       try
         CreateDirectoryW(PWideChar(Copy(Path, 1, I)), NIL)

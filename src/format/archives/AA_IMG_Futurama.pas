@@ -1,6 +1,6 @@
 {
   AE - VN Tools
-  © 2007-2016 WKStudio and The Contributors.
+  © 2007-2016 WKStudio & The Contributors.
   This software is free. Please see License for details.
 
   Futurama: The Game (PlayStation 2) archive format & functions

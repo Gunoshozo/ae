@@ -1,6 +1,6 @@
 object PreviewForm: TPreviewForm
-  Left = 255
-  Top = 304
+  Left = 249
+  Top = 397
   BorderIcons = [biSystemMenu, biMaximize]
   BorderStyle = bsNone
   ClientHeight = 213

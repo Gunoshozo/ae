@@ -1,9 +1,9 @@
 {
   AE - VN Tools
-  © 2007-2016 WKStudio and The Contributors.
+  © 2007-2016 WKStudio & The Contributors.
   This software is free. Please see License for details.
 
-  Cross-Net archive formats & functions
+  Cross-Net FVP (Favorite View Point System) archive formats & functions
 
   Written by Nik & dsp2003.
 }
@@ -80,7 +80,7 @@ procedure IA_BIN_Crossnet;
 begin
  with ArcFormat do begin
   ID   := index;
-  IDS  := 'Crossnet';
+  IDS  := 'FVP (Favorite View Point System)';
   Ext  := '.bin';
   Stat := $0;
   Open := OA_BIN_Crossnet;
@@ -120,7 +120,7 @@ begin
   Read(Hdr,SizeOf(Hdr));
   with Hdr do begin
    if Magic <> 'PACK' then Exit;
-   if Unknown[2] + Unknown[3] + Unknown[4] + Unknown[5] + Unknown[6] <> 0 then Exit; // those fields are usually empty
+   if Hdr.Unknown[2] + Hdr.Unknown[3] + Hdr.Unknown[4] + Hdr.Unknown[5] + Hdr.Unknown[6] <> 0 then Exit; // those fields are usually empty
    RecordsCount := FileCount;
   end;
 

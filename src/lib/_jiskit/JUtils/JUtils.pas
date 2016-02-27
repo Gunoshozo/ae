@@ -5,7 +5,7 @@ interface
 // todo: make Lower/UpperCase wrapper for Wide*Case.
 // todo: reconvertion table for Lower/UpperCase?
 
-uses StringsW, Windows, Classes, AnimED_Console;
+uses StringsW, Windows, Classes;
 
 procedure FindMask(Mask: WideString; Result: TStringsW); overload;
 procedure FindMask(Mask: WideString; Result: TStrings); overload;
@@ -343,12 +343,12 @@ end;
 
 function ForceDirectories(Path: WideString): Boolean;
 var
-  i: Word;
+  I: Word;
 begin
   Result := True;
   Path := IncludeTrailingBackslash(Path);
 
-  for i := 1 to Length(Path) do
+  for I := 1 to Length(Path) do
     if Path[I] = '\' then
       try
         CreateDirectoryW(PWideChar(Copy(Path, 1, I)), NIL)
@@ -427,10 +427,12 @@ end;}
 // dsp2003:
 // An attempt to rewrite the paramstrw
 function ParamStrW;
-var CmdLine, parstrWide : WideString;
-    Join, WasSpace: Boolean;
-    CurIndex : int64;
-    i : Word;
+var
+ i : Word;
+ CurIndex : int64;
+ CmdLine : WideString;
+ parstrWide : WideString;
+ Join: Boolean;
 begin
  case Index of
  0 :  begin
@@ -442,32 +444,33 @@ begin
        CurIndex := 0;
        CmdLine := GetCommandLineW;
        Join := False;
-       WasSpace := False;
        parstrWide := ''; // cleanup
+
        for i := 1 to Length(CmdLine) do begin
+
         case CmdLine[i] of
          '"' : Join := not Join; // trigger
-         ' ' : case Join of
-                 True : parstrWide := parstrWide + CmdLine[i]; // including space
-                False : if not WasSpace then begin
-                          inc(CurIndex); // ...or increasing index
-                          WasSpace := True; // setting the flag if we met the space 
-                         end;
+         ' ' : begin
+                if Join then parstrWide := parstrWide + CmdLine[i]; // including space
+                if not Join then inc(CurIndex); // ...or increasing index
                end;
-        else begin
-              WasSpace := False;
-              parstrWide := parstrWide + CmdLine[i];
-             end;
+         else  parstrWide := parstrWide + CmdLine[i];
         end;
+
         if Index > CurIndex then parstrWide := ''; // cleanup
+
         if Index < CurIndex then begin
          Result := parstrWide;
          Exit;
         end;
-       end; // for i := 1
+
+       end;
+
        if Index = CurIndex then Result := parstrWide;
+
       end;
  end;
+
 end;
 
 { SysUtils' functions overloading }

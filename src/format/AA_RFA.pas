@@ -1,6 +1,6 @@
 {
   AE - VN Tools
-  © 2007-2016 WKStudio and The Contributors.
+  © 2007-2016 WKStudio & The Contributors.
   This software is free. Please see License for details.
 
   RealFileAttributes (table) aka RFA(T) internal format & functions
@@ -18,7 +18,7 @@ uses AnimED_Console,
      AnimED_Directories,
      AnimED_Translation,
      AnimED_Translation_Strings,
-     Generic_LZXX,
+     Generic_LZXX, ZlibEx,
      SysUtils, Classes, Windows, Forms,
      FileStreamJ, JReconvertor;
 
@@ -75,6 +75,7 @@ type
 
 function EA_RAW(FileRecord : TRFA) : boolean;
 function EA_LZSS_FEE_FFF(FileRecord : TRFA) : boolean;
+function EA_zlib(FileRecord : TRFA) : boolean;
 
 { for handling unsupported and read-only/write-only archives }
 procedure IA_Unsupported(var ArcFormat : TArcFormats; index : integer);
@@ -243,6 +244,39 @@ begin
   end;
   Result := True;
  except
+ end;
+end;
+
+function EA_zlib;
+var tmpStreamC : TStream;
+begin
+ Result := False;
+ try
+  case FileRecord.RFA_Z of
+   True : begin
+           tmpStreamC := TMemoryStream.Create;
+           ArchiveStream.Position := FileRecord.RFA_1;
+           tmpStreamC.Size := FileRecord.RFA_C;
+           tmpStreamC.Position := 0;
+           tmpStreamC.CopyFrom(ArchiveStream,FileRecord.RFA_C);
+           tmpStreamC.Position := 0;
+
+           FileDataStream.Size := FileRecord.RFA_2;
+           FileDataStream.Position := 0;
+
+           ZDecompressStream(tmpStreamC,FileDataStream);
+
+           FreeAndNil(tmpStreamC);
+          end;
+  False : begin
+           ArchiveStream.Position := FileRecord.RFA_1;
+           FileDataStream.CopyFrom(ArchiveStream,FileRecord.RFA_C);
+          end;
+  end;
+  Result := True;
+
+ except
+  { улыбаемся и машем }
  end;
 end;
 
