@@ -124,11 +124,11 @@ CompanyName=WKStudio
 FileDescription=AE - VN Tools
 FileVersion=0.6.10.420
 InternalName=AE.exe
-LegalCopyright=© 2007-2014 WKStudio and The Contributors.
+LegalCopyright=© 2007-2016 WKStudio and The Contributors.
 LegalTrademarks=This software is free. Please see License for details.
 OriginalFilename=Ever17ED.exe
 ProductName=Unofficial VN SDK
-ProductVersion=2016.02.27
+ProductVersion=2016.03.29
 Comments=Meow meow meow~ :3
 [Excluded Packages]
 C:\Borland\Delphi7\Bin\JvBandsD7R.bpl=JVCL Band Objects Runtime Package
