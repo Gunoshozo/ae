@@ -321,8 +321,8 @@ GB_ImageInfo                     =현재 파일 정보
 L_ImageFileNameTitle             =파일이름:
 L_ImageSizeTitle                 =파일크기:
 L_ImageFormatTitle               =포맷:
-L_ImageResolutionTitle           =Resolution:
-GB_ImageFormat                   =Output format
+L_ImageResolutionTitle           =해상도:
+GB_ImageFormat                   =출력 포맷
 GB_EDGE_Coordinate_Editor        =PRT Coordinate Editor
 CB_PRT_Editor_Enable             =Allow editing
 
@@ -431,7 +431,7 @@ GB_DataConv                      =Data converter options
 L_DataConv_Mode                  =모드 선택:
 L_DataConv_Parameter             =파라미터:
 
-L_DataConv_KeyFile               =Key file:
+L_DataConv_KeyFile               =키 파일:
 B_DataConv_Keyfile               =...
 B_DataConv_Keyfile.Hint          =Hit this to select any "key" file
 
@@ -446,7 +446,7 @@ GB_HexViewer                     =HEX 뷰어
 ;//////////////////////////////////////
 
 ;핵심코어와 언어
-TS_PC_CoreLang                   =Core / 언어
+TS_PC_CoreLang                   =코어 / 언어
 
 GB_Core                          =핵심
 
@@ -455,7 +455,7 @@ CB_KeepWindowState               =Remember application window state (minimized, 
 CB_NoDefaultSize                 =Remember application window proportions (width and height)
 
 CB_ScreenSnap                    =Snap application window to screen borders at
-L_ScreenSnapPixels               =pixels
+L_ScreenSnapPixels               =픽셀
 CB_AlphaBlendEffect              =Enable alpha blending appearance of main window during the loading
 CB_EnableDoubleBuffering         =Enable double buffering for GUI rendering (reduce flickering, may be incompatible with "Modern" Themes)
 CB_MultipleInstances             =Allow multiple instances
@@ -467,14 +467,14 @@ L_LangEMail                      =이메일:
 
 L_SelectedLanguage               =선택된 언어파일:
 
-B_DumpTranslation                =[ 디버그 ] Dump translation
+B_DumpTranslation                =[ 디버그 ] 덤프 번역
 
 ;Skins and colour schemes
-TS_PC_SkinColour                 =Skin / Colour scheme
+TS_PC_SkinColour                 =스킨 / 색체 조합
 
 GB_SC_Appearance                 =Appearance
 
-B_IntSkinReload                  =[ 디버그 ] Reload internal skin
+B_IntSkinReload                  =[ 디버그 ] 내부 스킨 다시불러오기
 
 
 ;//////////////////////////////////////
@@ -535,10 +535,10 @@ L_Graps_FinalOffsetText          =Ending offset:
 TS_Graps_ProcessList             =Process List Mode
 
 CB_Graps_ProcessList             =Process list and seeking
-B_Graps_ProcListRefresh          =REFRESH
-L_Graps_ProcAddressStart         =Memory address (HEX):
+B_Graps_ProcListRefresh          =새로고침
+L_Graps_ProcAddressStart         =메모리 주소 (HEX):
 L_Graps_ProcMemCpy               =Amount to copy (HEX):
-B_Graps_MemAddrPaste             =Paste
+B_Graps_MemAddrPaste             =붙여넣기
 B_Graps_MemCpyFromCalc           =Get
 B_Graps_CopyProcMem              =Grab memory
 ; Automatically grab every [ 500 ] ms
@@ -549,11 +549,11 @@ L_Graps_Width                    =이미지 가로 입력:
 L_Graps_Height                   =이미지 세로 입력:
 L_Graps_Bitdepth                 =Select bit resolution:
 CB_Graps_Interleaved             =Interleaved image stream
-L_Graps_CalcStrSizeHEX           =Calculated size (HEX):
+L_Graps_CalcStrSizeHEX           =계산된 크기 (HEX):
 
 CB_Graps_Stretch                 =Stretch for viewer
-I_Graps_View.Hint                =Double-click to save...
-Memo_Graps_HowTo1                =How to use:
+I_Graps_View.Hint                =저장하려면 더블클릭...
+Memo_Graps_HowTo1                =이용방법:
 Memo_Graps_HowTo2                =Open (or drag-n-drop) any file that (possibly) contain UNCOMPRESSED bitmap data (game or software memory dumps, for example).
 Memo_Graps_HowTo3                =Next, use trackbars or enter desirable bitmap size and set bits per pixel resolution (be careful. You will get no image if the size is overruned).
 Memo_Graps_HowTo4                =Use seeking controls to search the correct image offset.
@@ -616,16 +616,16 @@ B_DoCRC32                        =계산
 ;//////////////////////////////////////
 
 ;
-; Fragmentation\Compression ratio dialog
+; 조각\압축 비율 대화상자
 ;
 0000=정보
 0001=아카이브
-0002=Additional fields
+0002=추가 필드Additional fields
 0003=파일
 0004=엔진 버전
-0005=Format status
-0006=Records in archive
-0007=Fragmentation check results
+0005=포맷 상태
+0006=아카이브에 기록된 내용
+0007=조각 확인 결과
 0008=실제 아카이브 크기
 0009=계산된 파일 크기
 000A=압축되지 않은 파일 크기
@@ -665,7 +665,7 @@ B_DoCRC32                        =계산
 0021=경고
 0022=The format you've selected is not implemented yet. Because of that the output file will be blank. Sorry. :)
 0023=PLEASE NOTE: This operation will overwrite the existant chunks.
-0024=Do you REALLY want to continue?
+0024=정말로 계속하시겠습니까?
 0025=Do you wish to overwrite original file? If not, then separate ".converted" version will be writed.
 
 0026=왼쪽
@@ -720,22 +720,22 @@ B_DoCRC32                        =계산
 
 003E=먼저 아카이브 파일을 열어주세요!
 003F=추출하는 도중 오류발생
-0040=아카이브 is broken or unsupported.
+0040=아카이브가 손상되었거나, 지원하지않습니다.
 0041=The file entry is not valid and cannot be extracted.
-0042=Unable to unpack
+0042=추출할 수 없습니다
 0043=아카이브 stream is closed.
 0044=아카이브 stream is closed. Already!
-0045=The archive is already exists and cannot be overwritten. Please use a different filename and\or location.
+0045=이 아카이브는 이미 존재하기에 덮어쓸수 없습니다. 다른 파일이름이나 위치를 이용해주세요.
 
-0046=Invalid directory specified!
+0046=부적절한 폴더가 선택되었습니다!
 
-0047=Creating output directory...
-0048=Cannot create output directory!
+0047=출력 폴더 생성하는중...
+0048=출력 폴더를 생성할 수 없습니다!
 
 ;0049=The current implementation of this format is a hacked version of the original format and it's behavior has been designed for an specifical case, so it may produce broken or incorrect data, either on loading or saving.
 0049=The current implementation needs to deliberately misinterpret the original format to work, and it's behaviour has been designed for a specific use case. It may produce broken or incorrect data both on loading or saving.
 
-004A=Cannot open the file. Make sure it is not used by other applications.
+004A=파일을 열 수 없습니다. 다른 응용프로그램에서 사용되지 않는지 확인해보세요.
 
 004B=오디오 파일 읽는중...
 004C=오디오 파일부터 여세요!
@@ -744,20 +744,20 @@ B_DoCRC32                        =계산
 004E=이미지 컨버팅 중 오류발생.
 004F=이미지 파일을 먼저 여세요!
 
-0050=This image doesn't contain alpha.
-0051=The image proportions is not the power of 2 and cannot be splitted or merged.
-0052=Cannot compare images with different proportions.
-0053=Unsupported format or alpha width && height differs from image's.
+0050=이 이미지는 alpha를 포함하지 않았습니다..
+0051=이 이미지 속성은 not the power of 2 and cannot be splitted or merged.
+0052=다른 속성의 이미지와 비교할수 없습니다.
+0053=지원하지 않는 포맷이거나 alpha 너비 && 높이가 이미지와 다릅니다.
 
 0054=완료.
 0055=사용자에 의해 취소되었습니다.
 0056=예측하지못한 오류.
-0057=Error while reading PNG resources.
+0057=PNG 파일을 읽는 도중 오류발생.
 
 0058=지원하지 않는 포맷.
 0059=출력으로 선택하신 포맷이 아직 지원되지 않습니다.
 
-005A=You are trying to decode/encode key file using the same file as target. 이 작업은 This operation is not allowed.
+005A=대상으로 같은 파일을 사용하여 암호화/암호해제하는 작업입니다. 이 작업은 허락되지 않습니다.
 
 ;
 ; 포맷은 다음과 같습니다 : "%format_status%". 계속하시겠습니까?
@@ -765,9 +765,9 @@ B_DoCRC32                        =계산
 005B=포맷은 다음과 같습니다 :
 005C=계속하시겠습니까?
 
-005D=No valid keyfile specified.
+005D=옳바른 키파일이 선택되지 않음.
 
-005E=This format is a variation of the base format with minor differences in structure. For this reason it is skipped during archive format detection and considered "write-only".
+005E=이 포맷은 기반포맷의 변종으로 구조에 사소한 차이가 있습니다. 이러한 이유로 아카이브 포맷탐지 도중에 건너뛰어 질것이며, "쓰기전용"으로 여겨질겁니다.
 
 005F=파일을 찾을 수 없음.
 
