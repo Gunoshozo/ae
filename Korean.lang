@@ -1,7 +1,7 @@
 ;
 ; AE 언어파일
 ; 0.6.9.420 버전 이상 전용.
-; (c) 2007-2014 WinKiller Studio & The Contributors.
+; (c) 2007-2016 WKStudio & The Contributors.
 ; 이 소프트웨어는 무료입니다. 자세한 사항은 License를 참조하세요.
 ;
 ; 자유롭게 이 파일을 번역하세요. 부디 반달은 하지말아주세요. ^_^
@@ -23,7 +23,7 @@
 AppVersion                       =0.6.9.420
 
 ;
-; Language name
+; 언어 이름
 ;
 Name                             =한국어 (Korean)
 
@@ -49,7 +49,7 @@ Name                             =한국어 (Korean)
 ; 238 = EASTEUROPE_CHARSET
 ; 255 = OEM_CHARSET
 ;
-Charset                          =0
+Charset                          =129
 
 ;
 ; 참조하세요
@@ -502,7 +502,7 @@ M_Log_Save                       =다음으로 콘솔저장...
 M_Log_Clear                      =콘솔 초기화
 
 ;//////////////////////////////////////
-;// About box                        //
+;// 상자에 대하여                        //
 ;//////////////////////////////////////
 
 L_UsersManual                    => 매뉴얼 <
@@ -716,10 +716,10 @@ B_DoCRC32                        =계산
 008a=파일이 이미 존재함. 추출 취소됨.
 
 003D=CRC32 계산중, 기다려주세요...
-;See 007c for continuation
+;계속하려면 007c을 참조
 
-003E=Open the archive file first!
-003F=Error while extracting
+003E=먼저 아카이브 파일을 열어주세요!
+003F=추출하는 도중 오류발생
 0040=아카이브 is broken or unsupported.
 0041=The file entry is not valid and cannot be extracted.
 0042=Unable to unpack
@@ -750,14 +750,14 @@ B_DoCRC32                        =계산
 0053=Unsupported format or alpha width && height differs from image's.
 
 0054=완료.
-0055=Cancelled by user.
-0056=Unexpected error.
+0055=사용자에 의해 취소되었습니다.
+0056=예측하지못한 오류.
 0057=Error while reading PNG resources.
 
 0058=지원하지 않는 포맷.
 0059=출력으로 선택하신 포맷이 아직 지원되지 않습니다.
 
-005A=You are trying to decode/encode key file using the same file as target. This operation is not allowed.
+005A=You are trying to decode/encode key file using the same file as target. 이 작업은 This operation is not allowed.
 
 ;
 ; 포맷은 다음과 같습니다 : "%format_status%". 계속하시겠습니까?
@@ -776,12 +776,12 @@ B_DoCRC32                        =계산
 ;
 0060=저장 중 오류발생:
 
-0061=아카이브 overwriting mode is active. Please be careful.
-0062=아카이브 overwriting mode is deactivated.
+0061=아카이브 덮어쓰기 모드가 활성화됨. 부디 주의하세요.
+0062=아카이브 덮어쓰기 모드가 비활성화됨.
 
-0063=Converting file bytes. Please wait...
-0064=파일 bytes converted.
-0065=Error while trying to convert file bytes.
+0063=파일 bytes로 컨버팅 중. 잠시만 기다려주세요...
+0064=파일 bytes로 컨버팅됨.
+0065=파일 bytes로 컨버팅하는 도중 오류가 발생하였습니다.
 
 0066=로그가 비활성화 되었습니다. 바이, 바이! :(
 0067=로그가 활성화 되었습니다. 말할게 참 많이 있어요! :)
@@ -804,10 +804,10 @@ B_DoCRC32                        =계산
 
 0071=재초기화 완료됨.
 
-0072=A hidden (probably deleted or garbage) data has been found in this archive.
-0073=Do you wish it to be listed in the GUI, so you would be able to extract it?
-0074=Note: the unknown data will be appended to the end of file list.
-0075=No hidden data found in this archive.
+0072=숨겨진 (아마도 삭제되었거나 더미) 데이터를 아카이브에서 찾았습니다.
+0073=추출가능하게 하기 위해서,GUI에 목록화하시겠습니까?
+0074=참고: 알수없는 데이터가 파일목록 끝에 덧붙여집니다.
+0075=이 아카이브에서 숨겨진 데이터를 찾을 수 없음.
 
 ; %n 다음 오프셋에서 이 아카이브와 차이 찾음:
 0076=다음 오프셋에서 이 아카이브와 차이 찾음
@@ -821,9 +821,9 @@ B_DoCRC32                        =계산
 0079=손상됨
 007a=죽음
 007b=정상으로 판단
-007c=Calculating MD5 요약 계산 중, 기다려주세요...
+007c=MD5 요약 계산 중, 기다려주세요...
 007d=CRC32 해쉬 확인
-007e=MD5 digest 확인
+007e=MD5 요약 확인
 007f=파일이 커서, 작업에 오랜 시간이 소모됩니다. 계속하시겠습니까?
 
 ; 폴더 대화상자 창
@@ -836,7 +836,7 @@ B_DoCRC32                        =계산
 0082=RAW
 0083=없음 / 기타
 0084=알 수 없음
-0085=Generic LZSS
+0085=일반적인 LZSS
 
 ;알 수 없는 파일 형식
 0086=알 수 없음
@@ -860,7 +860,7 @@ B_DoCRC32                        =계산
 
 00FB=Nepeta Leijon sprite by CountAile. 허락을 받고 사용합니다. :33
 
-00FD=:33 < *힘쎈 고양이가 그녀의 의심하지 않는 먹이를 습격합니다*
+00FD=:33 < *힘쎈 고양이가 순진한 먹이를 덮칩니다*
 
 00FE=계속됩니다! :)
 
