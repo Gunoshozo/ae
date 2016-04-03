@@ -5,8 +5,6 @@
 {  Copyright (c) 1995-2001 Borland Software Corporation }
 {                                                       }
 {*******************************************************}
-{  Fix for icon masking by dsp2003. For Delphi 7 only.  }
-{*******************************************************}
 
 unit ImgList;
 

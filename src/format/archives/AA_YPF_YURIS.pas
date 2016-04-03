@@ -1,6 +1,6 @@
 {
   AE - VN Tools
-  © 2007-2014 WinKiller Studio & The Contributors.
+  © 2007-2016 WKStudio and The Contributors.
   This software is free. Please see License for details.
 
   YU-RIS Game Engine archive format & functions
@@ -35,6 +35,7 @@ uses AA_RFA,
  procedure IA_YPF_YURIS_v290_34(var ArcFormat : TArcFormats; index : integer);
  procedure IA_YPF_YURIS_v290_C0(var ArcFormat : TArcFormats; index : integer);
  procedure IA_YPF_YURIS_v300(var ArcFormat : TArcFormats; index : integer);
+ procedure IA_YPF_YURIS_v454(var ArcFormat : TArcFormats; index : integer);
  procedure IA_YPF_YURIS_v490(var ArcFormat : TArcFormats; index : integer);
  procedure IA_YPF_YURIS_v222z(var ArcFormat : TArcFormats; index : integer);
  procedure IA_YPF_YURIS_v224z(var ArcFormat : TArcFormats; index : integer);
@@ -46,6 +47,7 @@ uses AA_RFA,
  procedure IA_YPF_YURIS_v290z_34(var ArcFormat : TArcFormats; index : integer);
  procedure IA_YPF_YURIS_v290z_C0(var ArcFormat : TArcFormats; index : integer);
  procedure IA_YPF_YURIS_v300z(var ArcFormat : TArcFormats; index : integer);
+ procedure IA_YPF_YURIS_v454z(var ArcFormat : TArcFormats; index : integer);
  procedure IA_YPF_YURIS_v490z(var ArcFormat : TArcFormats; index : integer);
 
  procedure IA_YPF_YURIS_Auto(var ArcFormat : TArcFormats; index : integer);
@@ -289,6 +291,22 @@ begin
  end;
 end;
 
+procedure IA_YPF_YURIS_v454;
+begin
+ with ArcFormat do begin
+  ID   := index;
+  IDS  := ypf_yuris_id+' v454 (0xFF)';
+  Ext  := ypf_ext;
+  Stat := $5;
+  Open := OA_Dummy;
+  Save := SA_YPF_YURIS;
+  Extr := EA_Dummy;
+  FLen := $FF;
+  SArg := $FF01C6;
+  Ver  := ypf_yuris_ver;
+ end;
+end;
+
 procedure IA_YPF_YURIS_v490;
 begin
  with ArcFormat do begin
@@ -461,6 +479,22 @@ begin
   Extr := EA_Dummy;
   FLen := $FF;
   SArg := $28112C;
+  Ver  := ypf_yuris_ver;
+ end;
+end;
+
+procedure IA_YPF_YURIS_v454z;
+begin
+ with ArcFormat do begin
+  ID   := index;
+  IDS  := ypf_yuris_id+' v454 (0xFF) +zlib';
+  Ext  := ypf_ext;
+  Stat := $5;
+  Open := OA_Dummy;
+  Save := SA_YPF_YURIS;
+  Extr := EA_Dummy;
+  FLen := $FF;
+  SArg := $FF11C6;
   Ver  := ypf_yuris_ver;
  end;
 end;
@@ -876,7 +910,7 @@ end;}
 // Before calling this function - for decoding. After - for encoding
 function YURIS_CryptLen;
 const LenTable : array[0..23] of byte = (
- $03,$48,$06,$35,         // $122, $1EA
+ $03,$48,$06,$35,         // $122, $1C6, $1EA
  $0C,$10,$11,$19,$1C,$1E, // $000..$0FF
  $09,$0B,$0D,$13,$15,$1B, // $12C
  $20,$23,$26,$29,
@@ -885,9 +919,9 @@ var i, j : integer;
 begin
  // the cells are used in pairs, so j = 5 will point to 10 and its neighbour 11
  case Version of
-  $122..$12B,$1EA : j := 0;
-  $12C            : j := 5;
-  else              j := 2; // $00..$FF, $100..$121, $12D..$infinity :3
+  $122..$12B,$1C6..$1EA : j := 0;
+  $12C                  : j := 5;
+  else                    j := 2; // $00..$FF, $100..$121, $12D..$1C5 :3
  end;
 
  Result := CurValue; // not encrypted by default

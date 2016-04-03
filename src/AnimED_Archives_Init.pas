@@ -1,6 +1,6 @@
 {
   AE - VN Tools
-  © 2007-2015 WKStudio and The Contributors.
+  © 2007-2016 WKStudio and The Contributors.
   This software is free. Please see License for details.
 
   Archive format initialisation
@@ -231,6 +231,7 @@ begin
  AFAdd(IA_YPF_YURIS_v290_34);  // 2010/07/31
  AFAdd(IA_YPF_YURIS_v290_C0);  // 2010/08/26
  AFAdd(IA_YPF_YURIS_v300);     // 2010/09/05
+ AFAdd(IA_YPF_YURIS_v454);     // 2016/03/29
  AFAdd(IA_YPF_YURIS_v490);     // 2014/08/25
  AFAdd(IA_YPF_YURIS_v222z);    // 2010/08/30
  AFAdd(IA_YPF_YURIS_v224z);    // 2010/08/30
@@ -242,6 +243,7 @@ begin
  AFAdd(IA_YPF_YURIS_v290z_34); // 2010/07/31
  AFAdd(IA_YPF_YURIS_v290z_C0); // 2010/08/26
  AFAdd(IA_YPF_YURIS_v300z);    // 2010/09/05
+ AFAdd(IA_YPF_YURIS_v454z);    // 2016/03/29
  AFAdd(IA_YPF_YURIS_v490z);    // 2014/08/25
  AFAdd(IA_VFS_SystemAoi_v2);   // 2010/08/16
  AFAdd(IA_ARC_MikoMai);
