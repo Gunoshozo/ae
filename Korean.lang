@@ -1,0 +1,874 @@
+;
+; AE 언어파일
+; 0.6.9.420 버전 이상 전용.
+; (c) 2007-2016 WKStudio & The Contributors.
+; 이 소프트웨어는 무료입니다. 자세한 사항은 License를 참조하세요.
+;
+; 자유롭게 이 파일을 번역하세요. 부디 반달은 하지말아주세요. ^_^
+; 언어이름.lang으로 저장하시면 다음 실행시 AE에서 사용할 수 있습니다.
+;
+; AE는 ANSI, Shift-JIS, UNICODE 언어파일을 지원합니다. UTF-8는 지원하지 않습니다.
+;
+; 현재 문자셋: Unicode | DEFAULT_CHARSET
+;
+; 언어: 한국어
+;
+; 공식 번역입니다. 원치않는다면, 바꾸실수 있습니다.
+;
+
+[Lang]
+;
+; 어플리케이션 버전 (구버전 번역을 비활성화하기 위해 사용됨)
+;
+AppVersion                       =0.6.9.420
+
+;
+; 언어 이름
+;
+Name                             =한국어 (Korean)
+
+;
+; 글꼴 문자셋
+;
+;   0 = ANSI_CHARSET
+;   1 = DEFAULT_CHARSET
+;   2 = SYMBOL_CHARSET
+;  77 = MAC_CHARSET
+; 128 = SHIFTJIS_CHARSET
+; 129 = HANGEUL_CHARSET
+; 130 = JOHAB_CHARSET
+; 134 = GB2312_CHARSET
+; 136 = CHINESEBIG5_CHARSET
+; 161 = GREEK_CHARSET
+; 162 = TURKISH_CHARSET
+; 177 = HEBREW_CHARSET
+; 178 = ARABIC_CHARSET
+; 186 = BALTIC_CHARSET
+; 204 = RUSSIAN_CHARSET
+; 222 = THAI_CHARSET
+; 238 = EASTEUROPE_CHARSET
+; 255 = OEM_CHARSET
+;
+Charset                          =129
+
+;
+; 참조하세요
+;
+; http://msdn.microsoft.com/en-us/goglobal/bb964664.aspx
+;
+; 적절한 로컬 ID를 사용하세요
+;
+LCID                             =1042
+
+;
+; 언어 국기 :)
+;
+LangFlag                         =bitmaps/flag/ko.png
+
+;//////////////////////////////////////
+;// 번역자 정보                  //
+;//////////////////////////////////////
+;
+; 앞에 있는 "http://" 와 "mailto:" 을 유지해주세요 
+; ("ReadMe.txt" 과 "command.com"에도 설정하실 수 있습니다).
+;
+; 주의: 빈칸으로 남기시지 마시고, "n/a"로 써주세요.
+;
+Translator                       =미래도
+TranslatorWWW                    =http://mireado.blog.me/
+TranslatorEMail                  =mailto:mireado@daum.net
+
+;//////////////////////////////////////
+;// 글꼴종류 & 크기                 //
+;//////////////////////////////////////
+;
+; Monotype 글꼴 (Lucida Console & Courier)을 추천합니다
+;
+; 기본값은 Lucida Console & 7 pixels
+
+FontFace                         =Tahoma
+FixedFontFace                    =Lucida Console
+FontSize                         =8
+
+;//////////////////////////////////////
+;// 기본 윈도우 조작             //
+;//////////////////////////////////////
+
+TS_Archiver                      =아카이브 도구
+TS_Audio                         =오디오 도구
+TS_Image                         =이미지 도구
+TS_Script                        =스크립트 도구
+TS_E17_SCR                       =E17 SCR 도구
+TS_Data                          =데이터 도구
+TS_Options                       =옵션
+TS_Log                           =콘솔
+TS_About                         =정보...
+
+L_Messageboard                   =응용프로그램 메세지보드
+L_Mini_Log.Hint                  =콘솔 로그를 보시려면 더블클릭...
+
+;//////////////////////////////////////
+;// 게임 아카이브 도구                //
+;//////////////////////////////////////
+
+SB_OpenArchive                   =아카이브 열기
+SB_ExtractFile                   =선택한 파일 추출
+SB_ExtractAll                    =모든 파일 추출
+SB_CreateArchive                 =아카이브 생성
+SB_CloseArchive                  =아카이브 닫기
+
+M_Arc_Files                      =파일로부터 생성
+M_Arc_Directory                  =폴더로부터 생성
+M_Arc_List                       =목록으로부터 생성
+
+M_Arc_Extract                    =선택한 파일 추출
+M_Arc_ExtractAll                 =모든 파일 추출
+
+M_Arc_RAW                        =RAW 모드
+
+M_Arc_ExtRAW                     =선택한 파일 추출
+M_Arc_ExtAllRAW                  =모든 파일 추출
+
+M_Arc_ListGen                    =선택한 목록 파일 생성
+
+M_Arc_CreateArchive              =아카이브 생성...
+
+M_Arc_SubFiles                   =파일로부터...
+M_Arc_SubDirectory               =폴더로부터...
+M_Arc_SubList                    =목록으로부터...
+
+M_Arc_Special                    =특수기능...
+
+M_Arc_HTMLList                   =HTML 파일목록 생성
+M_Arc_HTMLListDir                =폴더의 HTML 파일목록 생성
+
+M_Arc_HTMLFormatList             =[디버그] 지원하는 포맷 목록을 HTML로 생성
+M_Arc_FormatsWriteIntoConsole    =[디버그] 지원하는 포맷 목록을 콘솔로그로 출력
+
+M_Arc_GetHashes                  =아카이브의 CRC32, MD5 해쉬 계산
+
+M_Arc_HiddenDataCheck            =[디버그] 숨겨진 데이터 확인
+
+M_Arc_FragmentationCheck         =[디버그] 조각화 확인
+
+M_Arc_View                       =다음으로 열기...
+M_Arc_Icons                      =아이콘
+M_Arc_Report                     =제보하기
+
+M_Arc_Properties                 =속성
+
+L_Arc_StatusProcessing           =진행중:
+
+;//////////////////////////////////////
+;// 게임 아카이브 도구 하위 탭 1  //
+;//////////////////////////////////////
+
+TS_ArchiveInterface              =정보 && 미리보기
+
+GB_ArchiveOutputFormat           =출력 아카이브의 포맷
+
+CB_ArchiveFormatList.Hint        =출력 아카이브 포맷 설정
+
+GB_ArchiveInfo                   =아카이브 정보 열기
+
+FileList_Column_0                =이름과 경로
+FileList_Column_1                =크기
+FileList_Column_2                =압축됨
+FileList_Column_3                =오프셋
+
+L_FileNameTitle                  =파일이름:
+L_ArchiveSizeTitle               =파일크기:
+L_ArchiveFormatTitle             =포맷:
+L_RecordsCountTitle              =레코드:
+
+;GB_AdditionalArcInfo             =추가 아카이브 정보
+
+;L_ArchiveHexTitle                =CRC32:
+;L_ArchiveMD5Title                =MD5:
+
+;//////////////////////////////////////
+;// 게임 아카이브 도구 하위 탭 2  //
+;//////////////////////////////////////
+
+TS_ArchiveSetup                  =구성
+
+GB_ArchiveSetup                  =아카이브 도구 구성
+
+TS_Arc_FileExtraction            =파일 추출
+
+GB_ArcFileOverwritingMode        =파일 덮어쓰기 모드
+RB_ArcFileExtrOverwrite          =추출 덮어쓰기
+RB_ArcFileExtrRename             =Rename new file by adding index at the end
+RB_ArcFileExtrSkip               =Skip for existant files
+RB_ArcFileExtrAbort              =추출 취소
+
+GB_MassExtraction                =Mass file extraction
+
+CB_CreateArchiveSubdirectory     =Extract files into subdirectory which contain archive's filename. Example: "archive.bin~"
+CB_AutoFilelistGenerate          =Automatically export list of files
+
+TS_Arc_Saving                    =아카이브 생성
+
+GB_ArchiveAddingMethod           =Default adding files method
+RB_Arc_Files                     =Get from files (2500 max)
+RB_Arc_Directory                 =Get from directory
+RB_Arc_List                      =Get from list
+
+CB_AllowArchiveOverwrite         =Allow overwriting (prevents some stupid people from killing original archives)
+CB_RecursiveDirMode              =Use recursive directory scanning mode (i.e. search for files in subdirectories && store pathes if possible)
+CB_NameArchiveAfterDir           =Suggest archive filename from file source directory
+
+TS_Arc_Loading                   =아카이브 불러오는 중
+
+GB_ArchiveHiddenScan             =Hidden archive metadata scanning
+
+CB_HiddenDataAutoscan            =Enable autoscan and recover on loading
+CB_HiddenDataAutoscanAsk         =Ask for user's confirmation before performing the action
+
+;This component has been removed. May return in the future
+;CB_Do_CRC32                      =Get CRC32 and MD5 checksums on loading (uncheck this if loading takes too long)
+
+TS_Arc_Interface                 =인터페이스
+
+CB_ArchiveListHumanReadable      =16진법 값 대신에 사람이 읽을 수 있는 파일 크기 표시
+
+;//////////////////////////////////////
+;// 게임 아카이브 도구 하위 탭 3  //
+;//////////////////////////////////////
+
+TS_ArchiveFormats                =포맷
+
+;//////////////////////////////////////
+;// 오디오 도구                       //
+;//////////////////////////////////////
+
+SB_Audio_Open                    =오디오 파일 열기
+SB_Audio_Encode                  =다음으로 파일 컨버팅...
+SB_Audio_Batch                   =Batch conversion
+
+GB_AudioStream_Setup             =Direct audio converter setup
+
+L_AudioStreamConvSel             =Select the conversion chain you want to perform:
+L_AudioStream_InputDir           =Input directory:
+L_AudioStream_OutputDir          =Output directory:
+
+;//////////////////////////////////////
+;// 이미지 도구                       //
+;//////////////////////////////////////
+
+SB_EDGE_Picture_Open             =사진파일 열기
+SB_EDGE_Picture_Save             =사진 저장...
+SB_EDGE_Picture_SaveWOAlpha      =Save w/o alpha
+SB_EDGE_Picture_SaveAlpha        =Save alpha
+SB_Image_Batch                   =Batch conversion
+SB_Image_GrapS                   =GrapS - RAW reader
+
+;//////////////////////////////////////
+;// 이미지 도구 하위 탭 1         //
+;//////////////////////////////////////
+
+TS_EDGE                          =Info && Preview
+
+GB_ImageOperations               =Operations
+
+TB_EDGE_Flip                     =Flip
+TB_EDGE_Flip.Hint                =Flip image
+TB_EDGE_Negative                 =Negative
+TB_EDGE_Negative.Hint            =Invert colours of current image
+TB_EDGE_ColorSwap                =Colour swap
+TB_EDGE_ColorSwap.Hint           =Swap colour channels via selected method...
+TB_EDGE_Grayscale                =Grayscale
+TB_EDGE_Grayscale.Hint           =Convert image to grayscale via selected method...
+TB_EDGE_SubAlpha_Append          =Add sub-alpha
+TB_EDGE_SubAlpha_Append.Hint     =Append sub-alpha from alpha space (4th colour channel)
+TB_EDGE_SubAlpha_Extract         =Move sub-alpha
+TB_EDGE_SubAlpha_Extract.Hint    =Move sub-alpha into alpha space (4th colour channel)
+TB_EDGE_SubAlpha_Destroy         =Delete sub-alpha
+TB_EDGE_SubAlpha_Destroy.Hint    =Delete sub-alpha from the current image
+TB_EDGE_Alpha_Flip               =Flip alpha
+TB_EDGE_Alpha_Flip.Hint          =Flip alpha channel image
+TB_EDGE_NegativeAlpha            =Negative alpha
+TB_EDGE_NegativeAlpha.Hint       =Invert colours of current image's alpha
+TB_EDGE_Alpha_Append             =Import alpha
+TB_EDGE_Alpha_Append.Hint        =Import alpha channel from grayscale image
+TB_EDGE_Alpha_Extract            =Save alpha
+TB_EDGE_Alpha_Extract.Hint       =Save alpha channel as grayscale image
+TB_EDGE_Alpha_Destroy            =Delete alpha
+TB_EDGE_Alpha_Destroy.Hint       =Delete alpha channel from the current image
+TB_EDGE_Alpha_Generate           =Generate alpha
+TB_EDGE_Alpha_Generate.Hint      =Generate grayscale alpha image by comparing two pictures
+
+SM_EDGE_GS_ArithmeticMean        =Arithmetic mean
+SM_EDGE_GS_Luma                  =Classic Luma
+SM_EDGE_GS_HDR                   =HDR \ Luma (More natural)
+SM_EDGE_GS_Red                   =Red channel only
+SM_EDGE_GS_Green                 =Green channel only
+SM_EDGE_GS_Blue                  =Blue channel only
+
+M_EDGE_SUBAlpha_Append_Left      =왼쪽
+M_EDGE_SUBAlpha_Append_Right     =오른쪽
+M_EDGE_SUBAlpha_Extract_Left     =왼쪽
+M_EDGE_SUBAlpha_Extract_Right    =오른쪽
+M_EDGE_SUBAlpha_Destroy_Left     =왼쪽
+M_EDGE_SUBAlpha_Destroy_Right    =오른쪽
+
+GB_ImagePreview                  =미리보기 (double-click spawns the preview window)
+
+L_Image_Original                 =이미지:
+L_Image_Alpha                    =Alpha:
+
+GB_ImageInfo                     =현재 파일 정보
+L_ImageFileNameTitle             =파일이름:
+L_ImageSizeTitle                 =파일크기:
+L_ImageFormatTitle               =포맷:
+L_ImageResolutionTitle           =해상도:
+GB_ImageFormat                   =출력 포맷
+GB_EDGE_Coordinate_Editor        =PRT Coordinate Editor
+CB_PRT_Editor_Enable             =Allow editing
+
+GB_PreviewColor                  =Preview background colour
+
+;//////////////////////////////////////
+;// 이미지 도구 하위 탭 2         //
+;//////////////////////////////////////
+
+TS_EDGE_Setup                    =구성
+
+GB_ImageSetup                    =이미지 도구 구성
+
+; 모두
+TS_EDGE_All                      =모두
+
+GB_EDGE_General                  =General
+CB_ALL_ProcessAlpha              =Process alpha image data (enable alpha loading && saving)
+CB_All_LoadSepAlpha              =Load alpha from supplied bmp files (i.e. "file.jpg + filea.bmp" combos)
+CB_EDGE_InvertAlpha              =Handle SUBalpha as inverted image (varies from game to game)
+
+GB_EDGE_ColorOptions             =Colour options
+
+GB_EDGE_GrayScale                =Default grayscaling method
+GB_EDGE_ColourSwap               =Default colour swapping method
+
+; PNG & JPEG
+GB_EDGE_PNG_JPEG                 =PNG && JPEG
+
+CB_JPEGProgressive               =Save progressive JPEG files (useful for web pages)
+L_JPEG_Quality                   =JPEG saving quality (1 - bad quality, 100 - big filesize):
+B_EDGE_JPEG_Reset                =Reset
+L_PNG_Compression                =PNG saving compression ratio (0 - no compression, 9 - maximum):
+B_EDGE_PNG_Reset                 =Reset
+
+; PRT
+TS_EDGE_PRT                      =PRT
+
+GB_EDGE_PRT                      =Kid 엔진 PRT
+
+CB_PRT_Coords                    =Load and save PRT XY rendering coordinates as ini files along with image files
+
+; 기타
+TS_EDGE_Misc                     =기타
+
+GB_EDGE_Misc                     =기타
+SB_EDGE_JPHTML.Hint              =Generate HTML version of the Japanese Colour Palette Table
+
+;//////////////////////////////////////
+;// 스크립트 도구 (work-in-progress)   //
+;//////////////////////////////////////
+
+SB_SR_Open                       =Open script file
+SB_SR_Decompile                  =Save decompiled
+SB_SR_BatchDecompile             =Batch decompile
+SB_SR_Compile                    =Compile
+SB_SR_BatchCompile               =Batch compile
+
+CB_SR_ScriptFormat.Hint          =Sets the output script format
+
+;//////////////////////////////////////////////////
+;// 스크립트 도구 (obsolete Ever17 Script Chunker) //
+;//////////////////////////////////////////////////
+
+SB_OpenSCR                       =시나리오 파일 열기
+SB_ExportSCRChunks               =Export data chunks
+SB_ImportSCRChunks               =Import data chunks
+SB_SCRChunkEditor                =문자열 편집기
+SB_SCRSaveText                   =텍스트 저장
+
+L_SCRTextSections                =Decompiled text sections:
+
+GB_SCRSetup                      =구성
+GB_SCRImport                     =가져오기
+
+CB_SCRAutoimport                 =Automatically import on loading
+CB_SCRSaveDir                    =Save copy into directory:
+
+;L_SCR_12345=123456789012345678901234567890123456789012345678
+
+GB_SC3                           =KID 엔진 SC3 디컴파일
+RB_SC3_Strip                     =Decode and strip all opcodes (readable text)
+RB_SC3_Keep                      =Decode and keed all opcodes (recompilation)
+SB_CompileList                   =Compile from list
+SB_CompileList.Hint              =Open text file with 'op00' style lines. Referenced to 'op00\op00.scr'...
+
+GB_ScenarioFileInfo              =시나리오 파일 정보
+
+L_ScenarioOffsetText             =Text chunks beginning offset:
+L_ScenarioRecordsText            =Total text record definitions:
+
+L_Warn_E17                       =Please note: this tool was created for Ever17 only and cannot handle any other script formats.
+
+;//////////////////////////////////////
+;// 데이터 도구                        //
+;//////////////////////////////////////
+
+SB_Data_Open                     =파일열기
+SB_Data_Process                  =Process data
+SB_Data_Bruteforce               =Bruteforce bytes
+SB_Data_Batch                    =Batch processing
+SB_Data_Close                    =파일 닫기
+
+GB_DataConv                      =Data converter options
+
+L_DataConv_Mode                  =모드 선택:
+L_DataConv_Parameter             =파라미터:
+
+L_DataConv_KeyFile               =키 파일:
+B_DataConv_Keyfile               =...
+B_DataConv_Keyfile.Hint          =Hit this to select any "key" file
+
+GB_DataConv_Value                =값
+
+GB_Value                         =Value interpretation
+
+GB_HexViewer                     =HEX 뷰어
+
+;//////////////////////////////////////
+;// 옵션                          //
+;//////////////////////////////////////
+
+;핵심코어와 언어
+TS_PC_CoreLang                   =코어 / 언어
+
+GB_Core                          =핵심
+
+CB_NoAutocenter                  =Remember application window screen position (x,y coordinates). Turn off auto-centering
+CB_KeepWindowState               =Remember application window state (minimized, normal or maximized)
+CB_NoDefaultSize                 =Remember application window proportions (width and height)
+
+CB_ScreenSnap                    =Snap application window to screen borders at
+L_ScreenSnapPixels               =픽셀
+CB_AlphaBlendEffect              =Enable alpha blending appearance of main window during the loading
+CB_EnableDoubleBuffering         =Enable double buffering for GUI rendering (reduce flickering, may be incompatible with "Modern" Themes)
+CB_MultipleInstances             =Allow multiple instances
+
+GB_Language                      =언어
+L_LangAuthor                     =생성자:
+L_LangWWW                        =주소:
+L_LangEMail                      =이메일:
+
+L_SelectedLanguage               =선택된 언어파일:
+
+B_DumpTranslation                =[ 디버그 ] 덤프 번역
+
+;Skins and colour schemes
+TS_PC_SkinColour                 =스킨 / 색체 조합
+
+GB_SC_Appearance                 =Appearance
+
+B_IntSkinReload                  =[ 디버그 ] 내부 스킨 다시불러오기
+
+
+;//////////////////////////////////////
+;// Log aka 콘솔                  //
+;//////////////////////////////////////
+GB_MessageLog                    =표시하고 로그에 저장
+
+CB_LogS                          =고정된 메세지
+CB_LogM                          =일반 메세지
+CB_LogI                          =정보
+CB_LogD                          =디버깅 메세지
+CB_LogW                          =경고
+CB_LogE                          =오류
+CB_NoLog                         =Nothing (turn off)
+CB_NoLog.Hint                    =Disable logging system (no error messages will be displayed at all)
+CB_BeepOnError                   =삐익!
+CB_BeepOnWarn                    =삐익!
+
+L_Log_BGColor                    =Background colour
+L_Log_SelColor                   =Selection colour
+
+M_Log_ClbCpy                     =클립보드로 복사
+M_Log_ClbCpyAll                  =클립보드로 모두 복사
+M_Log_Save                       =다음으로 콘솔저장...
+M_Log_Clear                      =콘솔 초기화
+
+;//////////////////////////////////////
+;// 상자에 대하여                        //
+;//////////////////////////////////////
+
+L_UsersManual                    => 매뉴얼 <
+L_ThisSoftwareIsFree             =이 소프트웨어는 무료입니다. 자세한 사항은 License를 참조하세요.
+L_UnsupportedOS                  =경고: 당신의 운영체제는 지원되지 않습니다. 에러가 발생할 수 있습니다.
+
+M_ShowCredits                    =크레딧 보기
+M_SaveAboutBox                   =비트맵 저장
+
+;//////////////////////////////////////
+;// GrapS Tool                       //
+;//////////////////////////////////////
+
+M_Graps_File                     =파일
+M_Graps_OpenFile                 =열기...
+M_Graps_SaveAsBMP                =BMP로 저장...
+M_Graps_Exit                     =AE로 돌아가기
+M_Graps_Help                     =?
+
+TS_Graps_FileMode                =파일모드
+
+GB_Graps_Seek                    =Seek control
+L_Graps_Offset                   =Enter beginning offset:
+B_Graps_JumpUp                   =^ 크기 ^
+B_Graps_JumpDown                 =v 크기 v
+B_Graps_Reset                    =RESET
+L_Graps_SeekStep                 =Seeking step (for << and >>):
+L_Graps_FinalOffsetText          =Ending offset:
+
+TS_Graps_ProcessList             =Process List Mode
+
+CB_Graps_ProcessList             =Process list and seeking
+B_Graps_ProcListRefresh          =새로고침
+L_Graps_ProcAddressStart         =메모리 주소 (HEX):
+L_Graps_ProcMemCpy               =Amount to copy (HEX):
+B_Graps_MemAddrPaste             =붙여넣기
+B_Graps_MemCpyFromCalc           =Get
+B_Graps_CopyProcMem              =Grab memory
+; Automatically grab every [ 500 ] ms
+CB_Graps_MemoryAutoCpy           =Automatically grab every...
+
+GB_Graps_Image                   =이미지 속성
+L_Graps_Width                    =이미지 가로 입력:
+L_Graps_Height                   =이미지 세로 입력:
+L_Graps_Bitdepth                 =Select bit resolution:
+CB_Graps_Interleaved             =Interleaved image stream
+L_Graps_CalcStrSizeHEX           =계산된 크기 (HEX):
+
+CB_Graps_Stretch                 =Stretch for viewer
+I_Graps_View.Hint                =저장하려면 더블클릭...
+Memo_Graps_HowTo1                =이용방법:
+Memo_Graps_HowTo2                =Open (or drag-n-drop) any file that (possibly) contain UNCOMPRESSED bitmap data (game or software memory dumps, for example).
+Memo_Graps_HowTo3                =Next, use trackbars or enter desirable bitmap size and set bits per pixel resolution (be careful. You will get no image if the size is overruned).
+Memo_Graps_HowTo4                =Use seeking controls to search the correct image offset.
+Memo_Graps_HowTo5                =When you'll get what you want, double-click the view to save BMP file. ^_^
+Memo_Graps_HowTo6                =P.S. You can also search directly in application's memory. ^_~
+
+;//////////////////////////////////////
+;// 아카이브/파일 정보 대화상자         //
+;//////////////////////////////////////
+TS_Info_File                     =파일
+
+L_Arc_FileTypeText               =파일형식:
+L_Arc_FileHealthText             =Health:
+L_Arc_FilePathText               =파일경로:
+L_Arc_FileSizeText               =파일크기:
+L_Arc_FileSizeCText              =압축됨:
+L_Arc_CompTypeText               =압축:
+
+TS_Info_Attributes               =Attributes
+
+L_Arc_CreatedText                =생성됨:
+L_Arc_ModifiedText               =수정됨:
+L_Arc_OpenedText                 =열림:
+
+L_Arc_Attrib                     =Attributes:
+
+CB_Arc_ReadOnly                  =읽기전용
+CB_Arc_Archive                   =아카이브
+CB_Arc_Hidden                    =숨김파일
+CB_Arc_Compressed                =압축됨
+CB_Arc_System                    =시스템
+CB_Arc_Encrypted                 =암호화됨
+CB_Arc_Virtual                   =가상
+CB_Arc_Deleted                   =삭제됨
+
+TS_Info_AdditionalFields         =Additional fields
+
+TS_Info_Archive                  =아카이브
+
+L_Arc_EngineVersion              =엔진 버전:
+L_Arc_FormatSupportStat          =포맷 상태:
+L_Arc_TotalRecords               =Records in archive:
+L_Arc_PhysicalArcSize            =아카이브 실제크기:
+L_Arc_UncompressedFilesSize      =압축되지 않은 파일크기:
+L_Arc_CalculatedFilesSize        =계산된 파일 크기:
+L_Arc_WastedSize                 =Wasted:
+L_Arc_SavedSize                  =Saved:
+L_Arc_MissingSize                =Missing:
+L_Arc_CompRatio                  =압축률:
+L_Arc_FragRatio                  =조각난 비율:
+L_Arc_DamageRatio                =예측한 손상된 비율:
+
+TS_Info_Hashes                   =해쉬
+
+B_DoMD5                          =계산
+B_DoCRC32                        =계산
+
+;//////////////////////////////////////
+;// 메세지상자                     //
+;//////////////////////////////////////
+
+;
+; 조각\압축 비율 대화상자
+;
+0000=정보
+0001=아카이브
+0002=추가 필드Additional fields
+0003=파일
+0004=엔진 버전
+0005=포맷 상태
+0006=아카이브에 기록된 내용
+0007=조각 확인 결과
+0008=실제 아카이브 크기
+0009=계산된 파일 크기
+000A=압축되지 않은 파일 크기
+000B=Wasted
+000C=저장됨
+000D=조각난 비율
+000E=압축률
+000F=Missing
+0010=추정 손상비율
+
+;
+; 값
+;
+0011=bytes
+0012=bit
+0013=Kb
+0014=Mb
+0015=Gb
+
+0016=알 수 없는 포맷
+
+0017=모든 파일
+0018=Reserved
+0019=버전
+001A=새로운 폴더
+001B=선택된 위치에 폴더를 생성할 수 없음.
+
+;
+; 메세지
+;
+001C=Please refer to readme for details about this format.
+001D=The current implementation of this format is buggy and is known to produce files broken or unrecognizable by the original engine.
+001E=현재 이 포맷은 읽기전용입니다.
+001F=현재 이 포맷은 테스트하지 않았습니다.
+0020=이 포맷은 더미입니다.
+
+0021=경고
+0022=The format you've selected is not implemented yet. Because of that the output file will be blank. Sorry. :)
+0023=PLEASE NOTE: This operation will overwrite the existant chunks.
+0024=정말로 계속하시겠습니까?
+0025=Do you wish to overwrite original file? If not, then separate ".converted" version will be writed.
+
+0026=왼쪽
+0027=오른쪽
+0028=맨위
+0029=맨아래
+
+002A=파일이 아님
+
+;
+; %Filename% > %s% symbols. Filename will be truncated.
+;
+002B=symbols. Filename will be truncated.
+
+002C=다음시각에 시작됨
+002D=다음으로 복사됨
+002E=열기 성공.
+002F=생성 성공.
+0030=추출 성공.
+0031=추가 성공.
+0032=디코딩 성공.
+
+;
+; %filename%가 로 가져오기 됨.
+;
+0033=가 로 가져오기 됨.
+
+0034=초기화 중...
+0035=추출 중...
+0036=컨버팅 중...
+0037=저장 중...
+0038=여는 중...
+0039=추가 중...
+003A=내보내는 중...
+003B=가져오는 중...
+
+;
+; Raw 리더 도구 부제
+;
+003C=RAW 이미지 리더 도구
+
+;
+; W.I.M.E.D. 메세지
+;
+0087=파일이 이미 존재함. 덮어쓰는 중...
+0088=파일이 이미 존재함. 이름바꾸는 중...
+0089=파일이 이미 존재함. 넘어가는 중...
+008a=파일이 이미 존재함. 추출 취소됨.
+
+003D=CRC32 계산중, 기다려주세요...
+;계속하려면 007c을 참조
+
+003E=먼저 아카이브 파일을 열어주세요!
+003F=추출하는 도중 오류발생
+0040=아카이브가 손상되었거나, 지원하지않습니다.
+0041=The file entry is not valid and cannot be extracted.
+0042=추출할 수 없습니다
+0043=아카이브 stream is closed.
+0044=아카이브 stream is closed. Already!
+0045=이 아카이브는 이미 존재하기에 덮어쓸수 없습니다. 다른 파일이름이나 위치를 이용해주세요.
+
+0046=부적절한 폴더가 선택되었습니다!
+
+0047=출력 폴더 생성하는중...
+0048=출력 폴더를 생성할 수 없습니다!
+
+;0049=The current implementation of this format is a hacked version of the original format and it's behavior has been designed for an specifical case, so it may produce broken or incorrect data, either on loading or saving.
+0049=The current implementation needs to deliberately misinterpret the original format to work, and it's behaviour has been designed for a specific use case. It may produce broken or incorrect data both on loading or saving.
+
+004A=파일을 열 수 없습니다. 다른 응용프로그램에서 사용되지 않는지 확인해보세요.
+
+004B=오디오 파일 읽는중...
+004C=오디오 파일부터 여세요!
+
+004D=이미지가 성공적으로 컨버팅됨.
+004E=이미지 컨버팅 중 오류발생.
+004F=이미지 파일을 먼저 여세요!
+
+0050=이 이미지는 alpha를 포함하지 않았습니다..
+0051=이 이미지 속성은 not the power of 2 and cannot be splitted or merged.
+0052=다른 속성의 이미지와 비교할수 없습니다.
+0053=지원하지 않는 포맷이거나 alpha 너비 && 높이가 이미지와 다릅니다.
+
+0054=완료.
+0055=사용자에 의해 취소되었습니다.
+0056=예측하지못한 오류.
+0057=PNG 파일을 읽는 도중 오류발생.
+
+0058=지원하지 않는 포맷.
+0059=출력으로 선택하신 포맷이 아직 지원되지 않습니다.
+
+005A=대상으로 같은 파일을 사용하여 암호화/암호해제하는 작업입니다. 이 작업은 허락되지 않습니다.
+
+;
+; 포맷은 다음과 같습니다 : "%format_status%". 계속하시겠습니까?
+;
+005B=포맷은 다음과 같습니다 :
+005C=계속하시겠습니까?
+
+005D=옳바른 키파일이 선택되지 않음.
+
+005E=이 포맷은 기반포맷의 변종으로 구조에 사소한 차이가 있습니다. 이러한 이유로 아카이브 포맷탐지 도중에 건너뛰어 질것이며, "쓰기전용"으로 여겨질겁니다.
+
+005F=파일을 찾을 수 없음.
+
+;
+; 저장 중 오류발생: %filename%
+;
+0060=저장 중 오류발생:
+
+0061=아카이브 덮어쓰기 모드가 활성화됨. 부디 주의하세요.
+0062=아카이브 덮어쓰기 모드가 비활성화됨.
+
+0063=파일 bytes로 컨버팅 중. 잠시만 기다려주세요...
+0064=파일 bytes로 컨버팅됨.
+0065=파일 bytes로 컨버팅하는 도중 오류가 발생하였습니다.
+
+0066=로그가 비활성화 되었습니다. 바이, 바이! :(
+0067=로그가 활성화 되었습니다. 말할게 참 많이 있어요! :)
+
+;
+; AE 디버깅 로그가 %system_time%에 초기화되었습니다
+;
+0068=AE 디버깅 로그 초기화 시각:
+
+0069=이 옵션은 작업중입니다.
+
+006A=디컴파일링 레코드...
+006B=내보내기 완료.
+006C=가져오기 완료.
+
+006D=내보낼 수 없음 -- 파일이 열리지 않음.
+006E=가져올 수 없음 -- 파일이 열리지 않음.
+006F=가져올 수 없음 -- 일부 쓸모없는 파일이 사라졌습니다!
+0070=출력 폴더를 생성할 수 없으며 컴파일링된 파일 작성.
+
+0071=재초기화 완료됨.
+
+0072=숨겨진 (아마도 삭제되었거나 더미) 데이터를 아카이브에서 찾았습니다.
+0073=추출가능하게 하기 위해서,GUI에 목록화하시겠습니까?
+0074=참고: 알수없는 데이터가 파일목록 끝에 덧붙여집니다.
+0075=이 아카이브에서 숨겨진 데이터를 찾을 수 없음.
+
+; %n 다음 오프셋에서 이 아카이브와 차이 찾음:
+0076=다음 오프셋에서 이 아카이브와 차이 찾음
+
+0077=보고 끝.
+
+;
+; 파일/아카이브 포맷 정보 대화상자 창 메세지
+;
+0078=(데이터 없음)
+0079=손상됨
+007a=죽음
+007b=정상으로 판단
+007c=MD5 요약 계산 중, 기다려주세요...
+007d=CRC32 해쉬 확인
+007e=MD5 요약 확인
+007f=파일이 커서, 작업에 오랜 시간이 소모됩니다. 계속하시겠습니까?
+
+; 폴더 대화상자 창
+0080=올바른 폴더를 선택해주세요:
+
+; Field group #%n
+0081=Field group
+
+; 압축형식
+0082=RAW
+0083=없음 / 기타
+0084=알 수 없음
+0085=일반적인 LZSS
+
+;알 수 없는 파일 형식
+0086=알 수 없음
+
+
+;//////////////////////////////////////
+;// 크레딧 부분 (이스터 에그-3)   //
+;//////////////////////////////////////
+;
+; 참조해주세요: 새로운 기본 포맷방식
+;
+; &b - 굵게, &u - 밑줄, &s - 취소선, && - "&"으로 표기
+;
+00F0=&b&u크레딧
+00F1=&b아이디어 && 그래픽
+00F2=&b핵심
+00F3=&b공헌자
+00F4=&b언어 현지화 도움
+00F5=&b포함된 구성요소 && 기타 참조 도움
+00F6=&b특히 감사드립니다...
+
+00FB=Nepeta Leijon sprite by CountAile. 허락을 받고 사용합니다. :33
+
+00FD=:33 < *힘쎈 고양이가 순진한 먹이를 덮칩니다*
+
+00FE=계속됩니다! :)
+
+;//////////////////////////////////////
+;// 문서 파일               //
+;//////////////////////////////////////
+00FF=AE.chm
+
+;
+; 끝
+;
