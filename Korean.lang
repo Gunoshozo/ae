@@ -198,14 +198,14 @@ TS_Arc_FileExtraction            =파일 추출
 
 GB_ArcFileOverwritingMode        =파일 덮어쓰기 모드
 RB_ArcFileExtrOverwrite          =추출 덮어쓰기
-RB_ArcFileExtrRename             =Rename new file by adding index at the end
-RB_ArcFileExtrSkip               =Skip for existant files
+RB_ArcFileExtrRename             =끝에 색인을 덧붙여서 새로운 파일 이름 바꾸기
+RB_ArcFileExtrSkip               =존재하는 파일 넘어가기
 RB_ArcFileExtrAbort              =추출 취소
 
-GB_MassExtraction                =Mass file extraction
+GB_MassExtraction                =전체 파일 추출
 
-CB_CreateArchiveSubdirectory     =Extract files into subdirectory which contain archive's filename. Example: "archive.bin~"
-CB_AutoFilelistGenerate          =Automatically export list of files
+CB_CreateArchiveSubdirectory     =아카이브 파일이름이 포함된 하위폴더로 파일 추출. 예시: "archive.bin~"
+CB_AutoFilelistGenerate          =자동적으로 파일의 목록을 내보내기
 
 TS_Arc_Saving                    =아카이브 생성
 
@@ -220,13 +220,13 @@ CB_NameArchiveAfterDir           =Suggest archive filename from file source dire
 
 TS_Arc_Loading                   =아카이브 불러오는 중
 
-GB_ArchiveHiddenScan             =Hidden archive metadata scanning
+GB_ArchiveHiddenScan             =숨겨진 아카이브 메타데이터 찾기
 
 CB_HiddenDataAutoscan            =Enable autoscan and recover on loading
-CB_HiddenDataAutoscanAsk         =Ask for user's confirmation before performing the action
+CB_HiddenDataAutoscanAsk         =작업하기 전에 사용자 확인을 묻기
 
-;This component has been removed. May return in the future
-;CB_Do_CRC32                      =Get CRC32 and MD5 checksums on loading (uncheck this if loading takes too long)
+;이 구성요소는 제거되었습니다. 차후 복구될겁니다
+;CB_Do_CRC32                      =불러오는 중에 CRC32와 MD5 체크섬 수집(불러오는게 너무 길면 체크해제하세요)
 
 TS_Arc_Interface                 =인터페이스
 
@@ -244,13 +244,14 @@ TS_ArchiveFormats                =포맷
 
 SB_Audio_Open                    =오디오 파일 열기
 SB_Audio_Encode                  =다음으로 파일 컨버팅...
-SB_Audio_Batch                   =Batch conversion
+SB_Audio_Batch                   =일괄 변환중
 
 GB_AudioStream_Setup             =Direct audio converter setup
 
 L_AudioStreamConvSel             =Select the conversion chain you want to perform:
-L_AudioStream_InputDir           =Input directory:
-L_AudioStream_OutputDir          =Output directory:
+L_AudioStream_InputDir           =입력 폴더:
+L_AudioStream_OutputDir          =추출 폴더:
+
 
 ;//////////////////////////////////////
 ;// 이미지 도구                       //
@@ -258,18 +259,18 @@ L_AudioStream_OutputDir          =Output directory:
 
 SB_EDGE_Picture_Open             =사진파일 열기
 SB_EDGE_Picture_Save             =사진 저장...
-SB_EDGE_Picture_SaveWOAlpha      =Save w/o alpha
-SB_EDGE_Picture_SaveAlpha        =Save alpha
-SB_Image_Batch                   =Batch conversion
-SB_Image_GrapS                   =GrapS - RAW reader
+SB_EDGE_Picture_SaveWOAlpha      =쓰기전용 alpha 저장
+SB_EDGE_Picture_SaveAlpha        =알파 저장
+SB_Image_Batch                   =일관 변환
+SB_Image_GrapS                   =GrapS - RAW 리더
 
 ;//////////////////////////////////////
 ;// 이미지 도구 하위 탭 1         //
 ;//////////////////////////////////////
 
-TS_EDGE                          =Info && Preview
+TS_EDGE                          =정보 && 미리보기
 
-GB_ImageOperations               =Operations
+GB_ImageOperations               =작업
 
 TB_EDGE_Flip                     =Flip
 TB_EDGE_Flip.Hint                =Flip image
@@ -291,8 +292,8 @@ TB_EDGE_NegativeAlpha            =Negative alpha
 TB_EDGE_NegativeAlpha.Hint       =Invert colours of current image's alpha
 TB_EDGE_Alpha_Append             =Import alpha
 TB_EDGE_Alpha_Append.Hint        =Import alpha channel from grayscale image
-TB_EDGE_Alpha_Extract            =Save alpha
-TB_EDGE_Alpha_Extract.Hint       =Save alpha channel as grayscale image
+TB_EDGE_Alpha_Extract            =alpha 저장
+TB_EDGE_Alpha_Extract.Hint       =흑백이미지로 알파채널 저장
 TB_EDGE_Alpha_Destroy            =Delete alpha
 TB_EDGE_Alpha_Destroy.Hint       =Delete alpha channel from the current image
 TB_EDGE_Alpha_Generate           =Generate alpha
@@ -375,21 +376,21 @@ SB_EDGE_JPHTML.Hint              =Generate HTML version of the Japanese Colour P
 ;// 스크립트 도구 (work-in-progress)   //
 ;//////////////////////////////////////
 
-SB_SR_Open                       =Open script file
-SB_SR_Decompile                  =Save decompiled
-SB_SR_BatchDecompile             =Batch decompile
+SB_SR_Open                       =스크립트 파일 열기
+SB_SR_Decompile                  =decompiled 저장
+SB_SR_BatchDecompile             =일괄 decompile
 SB_SR_Compile                    =Compile
-SB_SR_BatchCompile               =Batch compile
+SB_SR_BatchCompile               =일괄 compile
 
-CB_SR_ScriptFormat.Hint          =Sets the output script format
+CB_SR_ScriptFormat.Hint          =출력 스크립트 포맷 설정
 
 ;//////////////////////////////////////////////////
 ;// 스크립트 도구 (obsolete Ever17 Script Chunker) //
 ;//////////////////////////////////////////////////
 
 SB_OpenSCR                       =시나리오 파일 열기
-SB_ExportSCRChunks               =Export data chunks
-SB_ImportSCRChunks               =Import data chunks
+SB_ExportSCRChunks               =데이터 chunks 내보내기
+SB_ImportSCRChunks               =데이터 chunks 가져오기
 SB_SCRChunkEditor                =문자열 편집기
 SB_SCRSaveText                   =텍스트 저장
 
@@ -404,7 +405,7 @@ CB_SCRSaveDir                    =Save copy into directory:
 ;L_SCR_12345=123456789012345678901234567890123456789012345678
 
 GB_SC3                           =KID 엔진 SC3 디컴파일
-RB_SC3_Strip                     =Decode and strip all opcodes (readable text)
+RB_SC3_Strip                     =Decode and strip all opcodes (읽을 수 있는 텍스트)
 RB_SC3_Keep                      =Decode and keed all opcodes (recompilation)
 SB_CompileList                   =Compile from list
 SB_CompileList.Hint              =Open text file with 'op00' style lines. Referenced to 'op00\op00.scr'...
@@ -421,12 +422,12 @@ L_Warn_E17                       =Please note: this tool was created for Ever17 
 ;//////////////////////////////////////
 
 SB_Data_Open                     =파일열기
-SB_Data_Process                  =Process data
+SB_Data_Process                  =데이터 처리
 SB_Data_Bruteforce               =Bruteforce bytes
-SB_Data_Batch                    =Batch processing
+SB_Data_Batch                    =일괄 처리중
 SB_Data_Close                    =파일 닫기
 
-GB_DataConv                      =Data converter options
+GB_DataConv                      =데이터 컨버터 옵션
 
 L_DataConv_Mode                  =모드 선택:
 L_DataConv_Parameter             =파라미터:
@@ -437,7 +438,7 @@ B_DataConv_Keyfile.Hint          =Hit this to select any "key" file
 
 GB_DataConv_Value                =값
 
-GB_Value                         =Value interpretation
+GB_Value                         =값 해석
 
 GB_HexViewer                     =HEX 뷰어
 
@@ -450,9 +451,9 @@ TS_PC_CoreLang                   =코어 / 언어
 
 GB_Core                          =핵심
 
-CB_NoAutocenter                  =Remember application window screen position (x,y coordinates). Turn off auto-centering
-CB_KeepWindowState               =Remember application window state (minimized, normal or maximized)
-CB_NoDefaultSize                 =Remember application window proportions (width and height)
+CB_NoAutocenter                  =응용프로그램 창 위치(x,y 좌표)를 기억하기. (자동 중앙표시 끄기)
+CB_KeepWindowState               =응용프로그램 창 상태를 기억하기 (최소화, 일반, 최대화)
+CB_NoDefaultSize                 =응용프로그램 창 속성 기억하기 (너비, 높이)
 
 CB_ScreenSnap                    =Snap application window to screen borders at
 L_ScreenSnapPixels               =픽셀
@@ -513,7 +514,7 @@ M_ShowCredits                    =크레딧 보기
 M_SaveAboutBox                   =비트맵 저장
 
 ;//////////////////////////////////////
-;// GrapS Tool                       //
+;// GrapS 도구                       //
 ;//////////////////////////////////////
 
 M_Graps_File                     =파일
@@ -528,7 +529,7 @@ GB_Graps_Seek                    =Seek control
 L_Graps_Offset                   =Enter beginning offset:
 B_Graps_JumpUp                   =^ 크기 ^
 B_Graps_JumpDown                 =v 크기 v
-B_Graps_Reset                    =RESET
+B_Graps_Reset                    =초기화
 L_Graps_SeekStep                 =Seeking step (for << and >>):
 L_Graps_FinalOffsetText          =Ending offset:
 
@@ -541,7 +542,7 @@ L_Graps_ProcMemCpy               =Amount to copy (HEX):
 B_Graps_MemAddrPaste             =붙여넣기
 B_Graps_MemCpyFromCalc           =Get
 B_Graps_CopyProcMem              =Grab memory
-; Automatically grab every [ 500 ] ms
+; Automatically grab every [ 500 ] ms 
 CB_Graps_MemoryAutoCpy           =Automatically grab every...
 
 GB_Graps_Image                   =이미지 속성
@@ -558,7 +559,7 @@ Memo_Graps_HowTo2                =Open (or drag-n-drop) any file that (possibly)
 Memo_Graps_HowTo3                =Next, use trackbars or enter desirable bitmap size and set bits per pixel resolution (be careful. You will get no image if the size is overruned).
 Memo_Graps_HowTo4                =Use seeking controls to search the correct image offset.
 Memo_Graps_HowTo5                =When you'll get what you want, double-click the view to save BMP file. ^_^
-Memo_Graps_HowTo6                =P.S. You can also search directly in application's memory. ^_~
+Memo_Graps_HowTo6                =추신. You can also search directly in application's memory. ^_~
 
 ;//////////////////////////////////////
 ;// 아카이브/파일 정보 대화상자         //
@@ -589,7 +590,7 @@ CB_Arc_Encrypted                 =암호화됨
 CB_Arc_Virtual                   =가상
 CB_Arc_Deleted                   =삭제됨
 
-TS_Info_AdditionalFields         =Additional fields
+TS_Info_AdditionalFields         =추가 영역
 
 TS_Info_Archive                  =아카이브
 
@@ -620,7 +621,7 @@ B_DoCRC32                        =계산
 ;
 0000=정보
 0001=아카이브
-0002=추가 필드Additional fields
+0002=추가 영역
 0003=파일
 0004=엔진 버전
 0005=포맷 상태
@@ -656,17 +657,17 @@ B_DoCRC32                        =계산
 ;
 ; 메세지
 ;
-001C=Please refer to readme for details about this format.
-001D=The current implementation of this format is buggy and is known to produce files broken or unrecognizable by the original engine.
+001C=이 포맷에 자세한 내용은 readme를 참조해주세요.
+001D=이 포맷의 현재 구현은 버그투성이이며, 원본 엔진에게 인식불가능하거나 깨진 파일을 생성합니다.
 001E=현재 이 포맷은 읽기전용입니다.
 001F=현재 이 포맷은 테스트하지 않았습니다.
 0020=이 포맷은 더미입니다.
 
 0021=경고
-0022=The format you've selected is not implemented yet. Because of that the output file will be blank. Sorry. :)
-0023=PLEASE NOTE: This operation will overwrite the existant chunks.
+0022=선택하신 포맷이 아직 구현되지 않았습니다. 그렇기 떄문에 출력파일이 백지상태일겁니다. 죄송합니다. :)
+0023=주의하세요: 이 작업은 존재하는 chunks를 덮어쓸겁니다.
 0024=정말로 계속하시겠습니까?
-0025=Do you wish to overwrite original file? If not, then separate ".converted" version will be writed.
+0025=원본 파일을 덮어쓰겠습니까? 아니시라면, 분리된 ".converted" 버전이 쓰여질겁니다.
 
 0026=왼쪽
 0027=오른쪽
@@ -676,9 +677,9 @@ B_DoCRC32                        =계산
 002A=파일이 아님
 
 ;
-; %Filename% > %s% symbols. Filename will be truncated.
+; %Filename% > %s% 심볼. 파일이름이 잘릴겁니다.
 ;
-002B=symbols. Filename will be truncated.
+002B=심볼. 파일이름이 잘릴겁니다.
 
 002C=다음시각에 시작됨
 002D=다음으로 복사됨
@@ -721,10 +722,10 @@ B_DoCRC32                        =계산
 003E=먼저 아카이브 파일을 열어주세요!
 003F=추출하는 도중 오류발생
 0040=아카이브가 손상되었거나, 지원하지않습니다.
-0041=The file entry is not valid and cannot be extracted.
+0041=파일 항목이 적절하지 않거나 추출할 수 없습니다.
 0042=추출할 수 없습니다
-0043=아카이브 stream is closed.
-0044=아카이브 stream is closed. Already!
+0043=아카이브 stream이 닫혔습니다.
+0044=아카이브 stream이 이미 닫혔습니다!
 0045=이 아카이브는 이미 존재하기에 덮어쓸수 없습니다. 다른 파일이름이나 위치를 이용해주세요.
 
 0046=부적절한 폴더가 선택되었습니다!
