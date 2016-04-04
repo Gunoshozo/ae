@@ -1,6 +1,6 @@
 {
   AE - VN Tools
-  © 2007-2016 WinKiller Studio and The Contributors.
+  © 2007-2016 WKStudio and The Contributors.
   This software is free. Please see License for details.
 
   Translation library strings module
@@ -455,6 +455,7 @@ begin
  TransAdd('Luke® && Jako† && WiZ [Hungarian]');
  TransAdd('Marco Romeo [Italian]');
  TransAdd('Sora Kekko [Italian]');
+ TransAdd('mireado [Korean]');
  TransAdd('Thuriel [Spanish]');
  TransAdd('katta aka M3956 [Ukrainian]');
 
