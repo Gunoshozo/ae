@@ -733,8 +733,8 @@ B_DoCRC32                        =계산
 0047=출력 폴더 생성하는중...
 0048=출력 폴더를 생성할 수 없습니다!
 
-;0049=The current implementation of this format is a hacked version of the original format and it's behavior has been designed for an specifical case, so it may produce broken or incorrect data, either on loading or saving.
-0049=The current implementation needs to deliberately misinterpret the original format to work, and it's behaviour has been designed for a specific use case. It may produce broken or incorrect data both on loading or saving.
+;0049=이 형식의 현재 구현은 원본 형식을 해킹한 버전이고 작동은 특별한 경우를 위해서 제작되었습니다, 따라서 깨지거나 부정확한 데이터를 생성할 수 있거나, 또는 저장/불러오기에 문제가 있을 수 있습니다.
+0049=현재 구현은 작동을 위해서 원본 형식을 의도적으로 잘못해석한 것으로, 작동이 특수한 용도를 위해서 제작되었습니다. 저장이나 불러오기에 깨지거나 부정확한 데이터를 생성할 수 있습니다.
 
 004A=파일을 열 수 없습니다. 다른 응용프로그램에서 사용되지 않는지 확인해보세요.
 
