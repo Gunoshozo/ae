@@ -467,7 +467,7 @@ begin
   end
 end;
 
-function TPercentCube.IceCube;
+function TPercentCube.IceCubeSkin;
 begin
  with Result do begin
   BGColor         := clBtnFace;
